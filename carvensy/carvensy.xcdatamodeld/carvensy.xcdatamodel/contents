@@ -38,12 +38,12 @@
         <relationship name="session" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session" inverseName="user" inverseEntity="Session"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Break" positionX="0" positionY="54" width="128" height="74"/>
         <element name="Break_Plan" positionX="-54" positionY="0" width="128" height="89"/>
         <element name="Session" positionX="-36" positionY="36" width="128" height="104"/>
         <element name="Session_Detail" positionX="-18" positionY="45" width="128" height="59"/>
-        <element name="Break" positionX="0" positionY="54" width="128" height="74"/>
         <element name="Stretch" positionX="18" positionY="81" width="128" height="89"/>
         <element name="Stretch_detail" positionX="27" positionY="117" width="128" height="59"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>
