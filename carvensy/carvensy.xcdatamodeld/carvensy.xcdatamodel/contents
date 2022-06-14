@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Break" representedClassName=".Break" syncable="YES">
+        <attribute name="break_amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_duration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="break" inverseEntity="Session"/>
+    </entity>
+    <entity name="Break_Plan" representedClassName=".Break_Plan" syncable="YES">
+        <attribute name="break_every" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notify_before" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="snooze" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="break_plan" inverseEntity="User"/>
+    </entity>
+    <entity name="Session" representedClassName=".Session" syncable="YES">
+        <attribute name="pain_assesment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="break" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Break" inverseName="session" inverseEntity="Break"/>
+        <relationship name="session_detail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session_Detail" inverseName="session" inverseEntity="Session_Detail"/>
+        <relationship name="stretch" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stretch" inverseName="session" inverseEntity="Stretch"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="session" inverseEntity="User"/>
+    </entity>
+    <entity name="Session_Detail" representedClassName=".Session_Detail" syncable="YES">
+        <attribute name="symptoms" optional="YES" attributeType="String"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="session_detail" inverseEntity="Session"/>
+    </entity>
+    <entity name="Stretch" representedClassName=".Stretch" syncable="YES">
+        <attribute name="stretch_amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_stretch_duration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="stretch" inverseEntity="Session"/>
+        <relationship name="stretch_detail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stretch_detail" inverseName="stretch" inverseEntity="Stretch_detail"/>
+    </entity>
+    <entity name="Stretch_detail" representedClassName=".Stretch_detail" syncable="YES">
+        <attribute name="stretch_plan_index" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="stretch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stretch" inverseName="stretch_detail" inverseEntity="Stretch"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="break_plan" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Break_Plan" inverseName="user" inverseEntity="Break_Plan"/>
+        <relationship name="session" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session" inverseName="user" inverseEntity="Session"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Break_Plan" positionX="-54" positionY="0" width="128" height="89"/>
+        <element name="Session" positionX="-36" positionY="36" width="128" height="104"/>
+        <element name="Session_Detail" positionX="-18" positionY="45" width="128" height="59"/>
+        <element name="Break" positionX="0" positionY="54" width="128" height="74"/>
+        <element name="Stretch" positionX="18" positionY="81" width="128" height="89"/>
+        <element name="Stretch_detail" positionX="27" positionY="117" width="128" height="59"/>
+    </elements>
 </model>
