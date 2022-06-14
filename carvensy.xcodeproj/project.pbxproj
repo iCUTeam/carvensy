@@ -39,13 +39,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1498D1C92858AD9E0009C41F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		95E3C4A9285844EC0065DFB0 = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +58,6 @@
 		95E3C4B4285844EC0065DFB0 /* carvensy */ = {
 			isa = PBXGroup;
 			children = (
-				1498D1C92858AD9E0009C41F /* Model */,
 				95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */,
 				95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */,
 				95E3C4B9285844EC0065DFB0 /* ViewController.swift */,
