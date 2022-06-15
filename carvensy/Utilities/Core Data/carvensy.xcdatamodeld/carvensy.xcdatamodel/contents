@@ -3,7 +3,7 @@
     <entity name="Break" representedClassName=".Break" syncable="YES" codeGenerationType="class">
         <attribute name="break_amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="total_duration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="break" inverseEntity="Session"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="break_relation" inverseEntity="Session"/>
     </entity>
     <entity name="Break_Plan" representedClassName=".Break_Plan" syncable="YES" codeGenerationType="class">
         <attribute name="break_every" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -13,7 +13,7 @@
     </entity>
     <entity name="Session" representedClassName=".Session" syncable="YES" codeGenerationType="class">
         <attribute name="pain_assesment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="break" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Break" inverseName="session" inverseEntity="Break"/>
+        <relationship name="break_relation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Break" inverseName="session" inverseEntity="Break"/>
         <relationship name="session_detail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session_Detail" inverseName="session" inverseEntity="Session_Detail"/>
         <relationship name="stretch" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stretch" inverseName="session" inverseEntity="Stretch"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="session" inverseEntity="User"/>
