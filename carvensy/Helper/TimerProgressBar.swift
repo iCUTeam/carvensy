@@ -10,9 +10,12 @@ import UIKit
 class TimerProgressBar: UIView {
 
     
+    //ini warna background circular barnya
     @IBInspectable public lazy var backgroundCircleColor: UIColor = UIColor.lightGray
+    
+    //ini warna foregroundnya, nanti kalau udh ada set warnanya monggo ganti
     @IBInspectable public lazy var foregroundCircleColor: UIColor = UIColor.green
-    @IBInspectable public lazy var textColor: UIColor = UIColor.white
+    @IBInspectable public lazy var textColor: UIColor = UIColor.systemGray5
     
     private lazy var fillColor: UIColor = UIColor.clear
     
@@ -20,7 +23,12 @@ class TimerProgressBar: UIView {
     private var progressLayer: CAShapeLayer!
     private var textLayer: CATextLayer!
     
-    public var progress: CGFloat = 0 {
+    //ini buat set ditextnya ntar dia tampilannya berapa (misal countdown dari 50 ntar di controllernya ganti progressMultipliernya jadi 50
+    
+    public var progressMultiplier: CGFloat = 10
+    
+    //ini progress awalnya dia dari berapa (antara 0 atau 1 biasanya)
+    public var progress: CGFloat = 1 {
       didSet {
         didProgressUpdated()
       }
@@ -32,9 +40,12 @@ class TimerProgressBar: UIView {
     
     private var timer: ProgressTimer?
     private var isAnimating = false
-    private let tickInterval = 0.1
     
-    public var maxDuration: Int = 3
+    //ini cepet atau lamanya timernya (default 1 buat 1 detik)
+    private let tickInterval :TimeInterval = 1
+    
+    //ini berapa lama durasi countdownnya
+    public var maxDuration: Int = 10
     
     
     override func draw(_ rect: CGRect) {
@@ -91,7 +102,7 @@ class TimerProgressBar: UIView {
       let offset = min(width, height) * 0.1
       
       let layer = CATextLayer()
-      layer.string = "\(Int(progress * 100))"
+      layer.string = "\(Int(progress * progressMultiplier))"
       layer.backgroundColor = UIColor.clear.cgColor
       layer.foregroundColor = textColor.cgColor
       layer.fontSize = fontSize
@@ -103,7 +114,7 @@ class TimerProgressBar: UIView {
     
     private func didProgressUpdated() {
       
-      textLayer?.string = "\(Int(progress * 100))"
+      textLayer?.string = "\(Int(progress * progressMultiplier))"
       progressLayer?.strokeEnd = progress
     }
   }
