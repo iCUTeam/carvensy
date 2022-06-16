@@ -75,7 +75,12 @@ class StretchStepController: UIViewController {
     @IBAction func pauseStretch(_ sender: Any) {
         
         isPaused.toggle()
+        changeBtnTitle()
         
+    }
+    
+    private func changeBtnTitle()
+    {
         if isPaused
         {
             pauseBtn.setTitle("Resume", for: .normal)
@@ -90,6 +95,7 @@ class StretchStepController: UIViewController {
     @IBAction func endStretch(_ sender: Any) {
         
         isPaused = true
+        changeBtnTitle()
         
         let alert = UIAlertController(title: "Are you sure?", message: "You haven't reached the end of the set. Make sure you already stretch properly before you proceed!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
@@ -98,7 +104,6 @@ class StretchStepController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
             alert.dismiss(animated: true)
-            self.isPaused = false
         }))
         
         self.present(alert, animated: true)
