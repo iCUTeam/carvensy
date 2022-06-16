@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gS0-0e-QBu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Break Page Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="BreakPageController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzL-zg-7I7">
+                                <rect key="frame" x="20" y="152" width="374" height="50.5"/>
+                                <string key="text">Step away from your activity or work, take enough time to rest your hands and perform some stretches before going for the next painless productive rounds!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-RT-17k">
+                                <rect key="frame" x="33" y="299" width="348" height="298"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="298" id="7Xx-B8-cOR"/>
+                                    <constraint firstAttribute="width" constant="348" id="eN0-9h-MEc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTL-JC-jEB">
+                                <rect key="frame" x="125.5" y="654" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="3NN-IN-wIt"/>
+                                    <constraint firstAttribute="height" constant="52" id="BRl-Tl-Eyf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Stretch"/>
+                                <connections>
+                                    <action selector="stretchButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qcw-g2-bcb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6G-Ue-bxM">
+                                <rect key="frame" x="125.5" y="733" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="87V-Di-Zsp"/>
+                                    <constraint firstAttribute="width" constant="163" id="9kg-5Y-CHP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Finish Break"/>
+                                <connections>
+                                    <action selector="finishButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gc8-ij-jQV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H6G-Ue-bxM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3x1-1u-qcy"/>
+                            <constraint firstItem="rtl-RT-17k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8ha-XT-hbm"/>
+                            <constraint firstItem="rtl-RT-17k" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Gad-3W-7ie"/>
+                            <constraint firstItem="aTL-JC-jEB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JoJ-Oi-whH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WzL-zg-7I7" secondAttribute="trailing" constant="20" id="NBs-J0-bBW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="H6G-Ue-bxM" secondAttribute="bottom" constant="77" id="a49-zY-5D1"/>
+                            <constraint firstItem="H6G-Ue-bxM" firstAttribute="top" secondItem="aTL-JC-jEB" secondAttribute="bottom" constant="27" id="nVA-YW-cv0"/>
+                            <constraint firstItem="WzL-zg-7I7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qjN-4N-fXn"/>
+                            <constraint firstItem="WzL-zg-7I7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="yZR-cb-SQU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7hd-ac-8jf"/>
+                    <connections>
+                        <outlet property="finishButton" destination="H6G-Ue-bxM" id="cTx-D1-t0w"/>
+                        <outlet property="image" destination="rtl-RT-17k" id="4Yc-8O-0bI"/>
+                        <outlet property="stretchButton" destination="aTL-JC-jEB" id="eyW-Md-WQx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="111.83035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0bM-rA-ndS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gS0-0e-QBu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7ER-f7-Cfs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="dGc-gd-VFH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WLs-qB-axt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
