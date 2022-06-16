@@ -23,6 +23,8 @@
 		95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4BE285844EC0065DFB0 /* carvensy.xcdatamodeld */; };
 		95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4C1285844ED0065DFB0 /* Assets.xcassets */; };
 		95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4C3285844ED0065DFB0 /* LaunchScreen.storyboard */; };
+		A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97B08E4285AE4B5002493BC /* BreakPage.storyboard */; };
+		A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B08E6285AE4CA002493BC /* BreakPageController.swift */; };
 		A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E6E86A285982720077BBF8 /* EditPage.storyboard */; };
 		A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E6E86C2859829D0077BBF8 /* EditPageController.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		95E3C4C1285844ED0065DFB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E3C4C4285844ED0065DFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E3C4C6285844ED0065DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97B08E4285AE4B5002493BC /* BreakPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakPage.storyboard; sourceTree = "<group>"; };
+		A97B08E6285AE4CA002493BC /* BreakPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakPageController.swift; sourceTree = "<group>"; };
 		A9E6E86A285982720077BBF8 /* EditPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPage.storyboard; sourceTree = "<group>"; };
 		A9E6E86C2859829D0077BBF8 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +184,7 @@
 		950636BC2859ED10008C2639 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A97B08E1285AE491002493BC /* Break */,
 				950636BF2859ED56008C2639 /* Timer */,
 				A9E6E86F285982A90077BBF8 /* Edit */,
 			);
@@ -316,6 +321,31 @@
 			path = carvensy;
 			sourceTree = "<group>";
 		};
+		A97B08E1285AE491002493BC /* Break */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08E3285AE4A5002493BC /* Controller */,
+				A97B08E2285AE49D002493BC /* View */,
+			);
+			path = Break;
+			sourceTree = "<group>";
+		};
+		A97B08E2285AE49D002493BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08E4285AE4B5002493BC /* BreakPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A97B08E3285AE4A5002493BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08E6285AE4CA002493BC /* BreakPageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A9E6E86F285982A90077BBF8 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +416,7 @@
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
+				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* Main.storyboard in Resources */,
@@ -403,6 +434,7 @@
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
+				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
 				148BD0AF285A133800420125 /* StretchSteps.swift in Sources */,
