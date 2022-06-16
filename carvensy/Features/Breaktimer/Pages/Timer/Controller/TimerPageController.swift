@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimerPageController: UIViewController {
 
     @IBOutlet weak var timerLabel: UILabel!
     

@@ -19,8 +19,8 @@
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
 		95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */; };
 		95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */; };
-		95E3C4BA285844EC0065DFB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B9285844EC0065DFB0 /* ViewController.swift */; };
-		95E3C4BD285844EC0065DFB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4BB285844EC0065DFB0 /* Main.storyboard */; };
+		95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B9285844EC0065DFB0 /* TimerPageController.swift */; };
+		95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4BB285844EC0065DFB0 /* TimerPage.storyboard */; };
 		95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4BE285844EC0065DFB0 /* carvensy.xcdatamodeld */; };
 		95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4C1285844ED0065DFB0 /* Assets.xcassets */; };
 		95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4C3285844ED0065DFB0 /* LaunchScreen.storyboard */; };
@@ -47,8 +47,8 @@
 		95E3C4B2285844EC0065DFB0 /* carvensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carvensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		95E3C4B9285844EC0065DFB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		95E3C4BC285844EC0065DFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95E3C4B9285844EC0065DFB0 /* TimerPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPageController.swift; sourceTree = "<group>"; };
+		95E3C4BC285844EC0065DFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TimerPage.storyboard; sourceTree = "<group>"; };
 		95E3C4BF285844EC0065DFB0 /* carvensy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = carvensy.xcdatamodel; sourceTree = "<group>"; };
 		95E3C4C1285844ED0065DFB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E3C4C4285844ED0065DFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		950636C02859ED5F008C2639 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95E3C4BB285844EC0065DFB0 /* Main.storyboard */,
+				95E3C4BB285844EC0065DFB0 /* TimerPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 		950636C12859ED66008C2639 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95E3C4B9285844EC0065DFB0 /* ViewController.swift */,
+				95E3C4B9285844EC0065DFB0 /* TimerPageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,7 +430,7 @@
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
-				95E3C4BD285844EC0065DFB0 /* Main.storyboard in Resources */,
+				95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +449,7 @@
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
 				148BD0AF285A133800420125 /* StretchSteps.swift in Sources */,
-				95E3C4BA285844EC0065DFB0 /* ViewController.swift in Sources */,
+				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
 				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
@@ -461,12 +461,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95E3C4BB285844EC0065DFB0 /* Main.storyboard */ = {
+		95E3C4BB285844EC0065DFB0 /* TimerPage.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				95E3C4BC285844EC0065DFB0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = TimerPage.storyboard;
 			sourceTree = "<group>";
 		};
 		95E3C4C3285844ED0065DFB0 /* LaunchScreen.storyboard */ = {
@@ -606,7 +606,7 @@
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -634,7 +634,7 @@
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
