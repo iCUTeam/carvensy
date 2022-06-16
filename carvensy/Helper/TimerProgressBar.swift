@@ -14,8 +14,8 @@ class TimerProgressBar: UIView {
     @IBInspectable public lazy var backgroundCircleColor: UIColor = UIColor.lightGray
     
     //ini warna foregroundnya, nanti kalau udh ada set warnanya monggo ganti
-    @IBInspectable public lazy var foregroundCircleColor: UIColor = UIColor.green
-    @IBInspectable public lazy var textColor: UIColor = UIColor.systemGray5
+    @IBInspectable public lazy var foregroundCircleColor: UIColor = CarvensyColor.greenMain ?? UIColor.green
+    @IBInspectable public lazy var textColor: UIColor = UIColor.black
     
     private lazy var fillColor: UIColor = UIColor.clear
     
@@ -23,9 +23,15 @@ class TimerProgressBar: UIView {
     private var progressLayer: CAShapeLayer!
     private var textLayer: CATextLayer!
     
+    public var isHour: Bool = false
+    
     //ini buat set ditextnya ntar dia tampilannya berapa (misal countdown dari 50 ntar di controllernya ganti progressMultipliernya jadi 50
     
     public var progressMultiplier: CGFloat = 10
+    
+    //ini buat kalau labelnya bentuknya jam:menit:detik
+    
+    public var selectedTime: Double = 0
     
     //ini progress awalnya dia dari berapa (antara 0 atau 1 biasanya)
     public var progress: CGFloat = 1 {
@@ -102,7 +108,32 @@ class TimerProgressBar: UIView {
       let offset = min(width, height) * 0.1
       
       let layer = CATextLayer()
-      layer.string = "\(Int(progress * progressMultiplier))"
+        
+        if isHour
+        {
+            let intTime = Int(selectedTime)
+            let hour = intTime/3600
+            let min = (intTime % 3600) / 60
+            let sec = (intTime % 3600) % 60
+            
+            var timeString = ""
+            timeString += String(format: "%02d", hour)
+            timeString += ":"
+            timeString += String(format: "%02d", min)
+            timeString += ":"
+            timeString += String(format: "%02d", sec)
+            
+            layer.string = timeString
+            
+            
+        }
+        
+        else
+        {
+            layer.string = "\(Int(progress * progressMultiplier))"
+        }
+        
+    
       layer.backgroundColor = UIColor.clear.cgColor
       layer.foregroundColor = textColor.cgColor
       layer.fontSize = fontSize
@@ -111,6 +142,7 @@ class TimerProgressBar: UIView {
       
       return layer
     }
+    
     
     private func didProgressUpdated() {
       

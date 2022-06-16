@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14573B3F285ADDEA008F714F /* StretchStep.storyboard */; };
 		14573B42285ADE16008F714F /* StretchStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B41285ADE16008F714F /* StretchStepController.swift */; };
+		14573B47285B285D008F714F /* StretchFinish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14573B46285B285D008F714F /* StretchFinish.storyboard */; };
+		14573B49285B28A6008F714F /* StretchFinishPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B48285B28A6008F714F /* StretchFinishPageController.swift */; };
 		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
 		148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A3285A04D200420125 /* ChooseStretchController.swift */; };
 		148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		14573B3F285ADDEA008F714F /* StretchStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchStep.storyboard; sourceTree = "<group>"; };
 		14573B41285ADE16008F714F /* StretchStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchStepController.swift; sourceTree = "<group>"; };
+		14573B46285B285D008F714F /* StretchFinish.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchFinish.storyboard; sourceTree = "<group>"; };
+		14573B48285B28A6008F714F /* StretchFinishPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchFinishPageController.swift; sourceTree = "<group>"; };
 		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
 		148BD09F2859FF6900420125 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
@@ -99,9 +103,35 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		14573B43285B27E0008F714F /* StretchFinishPraise */ = {
+			isa = PBXGroup;
+			children = (
+				14573B45285B2833008F714F /* Controller */,
+				14573B44285B282A008F714F /* View */,
+			);
+			path = StretchFinishPraise;
+			sourceTree = "<group>";
+		};
+		14573B44285B282A008F714F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14573B46285B285D008F714F /* StretchFinish.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14573B45285B2833008F714F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14573B48285B28A6008F714F /* StretchFinishPageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				14573B43285B27E0008F714F /* StretchFinishPraise */,
 				14573B3C285ADCA9008F714F /* StretchSteps */,
 				148BD0982859F9DD00420125 /* ChooseStretch */,
 			);
@@ -455,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
+				14573B47285B285D008F714F /* StretchFinish.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
 				14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */,
@@ -473,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
+				14573B49285B28A6008F714F /* StretchFinishPageController.swift in Sources */,
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,

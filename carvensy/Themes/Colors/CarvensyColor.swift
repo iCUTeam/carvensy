@@ -16,5 +16,4 @@ struct CarvensyColor{
     static let redAccent = UIColor(named: "redAccent")
     static let yellowAccent = UIColor(named: "yellowAccent")
     static let cyanAccent = UIColor(named: "cyanAccent")
-    private init() {}
 }

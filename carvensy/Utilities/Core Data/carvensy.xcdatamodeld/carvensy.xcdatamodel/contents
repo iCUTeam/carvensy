@@ -6,8 +6,8 @@
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="break_relation" inverseEntity="Session"/>
     </entity>
     <entity name="Break_Plan" representedClassName=".Break_Plan" syncable="YES" codeGenerationType="class">
-        <attribute name="break_every" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="notify_before" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="break_every" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="notify_before" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="snooze" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="break_plan" inverseEntity="User"/>
     </entity>
@@ -24,7 +24,7 @@
     </entity>
     <entity name="Stretch" representedClassName=".Stretch" syncable="YES" codeGenerationType="class">
         <attribute name="stretch_amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="total_stretch_duration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="total_stretch_duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="stretch" inverseEntity="Session"/>
         <relationship name="stretch_detail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stretch_detail" inverseName="stretch" inverseEntity="Stretch_detail"/>
     </entity>
