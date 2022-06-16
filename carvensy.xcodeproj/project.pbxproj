@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14573B3F285ADDEA008F714F /* StretchStep.storyboard */; };
+		14573B42285ADE16008F714F /* StretchStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B41285ADE16008F714F /* StretchStepController.swift */; };
 		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
 		148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A3285A04D200420125 /* ChooseStretchController.swift */; };
 		148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14573B3F285ADDEA008F714F /* StretchStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchStep.storyboard; sourceTree = "<group>"; };
+		14573B41285ADE16008F714F /* StretchStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchStepController.swift; sourceTree = "<group>"; };
 		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
 		148BD09F2859FF6900420125 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
@@ -64,9 +68,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14573B3C285ADCA9008F714F /* StretchSteps */ = {
+			isa = PBXGroup;
+			children = (
+				14573B3E285ADCBE008F714F /* Controller */,
+				14573B3D285ADCB7008F714F /* View */,
+			);
+			path = StretchSteps;
+			sourceTree = "<group>";
+		};
+		14573B3D285ADCB7008F714F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14573B3F285ADDEA008F714F /* StretchStep.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14573B3E285ADCBE008F714F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14573B41285ADE16008F714F /* StretchStepController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				14573B3C285ADCA9008F714F /* StretchSteps */,
 				148BD0982859F9DD00420125 /* ChooseStretch */,
 			);
 			path = Pages;
@@ -386,6 +416,7 @@
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
+				14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* Main.storyboard in Resources */,
@@ -409,6 +440,7 @@
 				95E3C4BA285844EC0065DFB0 /* ViewController.swift in Sources */,
 				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
+				14573B42285ADE16008F714F /* StretchStepController.swift in Sources */,
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
 				95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */,
 			);
