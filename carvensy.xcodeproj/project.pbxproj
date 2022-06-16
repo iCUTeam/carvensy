@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
+		148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A3285A04D200420125 /* ChooseStretchController.swift */; };
+		148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */; };
+		148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148BD0A6285A057D00420125 /* ChooseStretchTableViewCell.xib */; };
+		148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0AC285A0ABF00420125 /* StretchType.swift */; };
+		148BD0AF285A133800420125 /* StretchSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0AE285A133800420125 /* StretchSteps.swift */; };
 		1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1D82858BB280009C41F /* TimerProgressBar.swift */; };
 		1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */; };
 		950636BB2859ECF9008C2639 /* blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636BA2859ECF9008C2639 /* blank.swift */; };
@@ -22,6 +28,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
+		148BD09F2859FF6900420125 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
+		148BD0A3285A04D200420125 /* ChooseStretchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStretchController.swift; sourceTree = "<group>"; };
+		148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStretchTableViewCell.swift; sourceTree = "<group>"; };
+		148BD0A6285A057D00420125 /* ChooseStretchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseStretchTableViewCell.xib; sourceTree = "<group>"; };
+		148BD0AC285A0ABF00420125 /* StretchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchType.swift; sourceTree = "<group>"; };
+		148BD0AE285A133800420125 /* StretchSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSteps.swift; sourceTree = "<group>"; };
 		1498D1D82858BB280009C41F /* TimerProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressBar.swift; sourceTree = "<group>"; };
 		1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarTimer.swift; sourceTree = "<group>"; };
 		950636B82859ECE9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
@@ -50,6 +64,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		148BD0972859F9D200420125 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0982859F9DD00420125 /* ChooseStretch */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		148BD0982859F9DD00420125 /* ChooseStretch */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0992859FA8800420125 /* View */,
+				148BD09A2859FA8D00420125 /* Controller */,
+			);
+			path = ChooseStretch;
+			sourceTree = "<group>";
+		};
+		148BD0992859FA8800420125 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		148BD09A2859FA8D00420125 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0A3285A04D200420125 /* ChooseStretchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		148BD09D2859FF4B00420125 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0A9285A058900420125 /* ChooseStretchTableViewCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		148BD09E2859FF5100420125 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				148BD09F2859FF6900420125 /* SF-Pro.ttf */,
+				148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		148BD0A9285A058900420125 /* ChooseStretchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */,
+				148BD0A6285A057D00420125 /* ChooseStretchTableViewCell.xib */,
+			);
+			path = ChooseStretchTableViewCell;
+			sourceTree = "<group>";
+		};
+		148BD0AB285A0AB000420125 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				148BD0AC285A0ABF00420125 /* StretchType.swift */,
+				148BD0AE285A133800420125 /* StretchSteps.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		950636B32859EC70008C2639 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +154,8 @@
 		950636B52859EC99008C2639 /* Stretch */ = {
 			isa = PBXGroup;
 			children = (
+				148BD0AB285A0AB000420125 /* Model */,
+				148BD0972859F9D200420125 /* Pages */,
 				950636BA2859ECF9008C2639 /* blank.swift */,
 			);
 			path = Stretch;
@@ -179,6 +263,8 @@
 		950636C62859EE27008C2639 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				148BD09E2859FF5100420125 /* Fonts */,
+				148BD09D2859FF4B00420125 /* UI */,
 				95E3C4C1285844ED0065DFB0 /* Assets.xcassets */,
 			);
 			path = Themes;
@@ -297,9 +383,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
+				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,11 +401,15 @@
 			files = (
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
+				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
+				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
+				148BD0AF285A133800420125 /* StretchSteps.swift in Sources */,
 				95E3C4BA285844EC0065DFB0 /* ViewController.swift in Sources */,
 				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
+				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
 				95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
