@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BreakPageController: ViewController {
+class BreakPageController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var stretchButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!

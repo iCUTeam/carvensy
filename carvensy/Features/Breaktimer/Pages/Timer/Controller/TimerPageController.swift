@@ -7,11 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimerPageController: UIViewController {
 
+    @IBOutlet weak var timerLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        timerLabel.textColor = CarvensyColor.greenMain
     }
 
 
