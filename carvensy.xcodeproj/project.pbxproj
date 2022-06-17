@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1436F77A285CAAAF0090582B /* StretchFinish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1436F779285CAAAF0090582B /* StretchFinish.storyboard */; };
+		1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436F77B285CAAB50090582B /* StretchFinishPageController.swift */; };
+		1436F77E285CAB080090582B /* Ignoreajainibuattestntarjanlupahapus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436F77D285CAB080090582B /* Ignoreajainibuattestntarjanlupahapus.swift */; };
 		14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14573B3F285ADDEA008F714F /* StretchStep.storyboard */; };
 		14573B42285ADE16008F714F /* StretchStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B41285ADE16008F714F /* StretchStepController.swift */; };
 		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1436F779285CAAAF0090582B /* StretchFinish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StretchFinish.storyboard; sourceTree = "<group>"; };
+		1436F77B285CAAB50090582B /* StretchFinishPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchFinishPageController.swift; sourceTree = "<group>"; };
+		1436F77D285CAB080090582B /* Ignoreajainibuattestntarjanlupahapus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ignoreajainibuattestntarjanlupahapus.swift; sourceTree = "<group>"; };
 		14573B3F285ADDEA008F714F /* StretchStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchStep.storyboard; sourceTree = "<group>"; };
 		14573B41285ADE16008F714F /* StretchStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchStepController.swift; sourceTree = "<group>"; };
 		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
@@ -74,6 +80,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1436F776285CAA8B0090582B /* StretchPraise */ = {
+			isa = PBXGroup;
+			children = (
+				1436F778285CAA960090582B /* Controller */,
+				1436F777285CAA920090582B /* View */,
+			);
+			path = StretchPraise;
+			sourceTree = "<group>";
+		};
+		1436F777285CAA920090582B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1436F779285CAAAF0090582B /* StretchFinish.storyboard */,
+				1436F77D285CAB080090582B /* Ignoreajainibuattestntarjanlupahapus.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1436F778285CAA960090582B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1436F77B285CAAB50090582B /* StretchFinishPageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		14573B3C285ADCA9008F714F /* StretchSteps */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +134,7 @@
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				1436F776285CAA8B0090582B /* StretchPraise */,
 				14573B3C285ADCA9008F714F /* StretchSteps */,
 				148BD0982859F9DD00420125 /* ChooseStretch */,
 			);
@@ -455,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
+				1436F77A285CAAAF0090582B /* StretchFinish.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
 				14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */,
@@ -473,7 +507,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
+				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
+				1436F77E285CAB080090582B /* Ignoreajainibuattestntarjanlupahapus.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
@@ -633,7 +669,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S955BH56FW;
+				DEVELOPMENT_TEAM = 4C96B7697Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -661,7 +697,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S955BH56FW;
+				DEVELOPMENT_TEAM = 4C96B7697Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
