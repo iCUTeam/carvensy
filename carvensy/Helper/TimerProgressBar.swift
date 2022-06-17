@@ -102,14 +102,14 @@ class TimerProgressBar: UIView {
       
       let width = frame.size.width
       let height = frame.size.height
-      
-      let fontSize = min(width, height) / 4 - 5
+      let fontsize : CGFloat
       let offset = min(width, height) * 0.1
       
       let layer = CATextLayer()
         
         if isHour
         {
+            fontsize = min(width, height) / 6
             let intTime = Int(selectedTime)
             let hour = intTime/3600
             let min = (intTime % 3600) / 60
@@ -129,14 +129,15 @@ class TimerProgressBar: UIView {
         
         else
         {
+            fontsize = min(width, height) / 4 - 5
             layer.string = "\(Int(progress * progressMultiplier))"
         }
         
     
       layer.backgroundColor = UIColor.clear.cgColor
       layer.foregroundColor = textColor.cgColor
-      layer.fontSize = fontSize
-      layer.frame = CGRect(x: 0, y: (height - fontSize - offset) / 2, width: width, height: height)
+      layer.fontSize = fontsize
+      layer.frame = CGRect(x: 0, y: (height - fontsize - offset) / 2, width: width, height: height)
       layer.alignmentMode = .center
       
       return layer
