@@ -33,6 +33,8 @@
 		95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E3C4C3285844ED0065DFB0 /* LaunchScreen.storyboard */; };
 		A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97B08E4285AE4B5002493BC /* BreakPage.storyboard */; };
 		A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B08E6285AE4CA002493BC /* BreakPageController.swift */; };
+		A97B08F3285F0C95002493BC /* DisclaimerStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97B08F2285F0C95002493BC /* DisclaimerStretch.storyboard */; };
+		A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B08F4285F0CB0002493BC /* DisclaimerController.swift */; };
 		A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E6E86A285982720077BBF8 /* EditPage.storyboard */; };
 		A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E6E86C2859829D0077BBF8 /* EditPageController.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		95E3C4C6285844ED0065DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97B08E4285AE4B5002493BC /* BreakPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakPage.storyboard; sourceTree = "<group>"; };
 		A97B08E6285AE4CA002493BC /* BreakPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakPageController.swift; sourceTree = "<group>"; };
+		A97B08F2285F0C95002493BC /* DisclaimerStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisclaimerStretch.storyboard; sourceTree = "<group>"; };
+		A97B08F4285F0CB0002493BC /* DisclaimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerController.swift; sourceTree = "<group>"; };
 		A9E6E86A285982720077BBF8 /* EditPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPage.storyboard; sourceTree = "<group>"; };
 		A9E6E86C2859829D0077BBF8 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +157,7 @@
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A97B08EF285F0C70002493BC /* DisclaimerStretch */,
 				1436F776285CAA8B0090582B /* StretchPraise */,
 				14573B3C285ADCA9008F714F /* StretchSteps */,
 				148BD0982859F9DD00420125 /* ChooseStretch */,
@@ -442,6 +447,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A97B08EF285F0C70002493BC /* DisclaimerStretch */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08F1285F0C85002493BC /* Controller */,
+				A97B08F0285F0C7F002493BC /* View */,
+			);
+			path = DisclaimerStretch;
+			sourceTree = "<group>";
+		};
+		A97B08F0285F0C7F002493BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08F2285F0C95002493BC /* DisclaimerStretch.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A97B08F1285F0C85002493BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A97B08F4285F0CB0002493BC /* DisclaimerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A9E6E86F285982A90077BBF8 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +548,7 @@
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */,
+				A97B08F3285F0C95002493BC /* DisclaimerStretch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +565,7 @@
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
+				A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
@@ -699,6 +731,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -727,6 +760,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
