@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerPageController: UIViewController {
     
@@ -20,9 +21,25 @@ class TimerPageController: UIViewController {
     @IBOutlet weak var breakTimer: TimerProgressBar!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var endBtn: UIButton!
+
+    
+    //user defaults
+    var timeCounting: Bool = false
+    var startTime: Date?
+    var stopTime: Date?
     
     var currentState : state = .startWork
     var choosenHour: Double = 3600
+    
+    let userdefaults = UserDefaults.standard
+    let START_TIME = "starttime"
+    let STOP_TIME = "stoptime"
+    let COUTING_TIME = "countingtime"
+    let CURRENT_STATE = "currentstate"
+    
+    let layer = CATextLayer()
+    
+    var scheduledTimer: Timer!
     
     override func viewWillAppear(_ animated: Bool) {
         checkState()
@@ -31,20 +48,145 @@ class TimerPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        startTime = userdefaults.object(forKey: START_TIME) as? Date
+        stopTime = userdefaults.object(forKey: STOP_TIME) as? Date
+        currentState = userdefaults.object(forKey: CURRENT_STATE) as? state ?? .startWork
+        timeCounting = userdefaults.bool(forKey: COUTING_TIME)
+        
         checkState()
         breakTimer.useNormalText = true
-        breakTimer.progress = 0
+        
+        
+        let width = breakTimer.frame.size.width
+        let height = breakTimer.frame.size.height
+        let fontsize : CGFloat
+        let offset = min(width, height) * 0.1
+        
+        fontsize = min(width, height) / 4 - 5
+        layer.backgroundColor = UIColor.clear.cgColor
+        
+        if currentState == .startWork
+        {
+            breakTimer.progress = 0
+            let time = secondsToHourMinutesSeconds(Int(choosenHour))
+            layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            
+        }
+        
+        else if currentState == .midWork
+        {
+            if timeCounting
+            {
+                startTimer()
+            }
+            
+            else
+            {
+                stopTimer()
+                
+                if let start = startTime
+                {
+                    if let stop = stopTime
+                    {
+                        let time = calcRestartTime(start: start, stop: stop)
+                        let diff = Date().timeIntervalSince(time)
+                        let numb = secondsToHourMinutesSeconds(Int(choosenHour - diff))
+                        layer.string = makeTimeString(hour: numb.0, min: numb.1, sec: numb.2)
+                    }
+                }
+            }
+        }
+        
+        else
+        {
+            
+        }
+        
+        layer.fontSize = fontsize
+        layer.frame = CGRect(x: 0, y: (height - fontsize - offset) / 2, width: width, height: height)
+        layer.alignmentMode = .center
+        view.layer.addSublayer(layer)
+        
+       
+      
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
     }
     
-    //perlu add logic background timer dan countdown timernya
+   private func calcRestartTime(start: Date, stop: Date) -> Date
+    {
+        let diff = start.timeIntervalSince(stop)
+        return Date().addingTimeInterval(diff)
+    }
+    
+    @objc func refreshValue()
+    {
+        if let start = startTime
+        {
+            let diff = Date().timeIntervalSince(start)
+            
+            if choosenHour - diff == 0
+            {
+                
+            }
+            
+            let time = secondsToHourMinutesSeconds(Int(choosenHour - diff))
+            layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            
+        }
+        
+        else
+        {
+            stopTimer()
+            layer.string = makeTimeString(hour: 0, min: 0, sec: 0)
+        }
+    }
+    
+    
+    func startTimer()
+    {
+        scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
+        setTimeCounting(true)
+    }
+    
+
+    
+    func secondsToHourMinutesSeconds(_ ms: Int) -> (Int, Int, Int)
+    {
+        let hour = ms/3600
+        let min = (ms % 3600) / 60
+        let sec = (ms % 3600) % 60
+        
+        return (hour, min, sec)
+    }
+    
+    func makeTimeString(hour: Int, min: Int, sec: Int) -> String
+    {
+        var timeString = ""
+        timeString += String(format: "%02d", hour)
+        timeString += ":"
+        timeString += String(format: "%02d", min)
+        timeString += ":"
+        timeString += String(format: "%02d", sec)
+        return timeString
+    }
+    
+    func stopTimer()
+    {
+        
+        if scheduledTimer != nil
+        {
+            scheduledTimer.invalidate()
+        }
+   
+        setTimeCounting(false)
+    }
+    
 
     @objc private func editPage()
     {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "edit-page") as! EditPageController
-        vc.modalPresentationStyle = .fullScreen
-        
-        present(vc, animated: true)
+        //storyboard reference
     }
     
     private func checkState()
@@ -78,11 +220,40 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 breakTimer.progress = 1
-                currentState = .midWork
+                setSavedState(currState: .midWork)
                 sender.setTitle("Jump to Break", for: .normal)
                 checkState()
-                //logic save state
-                //logic start timer
+                
+                //ijin notifikasi
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options: [.alert, .sound])
+                { (granted, error) in
+                    
+                }
+                
+                //notif content
+                let notif = UNMutableNotificationContent()
+                notif.title = "Hello there!"
+                notif.body = "I'm a notification, notice me!"
+                
+                //notif trigger
+                let date = Date().addingTimeInterval(choosenHour)
+                
+                let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+                
+                //notif request
+                let uuid = UUID().uuidString
+                
+                let request = UNNotificationRequest(identifier: uuid, content: notif, trigger: trigger)
+                
+                //register notif request
+                
+                center.add(request) { (error) in
+                    
+                }
+                
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -99,7 +270,7 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
               //storyboard reference
-                currentState = .startWork
+                setSavedState(currState: .startWork)
 
             }))
             
@@ -112,9 +283,8 @@ class TimerPageController: UIViewController {
         
         else
         {
-            currentState = .startWork
+            setSavedState(currState: .startWork)
             //storyboard reference
-            //logic save state -> balik ke startwork
         }
     }
     @IBAction func endAction(_ sender: Any) {
@@ -124,7 +294,7 @@ class TimerPageController: UIViewController {
             let alert = UIAlertController(title: "Finished already?", message: "Make sure you have taken proper break before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                currentState = .startWork
+                setSavedState(currState: .startWork)
                 //logic cek stretch and break
                //storyboard reference
             }))
@@ -160,6 +330,32 @@ class TimerPageController: UIViewController {
                 //logic countdown sesuai durasi snooze
             }))
         }
+    }
+    
+    func setStartTime(date: Date?)
+    {
+        startTime = date
+        userdefaults.set(startTime, forKey: START_TIME)
+        
+    }
+    
+    func setStopTime(date: Date?)
+    {
+        stopTime = date
+        userdefaults.set(stopTime, forKey: STOP_TIME)
+        
+    }
+    
+    func setTimeCounting(_ val: Bool)
+    {
+        timeCounting = val
+        userdefaults.set(timeCounting, forKey: COUTING_TIME)
+    }
+    
+    func setSavedState(currState: state)
+    {
+        currentState = currState
+        userdefaults.set(currentState, forKey: CURRENT_STATE)
     }
 }
 

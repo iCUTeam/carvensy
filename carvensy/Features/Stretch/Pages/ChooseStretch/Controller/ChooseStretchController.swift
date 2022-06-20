@@ -38,21 +38,35 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stretchType.count
+        return stretchType.count + 1
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type", for: indexPath) as! ChooseStretchTableViewCell
-        
-        cell.layer.cornerRadius = 0.5
-        cell.stretchImage.image = UIImage(data: stretchType[indexPath.row].stretchIcon!)
-        cell.stretchTitle.text = stretchType[indexPath.row].stretchTitle
-        cell.stretchTypes.text = stretchType[indexPath.row].stretchContent
-        cell.maxReps.text = "Max \(stretchType[indexPath.row].stretchSteps[indexPath.row].numberofReps ?? 0) reps per move"
-        cell.maxHold.text = "Max \(stretchType[indexPath.row].stretchSteps[indexPath.row].holdSec ?? 0) secs hold each"
         
         
-        return cell
+        if indexPath.row == stretchType.count + 1
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "more", for: indexPath) as! MoreComingSoonCell
+            cell.layer.cornerRadius = 0.5
+            
+            return cell
+        }
+        
+        else
+        {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type", for: indexPath) as! ChooseStretchTableViewCell
+            
+            cell.layer.cornerRadius = 0.5
+            cell.stretchImage.image = UIImage(data: stretchType[indexPath.row].stretchIcon!)
+            cell.stretchTitle.text = stretchType[indexPath.row].stretchTitle
+            cell.stretchTypes.text = stretchType[indexPath.row].stretchContent
+            cell.maxReps.text = "Max \(stretchType[indexPath.row].stretchSteps[indexPath.row].numberofReps ?? 0) reps per move"
+            cell.maxHold.text = "Max \(stretchType[indexPath.row].stretchSteps[indexPath.row].holdSec ?? 0) secs hold each"
+            
+            return cell
+        }
+    
+        
     }
 }
