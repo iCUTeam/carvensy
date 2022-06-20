@@ -41,6 +41,9 @@ class TimerPageController: UIViewController {
     
     var scheduledTimer: Timer!
     
+    
+    let center = UNUserNotificationCenter.current()
+    
     override func viewWillAppear(_ animated: Bool) {
         checkState()
     }
@@ -225,7 +228,6 @@ class TimerPageController: UIViewController {
                 checkState()
                 
                 //ijin notifikasi
-                let center = UNUserNotificationCenter.current()
                 center.requestAuthorization(options: [.alert, .sound])
                 { (granted, error) in
                     
@@ -233,11 +235,11 @@ class TimerPageController: UIViewController {
                 
                 //notif content
                 let notif = UNMutableNotificationContent()
-                notif.title = "Hello there!"
-                notif.body = "I'm a notification, notice me!"
+                notif.title = "User, prepare to rest your hand!"
+                notif.body = "5 minutes left until your break time, prepare yourself to loosen up a bit"
                 
                 //notif trigger
-                let date = Date().addingTimeInterval(choosenHour)
+                let date = Date().addingTimeInterval(choosenHour - 300)
                 
                 let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
                 
@@ -251,6 +253,25 @@ class TimerPageController: UIViewController {
                 //register notif request
                 
                 center.add(request) { (error) in
+                    
+                }
+                
+                let notif2 = UNMutableNotificationContent()
+                notif2.title = "User, it's time to rest your hand!"
+                notif2.body = "Enjoy your break time with simple care for your hands. How about some stretches?"
+                
+                let date2 = Date().addingTimeInterval(choosenHour)
+                
+                let dateComp2 = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
+                
+                let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComp2, repeats: false)
+                
+                let uuid2 = UUID().uuidString
+                
+                let request2 = UNNotificationRequest(identifier: uuid2, content: notif2, trigger: trigger2)
+                
+                center.add(request2)
+                { (error) in
                     
                 }
                 
@@ -270,6 +291,8 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
               //storyboard reference
+                
+                center.removeAllPendingNotificationRequests()
                 setSavedState(currState: .startWork)
 
             }))
@@ -295,6 +318,8 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 setSavedState(currState: .startWork)
+                
+                center.removeAllPendingNotificationRequests()
                 //logic cek stretch and break
                //storyboard reference
             }))
