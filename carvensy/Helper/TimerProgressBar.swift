@@ -22,15 +22,9 @@ class TimerProgressBar: UIView {
     private var progressLayer: CAShapeLayer!
     private var textLayer: CATextLayer!
     
-    public var isHour: Bool = false
-    
     //ini buat set ditextnya ntar dia tampilannya berapa (misal countdown dari 50 ntar di controllernya ganti progressMultipliernya jadi 50
     
     public var progressMultiplier: CGFloat = 10
-    
-    //ini buat kalau labelnya bentuknya jam:menit:detik
-    
-    public var selectedTime: Double = 0
     
     //ini progress awalnya dia dari berapa (antara 0 atau 1 biasanya)
     public var progress: CGFloat = 1 {
@@ -51,6 +45,8 @@ class TimerProgressBar: UIView {
     
     //ini berapa lama durasi countdownnya
     public var maxDuration: Int = 10
+    
+    public var useNormalText: Bool = false
     
     
     override func draw(_ rect: CGRect) {
@@ -106,36 +102,20 @@ class TimerProgressBar: UIView {
       let offset = min(width, height) * 0.1
       
       let layer = CATextLayer()
+      fontsize = min(width, height) / 4 - 5
+      layer.string = "\(Int(progress * progressMultiplier))"
+      layer.backgroundColor = UIColor.clear.cgColor
         
-        if isHour
-        {
-            fontsize = min(width, height) / 6
-            let intTime = Int(selectedTime)
-            let hour = intTime/3600
-            let min = (intTime % 3600) / 60
-            let sec = (intTime % 3600) % 60
-            
-            var timeString = ""
-            timeString += String(format: "%02d", hour)
-            timeString += ":"
-            timeString += String(format: "%02d", min)
-            timeString += ":"
-            timeString += String(format: "%02d", sec)
-            
-            layer.string = timeString
-            
-            
-        }
+      if useNormalText
+      {
+          layer.foregroundColor = UIColor.clear.cgColor
+      }
         
         else
         {
-            fontsize = min(width, height) / 4 - 5
-            layer.string = "\(Int(progress * progressMultiplier))"
+            layer.foregroundColor = textColor.cgColor
         }
-        
     
-      layer.backgroundColor = UIColor.clear.cgColor
-      layer.foregroundColor = textColor.cgColor
       layer.fontSize = fontsize
       layer.frame = CGRect(x: 0, y: (height - fontsize - offset) / 2, width: width, height: height)
       layer.alignmentMode = .center

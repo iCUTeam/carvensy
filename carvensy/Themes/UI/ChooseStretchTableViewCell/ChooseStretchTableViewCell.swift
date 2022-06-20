@@ -11,7 +11,9 @@ class ChooseStretchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var stretchImage: UIImageView!
     @IBOutlet weak var stretchTitle: UILabel!
-    @IBOutlet weak var stretchContent: UITextView!
+    @IBOutlet weak var stretchTypes: UILabel!
+    @IBOutlet weak var maxReps: UILabel!
+    @IBOutlet weak var maxHold: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

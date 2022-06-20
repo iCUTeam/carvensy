@@ -22,6 +22,11 @@
 		148BD0AF285A133800420125 /* StretchSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0AE285A133800420125 /* StretchSteps.swift */; };
 		1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1D82858BB280009C41F /* TimerProgressBar.swift */; };
 		1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */; };
+		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
+		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
+		14FD0C03286060CE00DAF65D /* Stop Stretch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0C00286060CE00DAF65D /* Stop Stretch.gif */; };
+		14FD0C04286060CE00DAF65D /* Thumb Glide.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0C01286060CE00DAF65D /* Thumb Glide.gif */; };
+		14FD0C05286060CE00DAF65D /* Push Out Stretch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0C02286060CE00DAF65D /* Push Out Stretch.gif */; };
 		950636BB2859ECF9008C2639 /* blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636BA2859ECF9008C2639 /* blank.swift */; };
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
 		95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */; };
@@ -57,6 +62,11 @@
 		148BD0AE285A133800420125 /* StretchSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSteps.swift; sourceTree = "<group>"; };
 		1498D1D82858BB280009C41F /* TimerProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressBar.swift; sourceTree = "<group>"; };
 		1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarTimer.swift; sourceTree = "<group>"; };
+		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
+		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
+		14FD0C00286060CE00DAF65D /* Stop Stretch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Stop Stretch.gif"; sourceTree = "<group>"; };
+		14FD0C01286060CE00DAF65D /* Thumb Glide.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Thumb Glide.gif"; sourceTree = "<group>"; };
+		14FD0C02286060CE00DAF65D /* Push Out Stretch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Push Out Stretch.gif"; sourceTree = "<group>"; };
 		950636B82859ECE9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
 		950636BA2859ECF9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 		148BD09D2859FF4B00420125 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				14FD0BFA28605E8B00DAF65D /* MoreComingSoonViewCell */,
 				1405D0A4285CDD6E000D3157 /* OverviewSymptomsCollectionViewCell */,
 				1405D0A3285CDD59000D3157 /* OverviewCollectionViewCell */,
 				148BD0A9285A058900420125 /* ChooseStretchTableViewCell */,
@@ -225,6 +236,25 @@
 				148BD0AE285A133800420125 /* StretchSteps.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		14FD0BFA28605E8B00DAF65D /* MoreComingSoonViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */,
+				14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */,
+			);
+			path = MoreComingSoonViewCell;
+			sourceTree = "<group>";
+		};
+		14FD0BFF286060BC00DAF65D /* GIFs */ = {
+			isa = PBXGroup;
+			children = (
+				14FD0C02286060CE00DAF65D /* Push Out Stretch.gif */,
+				14FD0C00286060CE00DAF65D /* Stop Stretch.gif */,
+				14FD0C01286060CE00DAF65D /* Thumb Glide.gif */,
+			);
+			path = GIFs;
 			sourceTree = "<group>";
 		};
 		950636B32859EC70008C2639 /* Features */ = {
@@ -360,6 +390,7 @@
 		950636C62859EE27008C2639 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				14FD0BFF286060BC00DAF65D /* GIFs */,
 				956B7BF5285AFD0F00593ED0 /* Colors */,
 				148BD09E2859FF5100420125 /* Fonts */,
 				148BD09D2859FF4B00420125 /* UI */,
@@ -542,9 +573,13 @@
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
 				1436F77A285CAAAF0090582B /* StretchFinish.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
+				14FD0C04286060CE00DAF65D /* Thumb Glide.gif in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
 				14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */,
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
+				14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */,
+				14FD0C03286060CE00DAF65D /* Stop Stretch.gif in Resources */,
+				14FD0C05286060CE00DAF65D /* Push Out Stretch.gif in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */,
@@ -566,6 +601,7 @@
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */,
+				14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,

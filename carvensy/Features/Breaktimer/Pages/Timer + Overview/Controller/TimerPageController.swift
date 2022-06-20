@@ -24,12 +24,15 @@ class TimerPageController: UIViewController {
     var currentState : state = .startWork
     var choosenHour: Double = 3600
     
+    override func viewWillAppear(_ animated: Bool) {
+        checkState()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         checkState()
-        breakTimer.isHour = true
-        breakTimer.selectedTime = choosenHour
+        breakTimer.useNormalText = true
         breakTimer.progress = 0
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
     }
@@ -67,7 +70,7 @@ class TimerPageController: UIViewController {
     }
     
 
-    @IBAction func startAction(_ sender: Any) {
+    @IBAction func startAction(_ sender: UIButton) {
         
         if currentState == .startWork
         {
@@ -76,6 +79,7 @@ class TimerPageController: UIViewController {
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 breakTimer.progress = 1
                 currentState = .midWork
+                sender.setTitle("Jump to Break", for: .normal)
                 checkState()
                 //logic save state
                 //logic start timer
@@ -90,14 +94,13 @@ class TimerPageController: UIViewController {
         
         else if currentState == .midWork
         {
+            //logic pause timer
             let alert = UIAlertController(title: "Are you sure?", message: "It’s not your scheduled break time yet. Please make sure you are comfortable to rest before you proceed.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                
-                //logic pause timer
-                let vc = storyboard?.instantiateViewController(withIdentifier: "break-page") as! BreakPageController
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true)
+              //storyboard reference
+                currentState = .startWork
+
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -109,9 +112,8 @@ class TimerPageController: UIViewController {
         
         else
         {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "break-page") as! BreakPageController
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
+            currentState = .startWork
+            //storyboard reference
             //logic save state -> balik ke startwork
         }
     }
@@ -122,11 +124,9 @@ class TimerPageController: UIViewController {
             let alert = UIAlertController(title: "Finished already?", message: "Make sure you have taken proper break before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                
+                currentState = .startWork
                 //logic cek stretch and break
-                let vc = storyboard?.instantiateViewController(withIdentifier: "end-page") as! StretchFinishPageController
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true)
+               //storyboard reference
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
