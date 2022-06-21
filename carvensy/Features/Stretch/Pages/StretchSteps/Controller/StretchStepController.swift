@@ -42,7 +42,9 @@ class StretchStepController: UIViewController {
     {
         numberOfSteps.text = "Stretch \(index + 1) of \(stretchStepArray.count)"
         stretchTitle.text = stretchStepArray[index].stretchTitle
-        stretchGuideGif.image = UIImage(data: stretchStepArray[index].stretchIcon!)
+        
+        let gifImage = UIImage.gifImageWithName(stretchStepArray[index].stretchIcon!)
+        stretchGuideGif.image = gifImage
         stretchDesc.text = stretchStepArray[index].stretchDesc
     }
     

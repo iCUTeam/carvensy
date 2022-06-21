@@ -10,7 +10,7 @@ import UIKit
 
 struct StretchSteps
 {
-    var stretchIcon: Data?
+    var stretchIcon: String?
     var stretchTitle: String?
     var stretchDesc: String?
     var numberofReps: Int?
@@ -18,7 +18,7 @@ struct StretchSteps
     var isDone: Bool
     var bothHand: Bool
     
-    init(title: String?, desc: String?, icon: Data?, reps: Int, holdSec: Int, bothHand: Bool)
+    init(title: String?, desc: String?, icon: String?, reps: Int, holdSec: Int, bothHand: Bool)
     {
         self.stretchTitle = title
         self.stretchDesc = desc

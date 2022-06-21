@@ -10,11 +10,11 @@ import UserNotifications
 
 class TimerPageController: UIViewController {
     
-    enum state
+    enum state : String
     {
-        case startWork
-        case midWork
-        case breakTime
+        case startWork = "startwork"
+        case midWork = "midwork"
+        case breakTime = "breaktime"
     }
     
     @IBOutlet weak var titleLbl: UILabel!
@@ -24,28 +24,52 @@ class TimerPageController: UIViewController {
 
     
     //user defaults
-    var timeCounting: Bool = false
     var startTime: Date?
-    var stopTime: Date?
-    
     var currentState : state = .startWork
-    var choosenHour: Double = 3600
+    var choosenHour: Double = 60
     
     let userdefaults = UserDefaults.standard
     let START_TIME = "starttime"
-    let STOP_TIME = "stoptime"
-    let COUTING_TIME = "countingtime"
     let CURRENT_STATE = "currentstate"
     
     let layer = CATextLayer()
     
     var scheduledTimer: Timer!
     
-    
     let center = UNUserNotificationCenter.current()
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        checkState()
+        if currentState == .startWork
+        {
+            breakTimer.progress = 0
+            let time = secondsToHourMinutesSeconds(Int(choosenHour))
+            layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            startBtn.setTitle("Start Work", for: .normal)
+            endBtn.isHidden = true
+            
+        }
+        
+        else if currentState == .midWork
+        {
+            startTimer()
+            startBtn.setTitle("Jump to Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("End Work", for: .normal)
+        }
+        
+        else
+        {
+            if scheduledTimer != nil
+            {
+                scheduledTimer.invalidate()
+            }
+            
+            layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
+            startBtn.setTitle("Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("Snooze", for: .normal)
+        }
     }
     
     override func viewDidLoad() {
@@ -54,11 +78,7 @@ class TimerPageController: UIViewController {
         
         
         startTime = userdefaults.object(forKey: START_TIME) as? Date
-        stopTime = userdefaults.object(forKey: STOP_TIME) as? Date
-        currentState = userdefaults.object(forKey: CURRENT_STATE) as? state ?? .startWork
-        timeCounting = userdefaults.bool(forKey: COUTING_TIME)
-        
-        checkState()
+        currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "startwork") ?? .startWork
         breakTimer.useNormalText = true
         
         
@@ -67,48 +87,43 @@ class TimerPageController: UIViewController {
         let fontsize : CGFloat
         let offset = min(width, height) * 0.1
         
-        fontsize = min(width, height) / 4 - 5
+        fontsize = min(width, height) / 6
         layer.backgroundColor = UIColor.clear.cgColor
+        layer.foregroundColor = UIColor.systemGray.cgColor
         
         if currentState == .startWork
         {
             breakTimer.progress = 0
             let time = secondsToHourMinutesSeconds(Int(choosenHour))
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            startBtn.setTitle("Start Work", for: .normal)
+            endBtn.isHidden = true
             
         }
         
         else if currentState == .midWork
         {
-            if timeCounting
-            {
-                startTimer()
-            }
-            
-            else
-            {
-                stopTimer()
-                
-                if let start = startTime
-                {
-                    if let stop = stopTime
-                    {
-                        let time = calcRestartTime(start: start, stop: stop)
-                        let diff = Date().timeIntervalSince(time)
-                        let numb = secondsToHourMinutesSeconds(Int(choosenHour - diff))
-                        layer.string = makeTimeString(hour: numb.0, min: numb.1, sec: numb.2)
-                    }
-                }
-            }
+            startTimer()
+            startBtn.setTitle("Jump to Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("End Work", for: .normal)
         }
         
         else
         {
+            if scheduledTimer != nil
+            {
+                scheduledTimer.invalidate()
+            }
             
+            layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
+            startBtn.setTitle("Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("Snooze", for: .normal)
         }
         
         layer.fontSize = fontsize
-        layer.frame = CGRect(x: 0, y: (height - fontsize - offset) / 2, width: width, height: height)
+        layer.frame = CGRect(x: width - 225, y: height + 100, width: width, height: height)
         layer.alignmentMode = .center
         view.layer.addSublayer(layer)
         
@@ -117,11 +132,6 @@ class TimerPageController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
     }
     
-   private func calcRestartTime(start: Date, stop: Date) -> Date
-    {
-        let diff = start.timeIntervalSince(stop)
-        return Date().addingTimeInterval(diff)
-    }
     
     @objc func refreshValue()
     {
@@ -129,20 +139,35 @@ class TimerPageController: UIViewController {
         {
             let diff = Date().timeIntervalSince(start)
             
-            if choosenHour - diff == 0
+            if choosenHour - diff <= 0
             {
-                
+                scheduledTimer.invalidate()
+                layer.string = makeTimeString(hour: 0, min: 0, sec: 0)
+                breakTimer.progress = 0
+                setSavedState(currState: .breakTime)
+                startBtn.setTitle("Break", for: .normal)
+                endBtn.isHidden = false
+                endBtn.setTitle("Snooze", for: .normal)
             }
             
-            let time = secondsToHourMinutesSeconds(Int(choosenHour - diff))
-            layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            else
+            {
+                breakTimer.progress = min((choosenHour - diff) / choosenHour, 1)
+                let time = secondsToHourMinutesSeconds(Int(choosenHour - diff))
+                layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+            }
             
         }
         
         else
         {
-            stopTimer()
-            layer.string = makeTimeString(hour: 0, min: 0, sec: 0)
+            if scheduledTimer != nil
+            {
+                scheduledTimer.invalidate()
+            }
+            breakTimer.progress = 1
+            let time = secondsToHourMinutesSeconds(Int(choosenHour))
+            layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
         }
     }
     
@@ -150,10 +175,8 @@ class TimerPageController: UIViewController {
     func startTimer()
     {
         scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
-        setTimeCounting(true)
     }
     
-
     
     func secondsToHourMinutesSeconds(_ ms: Int) -> (Int, Int, Int)
     {
@@ -175,43 +198,10 @@ class TimerPageController: UIViewController {
         return timeString
     }
     
-    func stopTimer()
-    {
-        
-        if scheduledTimer != nil
-        {
-            scheduledTimer.invalidate()
-        }
-   
-        setTimeCounting(false)
-    }
-    
 
     @objc private func editPage()
     {
         //storyboard reference
-    }
-    
-    private func checkState()
-    {
-        if currentState == .startWork
-        {
-            startBtn.setTitle("Start Session", for: .normal)
-            endBtn.isHidden = true
-        }
-        
-        else if currentState == .midWork
-        {
-            startBtn.setTitle("Jump to Break", for: .normal)
-            endBtn.isHidden = false
-            endBtn.setTitle("End Work", for: .normal)
-        }
-        
-        else
-        {
-            startBtn.setTitle("Break", for: .normal)
-            endBtn.setTitle("Snooze", for: .normal)
-        }
     }
     
 
@@ -219,61 +209,65 @@ class TimerPageController: UIViewController {
         
         if currentState == .startWork
         {
+            //ijin notifikasi
+            center.requestAuthorization(options: [.alert, .sound])
+            { (granted, error) in
+                
+            }
+            //notif content
+            let notif = UNMutableNotificationContent()
+            notif.title = "User, prepare to rest your hand!"
+            notif.body = "5 minutes left until your break time, prepare yourself to loosen up a bit"
+            
+            //notif trigger
+            let date = Date().addingTimeInterval(5)
+            
+            let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+            
+            //notif request
+            let uuid = UUID().uuidString
+            
+            let request = UNNotificationRequest(identifier: uuid, content: notif, trigger: trigger)
+            
+            //register notif request
+            
+            center.add(request) { (error) in
+                
+            }
+            
+            let notif2 = UNMutableNotificationContent()
+            notif2.title = "User, it's time to rest your hand!"
+            notif2.body = "Enjoy your break time with simple care for your hands. How about some stretches?"
+
+            let date2 = Date().addingTimeInterval(10)
+
+            let dateComp2 = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
+
+            let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComp2, repeats: false)
+
+            let uuid2 = UUID().uuidString
+
+            let request2 = UNNotificationRequest(identifier: uuid2, content: notif2, trigger: trigger2)
+
+            center.add(request2)
+            { (error) in
+
+            }
+            
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 breakTimer.progress = 1
                 setSavedState(currState: .midWork)
+                startTimer()
+                setStartTime(date: Date())
+                
                 sender.setTitle("Jump to Break", for: .normal)
-                checkState()
+                endBtn.isHidden = false
+                endBtn.setTitle("End Work", for: .normal)
                 
-                //ijin notifikasi
-                center.requestAuthorization(options: [.alert, .sound])
-                { (granted, error) in
-                    
-                }
-                
-                //notif content
-                let notif = UNMutableNotificationContent()
-                notif.title = "User, prepare to rest your hand!"
-                notif.body = "5 minutes left until your break time, prepare yourself to loosen up a bit"
-                
-                //notif trigger
-                let date = Date().addingTimeInterval(choosenHour - 300)
-                
-                let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
-                
-                //notif request
-                let uuid = UUID().uuidString
-                
-                let request = UNNotificationRequest(identifier: uuid, content: notif, trigger: trigger)
-                
-                //register notif request
-                
-                center.add(request) { (error) in
-                    
-                }
-                
-                let notif2 = UNMutableNotificationContent()
-                notif2.title = "User, it's time to rest your hand!"
-                notif2.body = "Enjoy your break time with simple care for your hands. How about some stretches?"
-                
-                let date2 = Date().addingTimeInterval(choosenHour)
-                
-                let dateComp2 = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
-                
-                let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComp2, repeats: false)
-                
-                let uuid2 = UUID().uuidString
-                
-                let request2 = UNNotificationRequest(identifier: uuid2, content: notif2, trigger: trigger2)
-                
-                center.add(request2)
-                { (error) in
-                    
-                }
                 
             }))
             
@@ -286,19 +280,24 @@ class TimerPageController: UIViewController {
         
         else if currentState == .midWork
         {
-            //logic pause timer
+            if scheduledTimer != nil
+            {
+                scheduledTimer.invalidate()
+            }
+            
             let alert = UIAlertController(title: "Are you sure?", message: "It’s not your scheduled break time yet. Please make sure you are comfortable to rest before you proceed.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
               //storyboard reference
-                
                 center.removeAllPendingNotificationRequests()
                 setSavedState(currState: .startWork)
+                setStartTime(date: nil)
 
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
                 alert.dismiss(animated: true)
+                self.startTimer()
             }))
             
             self.present(alert, animated: true)
@@ -335,25 +334,31 @@ class TimerPageController: UIViewController {
         {
             let alert = UIAlertController(title: "Select Snooze Duration", message: nil, preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "5 Minutes", style: .default, handler: { _ in
-                self.choosenHour += 300
+                self.choosenHour = 300
                 self.breakTimer.progress = 1
-                //logic countdown sesuai durasi snooze
+                self.startTimer()
+                self.setStartTime(date: Date())
             }))
             alert.addAction(UIAlertAction(title: "10 Minutes", style: .default, handler: { _ in
-                self.choosenHour += 600
+                self.choosenHour = 600
                 self.breakTimer.progress = 1
-                //logic countdown sesuai durasi snooze
+                self.startTimer()
+                self.setStartTime(date: Date())
             }))
             alert.addAction(UIAlertAction(title: "15 Minutes", style: .default, handler: { _ in
-                self.choosenHour += 900
+                self.choosenHour = 900
                 self.breakTimer.progress = 1
-                //logic countdown sesuai durasi snooze
+                self.startTimer()
+                self.setStartTime(date: Date())
             }))
             alert.addAction(UIAlertAction(title: "20 Minutes", style: .default, handler: { _ in
-                self.choosenHour += 1200
+                self.choosenHour = 1200
                 self.breakTimer.progress = 1
-                //logic countdown sesuai durasi snooze
+                self.startTimer()
+                self.setStartTime(date: Date())
             }))
+            
+            self.present(alert, animated: true)
         }
     }
     
@@ -363,24 +368,12 @@ class TimerPageController: UIViewController {
         userdefaults.set(startTime, forKey: START_TIME)
         
     }
-    
-    func setStopTime(date: Date?)
-    {
-        stopTime = date
-        userdefaults.set(stopTime, forKey: STOP_TIME)
-        
-    }
-    
-    func setTimeCounting(_ val: Bool)
-    {
-        timeCounting = val
-        userdefaults.set(timeCounting, forKey: COUTING_TIME)
-    }
+
     
     func setSavedState(currState: state)
     {
         currentState = currState
-        userdefaults.set(currentState, forKey: CURRENT_STATE)
+        userdefaults.set(currentState.rawValue, forKey: CURRENT_STATE)
     }
 }
 

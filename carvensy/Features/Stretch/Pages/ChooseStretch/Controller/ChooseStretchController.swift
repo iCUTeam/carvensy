@@ -19,18 +19,18 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         
-        stretchType.append(StretchType(title: "Quick Stretch (1 mins)", content: "Static - 4 Stretch Moves", icon: nil, steps: quickStretchSteps))
-        stretchType.append(StretchType(title: "Focus Stretch (2 mins)", content: "Static - 4 Stretch Moves", icon: nil, steps: focusStretchSteps))
+        stretchType.append(StretchType(title: "Quick Stretch (1 mins)", content: "Static - 4 Stretch Moves", icon: "Stop Stretch", steps: quickStretchSteps))
+        stretchType.append(StretchType(title: "Focus Stretch (2 mins)", content: "Static - 4 Stretch Moves", icon: "Push Out Stretch", steps: focusStretchSteps))
         
-        quickStretchSteps.append(StretchSteps(title: "Push Out", desc: "Interlace your fingers as shown on the guide. Then rotate your palms and push them out and away from your chest.", icon: nil, reps: 2, holdSec: 5, bothHand: false))
-        quickStretchSteps.append(StretchSteps(title: "Stop - Wrist Extension", desc: "Start by holding one hand up and extended all the way out. It’s as if you’re saying, “Stop!” With the other hand, reach out and pull your fingers back.", icon: nil, reps: 2, holdSec: 5, bothHand: true))
-        quickStretchSteps.append(StretchSteps(title: "Prayer", desc: "At chest level, press both palms together as on the given guide, keeping your hands at the same level, slowly raise both elbows.", icon: nil, reps: 2, holdSec: 5, bothHand: false))
-        quickStretchSteps.append(StretchSteps(title: "Thumb Glide", desc: "As in the guide, start by grabbing your thumb. Then rotate it like a helicopter blade. When finished, gently pull your thumb backward.", icon: nil, reps: 2, holdSec: 5, bothHand: true))
+        quickStretchSteps.append(StretchSteps(title: "Push Out", desc: "Interlace your fingers as shown on the guide. Then rotate your palms and push them out and away from your chest.", icon: "Push Out Stretch", reps: 2, holdSec: 5, bothHand: false))
+        quickStretchSteps.append(StretchSteps(title: "Stop - Wrist Extension", desc: "Start by holding one hand up and extended all the way out. It’s as if you’re saying, “Stop!” With the other hand, reach out and pull your fingers back.", icon: "Stop Stretch", reps: 2, holdSec: 5, bothHand: true))
+        quickStretchSteps.append(StretchSteps(title: "Prayer", desc: "At chest level, press both palms together as on the given guide, keeping your hands at the same level, slowly raise both elbows.", icon: "Prayer", reps: 2, holdSec: 5, bothHand: false))
+        quickStretchSteps.append(StretchSteps(title: "Thumb Glide", desc: "As in the guide, start by grabbing your thumb. Then rotate it like a helicopter blade. When finished, gently pull your thumb backward.", icon: "Thumb Glide", reps: 2, holdSec: 5, bothHand: true))
         
-        focusStretchSteps.append(StretchSteps(title: "Push Out", desc: "Interlace your fingers as shown on the guide. Then rotate your palms and push them out and away from your chest.", icon: nil, reps: 2, holdSec: 10, bothHand: false))
-        focusStretchSteps.append(StretchSteps(title: "Stop - Wrist Extension", desc: "Start by holding one hand up and extended all the way out. It’s as if you’re saying, “Stop!” With the other hand, reach out and pull your fingers back.", icon: nil, reps: 2, holdSec: 10, bothHand: true))
-        focusStretchSteps.append(StretchSteps(title: "Prayer", desc: "At chest level, press both palms together as on the given guide, keeping your hands at the same level, slowly raise both elbows.", icon: nil, reps: 2, holdSec: 10, bothHand: false))
-        focusStretchSteps.append(StretchSteps(title: "Thumb Glide", desc: "As in the guide, start by grabbing your thumb. Then rotate it like a helicopter blade. When finished, gently pull your thumb backward.", icon: nil, reps: 2, holdSec: 10, bothHand: true))
+        focusStretchSteps.append(StretchSteps(title: "Push Out", desc: "Interlace your fingers as shown on the guide. Then rotate your palms and push them out and away from your chest.", icon: "Push Out Stretch", reps: 2, holdSec: 10, bothHand: false))
+        focusStretchSteps.append(StretchSteps(title: "Stop - Wrist Extension", desc: "Start by holding one hand up and extended all the way out. It’s as if you’re saying, “Stop!” With the other hand, reach out and pull your fingers back.", icon: "Stop Stretch", reps: 2, holdSec: 10, bothHand: true))
+        focusStretchSteps.append(StretchSteps(title: "Prayer", desc: "At chest level, press both palms together as on the given guide, keeping your hands at the same level, slowly raise both elbows.", icon: "Prayer", reps: 2, holdSec: 10, bothHand: false))
+        focusStretchSteps.append(StretchSteps(title: "Thumb Glide", desc: "As in the guide, start by grabbing your thumb. Then rotate it like a helicopter blade. When finished, gently pull your thumb backward.", icon: "Thumb Glide", reps: 2, holdSec: 10, bothHand: true))
         
         
 
@@ -57,8 +57,9 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
         {
            let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type", for: indexPath) as! ChooseStretchTableViewCell
             
+            let gifImage = UIImage.gifImageWithName(stretchType[indexPath.row].stretchIcon ?? "Stop Stretch")
+            cell.stretchImage.image = gifImage
             cell.layer.cornerRadius = 0.5
-            cell.stretchImage.image = UIImage(data: stretchType[indexPath.row].stretchIcon!)
             cell.stretchTitle.text = stretchType[indexPath.row].stretchTitle
             cell.stretchTypes.text = stretchType[indexPath.row].stretchContent
             cell.maxReps.text = "Max \(stretchType[indexPath.row].stretchSteps[indexPath.row].numberofReps ?? 0) reps per move"
