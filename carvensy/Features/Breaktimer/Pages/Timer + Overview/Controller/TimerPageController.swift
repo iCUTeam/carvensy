@@ -127,7 +127,6 @@ class TimerPageController: UIViewController {
         layer.alignmentMode = .center
         view.layer.addSublayer(layer)
         
-       
       
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
         title = "Break Timer"

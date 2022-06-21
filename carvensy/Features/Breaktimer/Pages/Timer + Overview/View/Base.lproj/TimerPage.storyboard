@@ -153,6 +153,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="MG3-tG-ufZ"/>
+                    <connections>
+                        <outlet property="breakCV" destination="EmR-t0-q65" id="Lcl-MU-VoL"/>
+                        <outlet property="emojiView" destination="rbZ-vw-lon" id="si3-U2-VDH"/>
+                        <outlet property="painAssessCV" destination="H7K-ed-YTD" id="SIi-E6-DfC"/>
+                        <outlet property="stretchCV" destination="acA-Oh-mNw" id="hWH-at-a8Q"/>
+                        <outlet property="stretchPlanTableView" destination="OVY-GI-epg" id="5Q3-v7-hsb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edk-r4-wK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
