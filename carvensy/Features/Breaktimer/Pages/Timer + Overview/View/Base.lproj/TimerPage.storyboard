@@ -178,17 +178,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5B-XM-daC">
-                                <rect key="frame" x="126" y="634" width="163" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start Session">
-                                    <fontDescription key="titleFontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="startAction:" destination="XgZ-Pj-8rO" eventType="touchUpInside" id="8Ys-y8-qT5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-dp-4SF">
                                 <rect key="frame" x="145" y="724" width="124" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,6 +185,17 @@
                                 <buttonConfiguration key="configuration" style="plain" title="End Work"/>
                                 <connections>
                                     <action selector="endAction:" destination="XgZ-Pj-8rO" eventType="touchUpInside" id="Urc-xU-AFA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-1v-fUI">
+                                <rect key="frame" x="124" y="648" width="167" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Session">
+                                    <fontDescription key="titleFontDescription" name="SFPro-Regular" family="SF Pro" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startAction:" destination="XgZ-Pj-8rO" eventType="touchUpInside" id="QOV-nn-kyl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,7 +206,7 @@
                     <connections>
                         <outlet property="breakTimer" destination="aot-z3-U2D" id="KwJ-9M-fLI"/>
                         <outlet property="endBtn" destination="u4V-dp-4SF" id="wNs-7J-BXV"/>
-                        <outlet property="startBtn" destination="u4V-dp-4SF" id="oMW-LN-VtR"/>
+                        <outlet property="startBtn" destination="xZC-1v-fUI" id="ZhU-Qz-BFA"/>
                         <outlet property="titleLbl" destination="pIL-QU-ihc" id="eru-tu-oS9"/>
                         <segue destination="IWe-tj-CZa" kind="presentation" identifier="goToBreakPage" modalPresentationStyle="fullScreen" id="y0z-ta-kYY"/>
                         <segue destination="Pna-fx-9jZ" kind="presentation" identifier="goToEditPage" modalPresentationStyle="fullScreen" id="n9Z-A9-zCm"/>
