@@ -16,6 +16,8 @@
 		14573B42285ADE16008F714F /* StretchStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B41285ADE16008F714F /* StretchStepController.swift */; };
 		145A1D2A28618584001A6BA4 /* GIFProcessorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */; };
 		145A1D2C286187DD001A6BA4 /* Prayer.gif in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D2B286187DD001A6BA4 /* Prayer.gif */; };
+		145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */; };
+		145A1D332861C5DB001A6BA4 /* StretchCamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D322861C5DB001A6BA4 /* StretchCamController.swift */; };
 		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
 		148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A3285A04D200420125 /* ChooseStretchController.swift */; };
 		148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */; };
@@ -56,6 +58,8 @@
 		14573B41285ADE16008F714F /* StretchStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchStepController.swift; sourceTree = "<group>"; };
 		145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFProcessorExtension.swift; sourceTree = "<group>"; };
 		145A1D2B286187DD001A6BA4 /* Prayer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Prayer.gif; sourceTree = "<group>"; };
+		145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchCamView.storyboard; sourceTree = "<group>"; };
+		145A1D322861C5DB001A6BA4 /* StretchCamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchCamController.swift; sourceTree = "<group>"; };
 		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
 		148BD09F2859FF6900420125 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
@@ -168,9 +172,35 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		145A1D2D2861C52B001A6BA4 /* DoStretchCamView */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D2F2861C545001A6BA4 /* Controller */,
+				145A1D2E2861C541001A6BA4 /* View */,
+			);
+			path = DoStretchCamView;
+			sourceTree = "<group>";
+		};
+		145A1D2E2861C541001A6BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145A1D2F2861C545001A6BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D322861C5DB001A6BA4 /* StretchCamController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				145A1D2D2861C52B001A6BA4 /* DoStretchCamView */,
 				A97B08EF285F0C70002493BC /* DisclaimerStretch */,
 				1436F776285CAA8B0090582B /* StretchPraise */,
 				14573B3C285ADCA9008F714F /* StretchSteps */,
@@ -585,6 +615,7 @@
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
 				14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */,
 				14FD0C03286060CE00DAF65D /* Stop Stretch.gif in Resources */,
+				145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */,
 				14FD0C05286060CE00DAF65D /* Push Out Stretch.gif in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				145A1D2C286187DD001A6BA4 /* Prayer.gif in Resources */,
@@ -609,6 +640,7 @@
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */,
 				145A1D2A28618584001A6BA4 /* GIFProcessorExtension.swift in Sources */,
+				145A1D332861C5DB001A6BA4 /* StretchCamController.swift in Sources */,
 				14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,

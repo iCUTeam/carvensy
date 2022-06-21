@@ -74,11 +74,22 @@
                         <outlet property="finishButton" destination="H6G-Ue-bxM" id="cTx-D1-t0w"/>
                         <outlet property="image" destination="rtl-RT-17k" id="4Yc-8O-0bI"/>
                         <outlet property="stretchButton" destination="aTL-JC-jEB" id="eyW-Md-WQx"/>
+                        <segue destination="CIP-oJ-aaw" kind="show" identifier="goToChooseStretch" id="gxk-da-3Uv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="111.83035714285714"/>
+        </scene>
+        <!--ChooseStretch-->
+        <scene sceneID="1PH-cv-gR1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChooseStretch" id="CIP-oJ-aaw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vx9-Jm-vrL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wlT-Oi-Av7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0bM-rA-ndS">

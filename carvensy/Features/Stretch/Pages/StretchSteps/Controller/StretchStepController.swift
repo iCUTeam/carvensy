@@ -26,14 +26,14 @@ class StretchStepController: UIViewController {
     var countFired: CGFloat =  10
     
     override func viewWillAppear(_ animated: Bool) {
-//        setSteps()
+        setSteps()
         progressBar.progress = 1
         countDown()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setSteps()
+        setSteps()
        
         // Do any additional setup after loading the view.
     }
@@ -66,7 +66,7 @@ class StretchStepController: UIViewController {
                     {
                         timer.invalidate()
                         self.index += 1
-                        //pindah ke halaman doStretch
+                        self.performSegue(withIdentifier: "doStretchCam", sender: StretchStepController.self)
                     }
                 }
             }

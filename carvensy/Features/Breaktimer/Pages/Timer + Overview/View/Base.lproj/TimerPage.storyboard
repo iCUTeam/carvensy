@@ -208,11 +208,33 @@
                         <outlet property="endBtn" destination="u4V-dp-4SF" id="wNs-7J-BXV"/>
                         <outlet property="startBtn" destination="u4V-dp-4SF" id="oMW-LN-VtR"/>
                         <outlet property="titleLbl" destination="pIL-QU-ihc" id="eru-tu-oS9"/>
+                        <segue destination="IWe-tj-CZa" kind="presentation" identifier="goToBreakPage" modalPresentationStyle="fullScreen" id="y0z-ta-kYY"/>
+                        <segue destination="Pna-fx-9jZ" kind="presentation" identifier="goToEditPage" modalPresentationStyle="fullScreen" id="n9Z-A9-zCm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sE-VS-txu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842.0289855072465" y="-314.0625"/>
+        </scene>
+        <!--BreakPage-->
+        <scene sceneID="2xb-xF-7q4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BreakPage" id="IWe-tj-CZa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Sxs-wF-23E"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YG1-Fi-DAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="-579"/>
+        </scene>
+        <!--EditPage-->
+        <scene sceneID="Jxr-cg-wjV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditPage" id="Pna-fx-9jZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="h2u-xn-PDq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxO-A0-m5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848" y="-115"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4jN-L9-7DM">

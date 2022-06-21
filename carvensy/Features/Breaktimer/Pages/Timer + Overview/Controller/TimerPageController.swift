@@ -130,6 +130,7 @@ class TimerPageController: UIViewController {
        
       
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
+        title = "Break Timer"
     }
     
     
@@ -201,7 +202,7 @@ class TimerPageController: UIViewController {
 
     @objc private func editPage()
     {
-        //storyboard reference
+        performSegue(withIdentifier: "goToEditPage", sender: self)
     }
     
 
@@ -288,7 +289,7 @@ class TimerPageController: UIViewController {
             let alert = UIAlertController(title: "Are you sure?", message: "It’s not your scheduled break time yet. Please make sure you are comfortable to rest before you proceed.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-              //storyboard reference
+                performSegue(withIdentifier: "goToBreakPage", sender: self)
                 center.removeAllPendingNotificationRequests()
                 setSavedState(currState: .startWork)
                 setStartTime(date: nil)
@@ -306,7 +307,21 @@ class TimerPageController: UIViewController {
         else
         {
             setSavedState(currState: .startWork)
-            //storyboard reference
+            performSegue(withIdentifier: "goToBreakPage", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToBreakPage"
+        {
+            guard let vc = segue.destination as? BreakPageController else { return }
+            vc.modalPresentationStyle = .fullScreen
+        }
+        
+        else if segue.identifier == "goToEditPage"
+        {
+            guard let vc = segue.destination as? EditPageController else {return}
+            vc.modalPresentationStyle = .fullScreen
         }
     }
     @IBAction func endAction(_ sender: Any) {
