@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FUA-sL-OcE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+            <string>SFPro-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Introduction Page View Controller-->
+        <scene sceneID="vT3-1n-5tZ">
+            <objects>
+                <viewController id="FUA-sL-OcE" customClass="IntroductionPageViewController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6yh-TC-JhS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZd-dy-SvX">
+                                <rect key="frame" x="131" y="68" width="152" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="Yfq-sr-IjZ"/>
+                                    <constraint firstAttribute="height" constant="156" id="tS9-Sg-0rF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Carvensy!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-e7-OeG">
+                                <rect key="frame" x="17" y="283" width="380" height="36"/>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-Lw-PLo">
+                                <rect key="frame" x="17" y="325" width="380" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="5dO-Zf-0fK"/>
+                                </constraints>
+                                <string key="text">CTS* prevention made easy, only with combination of break and stretch during activity or work, personalized to your pain level or hand activity level.</string>
+                                <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTF-36-35p" userLabel="Break Card View">
+                                <rect key="frame" x="20" y="444" width="374" height="101.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-W4-6oM">
+                                        <rect key="frame" x="5" y="15" width="364" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="D9J-FK-MMy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customizable break timer with early notification and snooze for your flexibility." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBH-E7-Ot0">
+                                        <rect key="frame" x="5" y="48" width="364" height="33.5"/>
+                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xrD-W4-6oM" secondAttribute="trailing" constant="5" id="1WV-e8-fvr"/>
+                                    <constraint firstItem="xrD-W4-6oM" firstAttribute="leading" secondItem="uTF-36-35p" secondAttribute="leading" constant="5" id="5UP-fJ-5FU"/>
+                                    <constraint firstAttribute="trailing" secondItem="BBH-E7-Ot0" secondAttribute="trailing" constant="5" id="AeG-zE-fKX"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBH-E7-Ot0" secondAttribute="bottom" constant="20" id="Vph-h0-iJB"/>
+                                    <constraint firstItem="BBH-E7-Ot0" firstAttribute="leading" secondItem="uTF-36-35p" secondAttribute="leading" constant="5" id="mei-UZ-tfl"/>
+                                    <constraint firstItem="BBH-E7-Ot0" firstAttribute="top" secondItem="xrD-W4-6oM" secondAttribute="bottom" constant="5" id="nSE-ZG-T2L"/>
+                                    <constraint firstItem="xrD-W4-6oM" firstAttribute="top" secondItem="uTF-36-35p" secondAttribute="top" constant="15" id="s5S-NK-qBm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIP-21-GnK">
+                                <rect key="frame" x="20" y="570.5" width="374" height="101.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stretch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lx-4m-jsi">
+                                        <rect key="frame" x="5" y="15" width="364" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="TKW-VB-XWs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stretch follow-along experience with pose recognizer to guide you perform the stretches correctly." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFK-mK-goS">
+                                        <rect key="frame" x="5" y="48" width="364" height="33.5"/>
+                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="hFK-mK-goS" firstAttribute="leading" secondItem="kIP-21-GnK" secondAttribute="leading" constant="5" id="1F0-4z-vDr"/>
+                                    <constraint firstItem="9lx-4m-jsi" firstAttribute="top" secondItem="kIP-21-GnK" secondAttribute="top" constant="15" id="9xh-2v-bW1"/>
+                                    <constraint firstAttribute="trailing" secondItem="9lx-4m-jsi" secondAttribute="trailing" constant="5" id="9yd-wx-jJ0"/>
+                                    <constraint firstItem="9lx-4m-jsi" firstAttribute="leading" secondItem="kIP-21-GnK" secondAttribute="leading" constant="5" id="Bsk-aK-aWc"/>
+                                    <constraint firstItem="hFK-mK-goS" firstAttribute="top" secondItem="9lx-4m-jsi" secondAttribute="bottom" constant="5" id="OkR-Ze-UbI"/>
+                                    <constraint firstAttribute="trailing" secondItem="hFK-mK-goS" secondAttribute="trailing" constant="5" id="RTG-lU-VWL"/>
+                                    <constraint firstAttribute="bottom" secondItem="hFK-mK-goS" secondAttribute="bottom" constant="20" id="dha-36-VVX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otb-0a-pmt">
+                                <rect key="frame" x="20" y="781" width="374" height="31"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="*Find Out More About CTS"/>
+                                <connections>
+                                    <action selector="aboutButtonPressed:" destination="FUA-sL-OcE" eventType="touchUpInside" id="Atr-07-7KT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RM2-PJ-asA"/>
+                        <color key="backgroundColor" name="greenBG"/>
+                        <constraints>
+                            <constraint firstItem="VYh-Lw-PLo" firstAttribute="leading" secondItem="RM2-PJ-asA" secondAttribute="leading" constant="17" id="1Lx-cT-jW3"/>
+                            <constraint firstItem="uTF-36-35p" firstAttribute="leading" secondItem="RM2-PJ-asA" secondAttribute="leading" constant="20" id="3dB-oH-prE"/>
+                            <constraint firstItem="kIP-21-GnK" firstAttribute="top" secondItem="uTF-36-35p" secondAttribute="bottom" constant="25" id="BA8-DQ-D6o"/>
+                            <constraint firstItem="gp9-e7-OeG" firstAttribute="top" secondItem="hZd-dy-SvX" secondAttribute="bottom" constant="59" id="DJ2-q0-GxL"/>
+                            <constraint firstItem="uTF-36-35p" firstAttribute="top" secondItem="VYh-Lw-PLo" secondAttribute="bottom" constant="24" id="GQf-Nn-eFn"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="trailing" secondItem="otb-0a-pmt" secondAttribute="trailing" constant="20" id="IsZ-qB-wj7"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="trailing" secondItem="gp9-e7-OeG" secondAttribute="trailing" constant="17" id="Jp2-gz-mhW"/>
+                            <constraint firstItem="hZd-dy-SvX" firstAttribute="centerX" secondItem="6yh-TC-JhS" secondAttribute="centerX" id="MNt-mT-J8s"/>
+                            <constraint firstItem="hZd-dy-SvX" firstAttribute="top" secondItem="RM2-PJ-asA" secondAttribute="top" constant="24" id="ZjX-Dc-Dzy"/>
+                            <constraint firstItem="kIP-21-GnK" firstAttribute="leading" secondItem="RM2-PJ-asA" secondAttribute="leading" constant="20" id="c5H-Od-Dlq"/>
+                            <constraint firstItem="otb-0a-pmt" firstAttribute="leading" secondItem="RM2-PJ-asA" secondAttribute="leading" constant="20" id="eYJ-s1-b7d"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="trailing" secondItem="kIP-21-GnK" secondAttribute="trailing" constant="20" id="mkI-xM-wYc"/>
+                            <constraint firstItem="VYh-Lw-PLo" firstAttribute="top" secondItem="gp9-e7-OeG" secondAttribute="bottom" constant="6" id="mmZ-Ma-jYr"/>
+                            <constraint firstItem="gp9-e7-OeG" firstAttribute="leading" secondItem="RM2-PJ-asA" secondAttribute="leading" constant="17" id="nBZ-Um-gnl"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="bottom" secondItem="otb-0a-pmt" secondAttribute="bottom" constant="50" id="oQn-ST-0M7"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="trailing" secondItem="VYh-Lw-PLo" secondAttribute="trailing" constant="17" id="wnv-T1-fCT"/>
+                            <constraint firstItem="RM2-PJ-asA" firstAttribute="trailing" secondItem="uTF-36-35p" secondAttribute="trailing" constant="20" id="yey-Fj-Wmj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutButton" destination="otb-0a-pmt" id="f2U-FW-Kc3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mHP-DP-tva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="greenBG">
+            <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
