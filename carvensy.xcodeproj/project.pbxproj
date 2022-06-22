@@ -53,6 +53,14 @@
 		A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B08E6285AE4CA002493BC /* BreakPageController.swift */; };
 		A97B08F3285F0C95002493BC /* DisclaimerStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97B08F2285F0C95002493BC /* DisclaimerStretch.storyboard */; };
 		A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B08F4285F0CB0002493BC /* DisclaimerController.swift */; };
+		A97C1B052861FE0500FFCB78 /* OnboardingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B042861FE0500FFCB78 /* OnboardingMain.storyboard */; };
+		A97C1B072861FE1B00FFCB78 /* OnboardingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B062861FE1B00FFCB78 /* OnboardingMainViewController.swift */; };
+		A97C1B092861FFC800FFCB78 /* IntroductionPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B082861FFC800FFCB78 /* IntroductionPage.storyboard */; };
+		A97C1B0B2861FFE300FFCB78 /* InputNamePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B0A2861FFE300FFCB78 /* InputNamePage.storyboard */; };
+		A97C1B0D2861FFFD00FFCB78 /* PainAssessmentPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B0C2861FFFD00FFCB78 /* PainAssessmentPage.storyboard */; };
+		A97C1B0F2862003000FFCB78 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */; };
+		A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */; };
+		A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */; };
 		A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E6E86A285982720077BBF8 /* EditPage.storyboard */; };
 		A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E6E86C2859829D0077BBF8 /* EditPageController.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +117,14 @@
 		A97B08E6285AE4CA002493BC /* BreakPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakPageController.swift; sourceTree = "<group>"; };
 		A97B08F2285F0C95002493BC /* DisclaimerStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisclaimerStretch.storyboard; sourceTree = "<group>"; };
 		A97B08F4285F0CB0002493BC /* DisclaimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerController.swift; sourceTree = "<group>"; };
+		A97C1B042861FE0500FFCB78 /* OnboardingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingMain.storyboard; sourceTree = "<group>"; };
+		A97C1B062861FE1B00FFCB78 /* OnboardingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainViewController.swift; sourceTree = "<group>"; };
+		A97C1B082861FFC800FFCB78 /* IntroductionPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntroductionPage.storyboard; sourceTree = "<group>"; };
+		A97C1B0A2861FFE300FFCB78 /* InputNamePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InputNamePage.storyboard; sourceTree = "<group>"; };
+		A97C1B0C2861FFFD00FFCB78 /* PainAssessmentPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PainAssessmentPage.storyboard; sourceTree = "<group>"; };
+		A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePageViewController.swift; sourceTree = "<group>"; };
+		A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainAssessmentPageViewController.swift; sourceTree = "<group>"; };
 		A9E6E86A285982720077BBF8 /* EditPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPage.storyboard; sourceTree = "<group>"; };
 		A9E6E86C2859829D0077BBF8 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -533,6 +549,7 @@
 		950636C32859EDDB008C2639 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A97C1AF82861FD5D00FFCB78 /* OnboardingMain */,
 				950636C42859EDE6008C2639 /* Splash */,
 			);
 			path = Pages;
@@ -670,6 +687,37 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A97C1AF82861FD5D00FFCB78 /* OnboardingMain */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1AFA2861FD6A00FFCB78 /* Controller */,
+				A97C1AF92861FD6600FFCB78 /* View */,
+			);
+			path = OnboardingMain;
+			sourceTree = "<group>";
+		};
+		A97C1AF92861FD6600FFCB78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B042861FE0500FFCB78 /* OnboardingMain.storyboard */,
+				A97C1B0C2861FFFD00FFCB78 /* PainAssessmentPage.storyboard */,
+				A97C1B0A2861FFE300FFCB78 /* InputNamePage.storyboard */,
+				A97C1B082861FFC800FFCB78 /* IntroductionPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A97C1AFA2861FD6A00FFCB78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B062861FE1B00FFCB78 /* OnboardingMainViewController.swift */,
+				A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */,
+				A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */,
+				A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A9E6E86F285982A90077BBF8 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,9 +786,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */,
+				A97C1B092861FFC800FFCB78 /* IntroductionPage.storyboard in Resources */,
 				1436F77A285CAAAF0090582B /* StretchFinish.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				14FD0C04286060CE00DAF65D /* Thumb Glide.gif in Resources */,
+				A97C1B0D2861FFFD00FFCB78 /* PainAssessmentPage.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
 				14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */,
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
@@ -751,7 +801,9 @@
 				145A1D462861EA37001A6BA4 /* PainAssessment.storyboard in Resources */,
 				145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */,
 				14FD0C05286060CE00DAF65D /* Push Out Stretch.gif in Resources */,
+				A97C1B0B2861FFE300FFCB78 /* InputNamePage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
+				A97C1B052861FE0500FFCB78 /* OnboardingMain.storyboard in Resources */,
 				145A1D2C286187DD001A6BA4 /* Prayer.gif in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */,
@@ -769,6 +821,7 @@
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
+				A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */,
 				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
@@ -778,10 +831,15 @@
 				14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */,
 				145A1D4E2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
+				A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
 				1405D098285CB2DA000D3157 /* OverviewPageController.swift in Sources */,
 				148BD0AF285A133800420125 /* StretchSteps.swift in Sources */,
+				A97C1B0F2862003000FFCB78 /* IntroductionPageViewController.swift in Sources */,
+				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
+				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
+				A97C1B072861FE1B00FFCB78 /* OnboardingMainViewController.swift in Sources */,
 				145A1D4C2861EAAE001A6BA4 /* PostWorkController.swift in Sources */,
 				145A1D352861CF81001A6BA4 /* CameraView.swift in Sources */,
 				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
@@ -946,7 +1004,7 @@
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
+				INFOPLIST_KEY_UIMainStoryboardFile = OnboardingMain;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -975,7 +1033,7 @@
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TimerPage;
+				INFOPLIST_KEY_UIMainStoryboardFile = OnboardingMain;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
