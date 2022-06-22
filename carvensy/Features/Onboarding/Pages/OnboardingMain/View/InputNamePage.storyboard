@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-uY-JbO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input name - data" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-uY-JbO">
                                 <rect key="frame" x="20" y="94" width="374" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="xrn-vw-kte"/>
@@ -47,7 +47,7 @@ what should we call you?</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaK-VP-UrF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaK-VP-UrF" userLabel="Name Card View">
                                 <rect key="frame" x="20" y="611" width="374" height="55.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="m2Y-ST-LtY">
@@ -94,6 +94,7 @@ what should we call you?</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameCardView" destination="VaK-VP-UrF" id="uk4-5r-Hs9"/>
                         <outlet property="userName" destination="qzc-3Y-I5X" id="d3b-Jd-xhT"/>
                     </connections>
                 </viewController>
@@ -103,6 +104,7 @@ what should we call you?</string>
         </scene>
     </scenes>
     <resources>
+        <image name="input name - data" width="876.5" height="749.5"/>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
