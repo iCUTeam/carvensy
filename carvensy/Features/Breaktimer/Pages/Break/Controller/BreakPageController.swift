@@ -21,12 +21,19 @@ class BreakPageController: UIViewController {
     }
     
     @IBAction func stretchButtonPressed(_ sender: Any) {
-        //TODO: Add Alert Confirmation
-        //TODO: Add Action
+        performSegue(withIdentifier: "goToChooseStretch", sender: self)
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
         //TODO: Add Alert Confirmation
         //TODO: Add Action
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToChooseStretch"
+        {
+            guard let vc = segue.destination as? ChooseStretchController else { return }
+            vc.modalPresentationStyle = .fullScreen
+        }
     }
 }

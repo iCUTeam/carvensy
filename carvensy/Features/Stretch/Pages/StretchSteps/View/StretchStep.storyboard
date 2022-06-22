@@ -42,8 +42,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBC-or-Y6i">
-                                <rect key="frame" x="175" y="311" width="65" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBC-or-Y6i">
+                                <rect key="frame" x="41" y="311" width="332" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -96,11 +96,20 @@
                         <outlet property="stretchDesc" destination="aBi-KM-dih" id="1iR-vx-ZIe"/>
                         <outlet property="stretchGuideGif" destination="vyx-lW-72b" id="HSX-Pl-1Ho"/>
                         <outlet property="stretchTitle" destination="NBC-or-Y6i" id="zV4-vZ-8Yh"/>
+                        <segue destination="dae-tc-ZQW" kind="presentation" identifier="doStretchCam" modalPresentationStyle="fullScreen" id="gfP-d7-ZgM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="69.642857142857139"/>
+        </scene>
+        <!--StretchCamView-->
+        <scene sceneID="1RX-um-0UL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StretchCamView" id="dae-tc-ZQW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WA3-wk-h0r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="74"/>
         </scene>
     </scenes>
     <resources>
