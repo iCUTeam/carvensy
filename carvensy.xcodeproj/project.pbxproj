@@ -14,6 +14,19 @@
 		1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1436F77B285CAAB50090582B /* StretchFinishPageController.swift */; };
 		14573B40285ADDEB008F714F /* StretchStep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14573B3F285ADDEA008F714F /* StretchStep.storyboard */; };
 		14573B42285ADE16008F714F /* StretchStepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573B41285ADE16008F714F /* StretchStepController.swift */; };
+		145A1D2A28618584001A6BA4 /* GIFProcessorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */; };
+		145A1D2C286187DD001A6BA4 /* Prayer.gif in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D2B286187DD001A6BA4 /* Prayer.gif */; };
+		145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */; };
+		145A1D332861C5DB001A6BA4 /* StretchCamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D322861C5DB001A6BA4 /* StretchCamController.swift */; };
+		145A1D352861CF81001A6BA4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D342861CF81001A6BA4 /* CameraView.swift */; };
+		145A1D422861E047001A6BA4 /* DailySummary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D412861E047001A6BA4 /* DailySummary.storyboard */; };
+		145A1D442861E05E001A6BA4 /* DailySummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D432861E05E001A6BA4 /* DailySummaryController.swift */; };
+		145A1D462861EA37001A6BA4 /* PainAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D452861EA37001A6BA4 /* PainAssessment.storyboard */; };
+		145A1D482861EA8B001A6BA4 /* PainAssessmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D472861EA8B001A6BA4 /* PainAssessmentController.swift */; };
+		145A1D4A2861EA9F001A6BA4 /* PostWork.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145A1D492861EA9F001A6BA4 /* PostWork.storyboard */; };
+		145A1D4C2861EAAE001A6BA4 /* PostWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D4B2861EAAE001A6BA4 /* PostWorkController.swift */; };
+		145A1D4E2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D4D2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift */; };
+		145A1D522861FBDA001A6BA4 /* SymtompsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A1D512861FBDA001A6BA4 /* SymtompsCollectionViewCell.swift */; };
 		148BD09C2859FB2A00420125 /* ChooseStretch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */; };
 		148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A3285A04D200420125 /* ChooseStretchController.swift */; };
 		148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0A5285A057D00420125 /* ChooseStretchTableViewCell.swift */; };
@@ -60,6 +73,19 @@
 		1436F77B285CAAB50090582B /* StretchFinishPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchFinishPageController.swift; sourceTree = "<group>"; };
 		14573B3F285ADDEA008F714F /* StretchStep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchStep.storyboard; sourceTree = "<group>"; };
 		14573B41285ADE16008F714F /* StretchStepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchStepController.swift; sourceTree = "<group>"; };
+		145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFProcessorExtension.swift; sourceTree = "<group>"; };
+		145A1D2B286187DD001A6BA4 /* Prayer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Prayer.gif; sourceTree = "<group>"; };
+		145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StretchCamView.storyboard; sourceTree = "<group>"; };
+		145A1D322861C5DB001A6BA4 /* StretchCamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchCamController.swift; sourceTree = "<group>"; };
+		145A1D342861CF81001A6BA4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		145A1D412861E047001A6BA4 /* DailySummary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailySummary.storyboard; sourceTree = "<group>"; };
+		145A1D432861E05E001A6BA4 /* DailySummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryController.swift; sourceTree = "<group>"; };
+		145A1D452861EA37001A6BA4 /* PainAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PainAssessment.storyboard; sourceTree = "<group>"; };
+		145A1D472861EA8B001A6BA4 /* PainAssessmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainAssessmentController.swift; sourceTree = "<group>"; };
+		145A1D492861EA9F001A6BA4 /* PostWork.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWork.storyboard; sourceTree = "<group>"; };
+		145A1D4B2861EAAE001A6BA4 /* PostWorkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorkController.swift; sourceTree = "<group>"; };
+		145A1D4D2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainAssessmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		145A1D512861FBDA001A6BA4 /* SymtompsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymtompsCollectionViewCell.swift; sourceTree = "<group>"; };
 		148BD09B2859FB2A00420125 /* ChooseStretch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseStretch.storyboard; sourceTree = "<group>"; };
 		148BD09F2859FF6900420125 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		148BD0A02859FF9E00420125 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
@@ -180,9 +206,143 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		145A1D2D2861C52B001A6BA4 /* DoStretchCamView */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D2F2861C545001A6BA4 /* Controller */,
+				145A1D2E2861C541001A6BA4 /* View */,
+			);
+			path = DoStretchCamView;
+			sourceTree = "<group>";
+		};
+		145A1D2E2861C541001A6BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D302861C5C4001A6BA4 /* StretchCamView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145A1D2F2861C545001A6BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D322861C5DB001A6BA4 /* StretchCamController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		145A1D362861DE46001A6BA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		145A1D372861DE4B001A6BA4 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D3A2861DE7D001A6BA4 /* PostWork */,
+				145A1D392861DE75001A6BA4 /* PainAssessment */,
+				145A1D382861DE6E001A6BA4 /* DailySummary */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		145A1D382861DE6E001A6BA4 /* DailySummary */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D402861DF41001A6BA4 /* Controller */,
+				145A1D3F2861DF3D001A6BA4 /* View */,
+			);
+			path = DailySummary;
+			sourceTree = "<group>";
+		};
+		145A1D392861DE75001A6BA4 /* PainAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D3E2861DF37001A6BA4 /* Controller */,
+				145A1D3D2861DF34001A6BA4 /* View */,
+			);
+			path = PainAssessment;
+			sourceTree = "<group>";
+		};
+		145A1D3A2861DE7D001A6BA4 /* PostWork */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D3C2861DF2E001A6BA4 /* Controller */,
+				145A1D3B2861DF2B001A6BA4 /* View */,
+			);
+			path = PostWork;
+			sourceTree = "<group>";
+		};
+		145A1D3B2861DF2B001A6BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D492861EA9F001A6BA4 /* PostWork.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145A1D3C2861DF2E001A6BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D4B2861EAAE001A6BA4 /* PostWorkController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		145A1D3D2861DF34001A6BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D452861EA37001A6BA4 /* PainAssessment.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145A1D3E2861DF37001A6BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D472861EA8B001A6BA4 /* PainAssessmentController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		145A1D3F2861DF3D001A6BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D412861E047001A6BA4 /* DailySummary.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145A1D402861DF41001A6BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D432861E05E001A6BA4 /* DailySummaryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		145A1D4F2861FBB2001A6BA4 /* PainAssessmentViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D4D2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift */,
+			);
+			path = PainAssessmentViewCell;
+			sourceTree = "<group>";
+		};
+		145A1D502861FBC2001A6BA4 /* SymtompsCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				145A1D512861FBDA001A6BA4 /* SymtompsCollectionViewCell.swift */,
+			);
+			path = SymtompsCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		148BD0972859F9D200420125 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				145A1D2D2861C52B001A6BA4 /* DoStretchCamView */,
 				A97B08EF285F0C70002493BC /* DisclaimerStretch */,
 				1436F776285CAA8B0090582B /* StretchPraise */,
 				14573B3C285ADCA9008F714F /* StretchSteps */,
@@ -219,6 +379,8 @@
 		148BD09D2859FF4B00420125 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				145A1D502861FBC2001A6BA4 /* SymtompsCollectionViewCell */,
+				145A1D4F2861FBB2001A6BA4 /* PainAssessmentViewCell */,
 				14FD0BFA28605E8B00DAF65D /* MoreComingSoonViewCell */,
 				1405D0A4285CDD6E000D3157 /* OverviewSymptomsCollectionViewCell */,
 				1405D0A3285CDD59000D3157 /* OverviewCollectionViewCell */,
@@ -250,6 +412,7 @@
 			children = (
 				148BD0AC285A0ABF00420125 /* StretchType.swift */,
 				148BD0AE285A133800420125 /* StretchSteps.swift */,
+				145A1D342861CF81001A6BA4 /* CameraView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +429,7 @@
 		14FD0BFF286060BC00DAF65D /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
+				145A1D2B286187DD001A6BA4 /* Prayer.gif */,
 				14FD0C02286060CE00DAF65D /* Push Out Stretch.gif */,
 				14FD0C00286060CE00DAF65D /* Stop Stretch.gif */,
 				14FD0C01286060CE00DAF65D /* Thumb Glide.gif */,
@@ -305,6 +469,8 @@
 		950636B62859ECAC008C2639 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
+				145A1D362861DE46001A6BA4 /* Model */,
+				145A1D372861DE4B001A6BA4 /* Pages */,
 				950636B82859ECE9008C2639 /* blank.swift */,
 			);
 			path = Summary;
@@ -375,6 +541,7 @@
 			children = (
 				1498D1D82858BB280009C41F /* TimerProgressBar.swift */,
 				1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */,
+				145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -629,10 +796,15 @@
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
 				14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */,
 				14FD0C03286060CE00DAF65D /* Stop Stretch.gif in Resources */,
+				145A1D4A2861EA9F001A6BA4 /* PostWork.storyboard in Resources */,
+				145A1D422861E047001A6BA4 /* DailySummary.storyboard in Resources */,
+				145A1D462861EA37001A6BA4 /* PainAssessment.storyboard in Resources */,
+				145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */,
 				14FD0C05286060CE00DAF65D /* Push Out Stretch.gif in Resources */,
 				A97C1B0B2861FFE300FFCB78 /* InputNamePage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				A97C1B052861FE0500FFCB78 /* OnboardingMain.storyboard in Resources */,
+				145A1D2C286187DD001A6BA4 /* Prayer.gif in Resources */,
 				148BD0A8285A057D00420125 /* ChooseStretchTableViewCell.xib in Resources */,
 				95E3C4BD285844EC0065DFB0 /* TimerPage.storyboard in Resources */,
 				A97B08F3285F0C95002493BC /* DisclaimerStretch.storyboard in Resources */,
@@ -654,7 +826,10 @@
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				A97B08F5285F0CB0002493BC /* DisclaimerController.swift in Sources */,
+				145A1D2A28618584001A6BA4 /* GIFProcessorExtension.swift in Sources */,
+				145A1D332861C5DB001A6BA4 /* StretchCamController.swift in Sources */,
 				14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */,
+				145A1D4E2861FBAE001A6BA4 /* PainAssessmentCollectionViewCell.swift in Sources */,
 				A97B08E7285AE4CA002493BC /* BreakPageController.swift in Sources */,
 				A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
@@ -663,12 +838,19 @@
 				148BD0AF285A133800420125 /* StretchSteps.swift in Sources */,
 				A97C1B0F2862003000FFCB78 /* IntroductionPageViewController.swift in Sources */,
 				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
-				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
 				A97C1B072861FE1B00FFCB78 /* OnboardingMainViewController.swift in Sources */,
+				145A1D4C2861EAAE001A6BA4 /* PostWorkController.swift in Sources */,
+				145A1D352861CF81001A6BA4 /* CameraView.swift in Sources */,
+				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
+				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
+				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
+				145A1D482861EA8B001A6BA4 /* PainAssessmentController.swift in Sources */,
 				1405D0AA285CDE54000D3157 /* OverviewSymptomsCollectionViewCell.swift in Sources */,
 				14573B42285ADE16008F714F /* StretchStepController.swift in Sources */,
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
+				145A1D522861FBDA001A6BA4 /* SymtompsCollectionViewCell.swift in Sources */,
+				145A1D442861E05E001A6BA4 /* DailySummaryController.swift in Sources */,
 				956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */,
 				95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */,
 			);

@@ -10,6 +10,11 @@ import UIKit
 class OverviewPageController: UIViewController {
 
     var lastSession: Session?
+    @IBOutlet weak var breakCV: UICollectionView!
+    @IBOutlet weak var stretchCV: UICollectionView!
+    @IBOutlet weak var stretchPlanTableView: UITableView!
+    @IBOutlet weak var emojiView: UIImageView!
+    @IBOutlet weak var painAssessCV: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         checkSession()
