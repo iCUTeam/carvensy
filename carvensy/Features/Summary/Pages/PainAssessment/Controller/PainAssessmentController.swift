@@ -7,27 +7,113 @@
 
 import UIKit
 
-class PainAssessmentController: UIViewController {
+class PainAssessmentController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
+    
     @IBOutlet weak var painAssessmentCV: UICollectionView!
     @IBOutlet weak var symtompsCV: UICollectionView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var postAssessTxt: UITextView!
+    
+    var emojiImgs = ["A", "B", "C", "D", "E"]
+    var descImg = ["Worsen", "", "", "", "Better"]
+    var symtomps = ["Pain", "Tremor", "Tingling", "Numbness", "Burning", "Itching", "Swollen", "Stiffness", "Weakness"]
+    
+    var symtompsSaveArray = [Session_Detail]()
+    
+    var painlevel  = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        submitBtn.isEnabled = false
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func submitAction(_ sender: Any?)
+    {
+        performSegue(withIdentifier: "goToPostWork", sender: self)
     }
-    */
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == self.painAssessmentCV
+        {
+            return 5
+        }
+        
+        else
+        {
+            return 3
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == self.painAssessmentCV
+        {
+            return 1
+        }
+        
+        else
+        {
+            return 3
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+       
+        
+        if collectionView == self.painAssessmentCV
+        {
+            let cell = collectionView.cellForItem(at: indexPath) as! PainAssessCollectionViewCell
+            painlevel = indexPath.row
+            cell.emojiImg.layer.borderWidth = 1
+            cell.emojiImg.layer.borderColor = CarvensyColor.greenMain?.cgColor
+            cell.emojiImg.layer.masksToBounds = false
+            cell.emojiImg.layer.cornerRadius = cell.emojiImg.frame.height/2
+            cell.emojiImg.clipsToBounds = true
+            submitBtn.isEnabled = true
+            
+        }
+        
+        else
+        {
+            let cell = collectionView.cellForItem(at: indexPath) as! SymtompssCollectionViewCell
+            cell.backgroundColor = CarvensyColor.greenMain
+            //save symptoms to array
+            //save to session
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+      
+        
+        if collectionView == self.painAssessmentCV
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "smile-pain", for: indexPath) as! PainAssessCollectionViewCell
+            cell.emojiImg.image = UIImage(named: emojiImgs[indexPath.row])
+            cell.conditionLbl.text = descImg[indexPath.row]
+            
+            
+            return cell
+        }
+        
+        else
+        {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symtomps-det", for: indexPath) as! SymtompssCollectionViewCell
+            
+            cell.symtompsLbl.text = symtomps[indexPath.row]
+    
+            
+            return cell
+        }
+        
+    }
+    
+    
 
 }

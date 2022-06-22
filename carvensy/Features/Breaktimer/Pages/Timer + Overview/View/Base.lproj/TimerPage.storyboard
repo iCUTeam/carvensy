@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -33,7 +34,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EmR-t0-q65">
                                 <rect key="frame" x="20" y="184" width="374" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="greenBG"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j91-i4-6PF">
                                     <size key="itemSize" width="149" height="93"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -64,6 +65,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <size key="customSize" width="170" height="60"/>
                                         <connections>
                                             <outlet property="dataLbl" destination="8GC-yL-52e" id="KZM-1y-aKn"/>
@@ -75,7 +77,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="acA-Oh-mNw">
                                 <rect key="frame" x="20" y="324" width="374" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="greenBG"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lGu-eO-4mq">
                                     <size key="itemSize" width="149" height="93"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -117,7 +119,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-ed-YTD">
                                 <rect key="frame" x="164" y="670" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="greenBG"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="foV-Vb-A6j">
                                     <size key="itemSize" width="99" height="118"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -141,6 +143,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <size key="customSize" width="95" height="25"/>
                                         <connections>
                                             <outlet property="lbl" destination="p8e-4z-Evg" id="YID-WG-Iy7"/>
@@ -150,14 +153,18 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Mg-88-hFo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="greenBG"/>
                     </view>
                     <navigationItem key="navigationItem" id="MG3-tG-ufZ"/>
                     <connections>
                         <outlet property="breakCV" destination="EmR-t0-q65" id="Lcl-MU-VoL"/>
+                        <outlet property="breakLbl" destination="fea-WR-rFE" id="Zne-f2-tnl"/>
                         <outlet property="emojiView" destination="rbZ-vw-lon" id="si3-U2-VDH"/>
                         <outlet property="painAssessCV" destination="H7K-ed-YTD" id="SIi-E6-DfC"/>
+                        <outlet property="postLbl" destination="fBp-h1-mYh" id="6Uw-mJ-sEC"/>
+                        <outlet property="routineLbl" destination="Bgx-l9-LzT" id="ufn-vH-mSd"/>
                         <outlet property="stretchCV" destination="acA-Oh-mNw" id="hWH-at-a8Q"/>
+                        <outlet property="stretchLbl" destination="HxR-gC-21i" id="q5z-my-dl2"/>
                         <outlet property="stretchPlanTableView" destination="OVY-GI-epg" id="5Q3-v7-hsb"/>
                     </connections>
                 </viewController>
@@ -176,7 +183,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aot-z3-U2D" customClass="TimerProgressBar" customModule="carvensy" customModuleProvider="target">
                                 <rect key="frame" x="65" y="279" width="284" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="greenBG"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Break in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIL-QU-ihc">
                                 <rect key="frame" x="83" y="171" width="248" height="36"/>
@@ -207,7 +214,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Een-Ka-yHj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="greenBG"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hai-L8-IVZ"/>
                     <connections>
@@ -255,6 +262,7 @@
                     <connections>
                         <segue destination="eX2-j3-g5R" kind="relationship" relationship="viewControllers" id="dux-mW-hv9"/>
                         <segue destination="PUM-i4-HPe" kind="relationship" relationship="viewControllers" id="GgQ-1B-h1r"/>
+                        <segue destination="VX0-8M-yty" kind="relationship" relationship="viewControllers" id="IsM-2d-fw9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLj-V2-qiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,10 +307,46 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="371.65178571428572"/>
         </scene>
+        <!--About CTS-->
+        <scene sceneID="8H5-VX-sy0">
+            <objects>
+                <viewController id="VX0-8M-yty" customClass="TriviaViewController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GIR-kU-nBc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-mu-yS5">
+                                <rect key="frame" x="20" y="98" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="More About CTS"/>
+                                    <segment title="Common Symtomps"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSegment:" destination="VX0-8M-yty" eventType="valueChanged" id="XUh-tt-HIR"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="04X-Bd-BOh"/>
+                        <color key="backgroundColor" name="greenBG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About CTS" image="info" catalog="system" id="0t2-1R-5CA"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="XLp-mu-yS5" id="aVs-Qc-idD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9t6-jE-ABU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="1064.7321428571429"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
+        <image name="info" catalog="system" width="93" height="128"/>
         <image name="timer" catalog="system" width="128" height="121"/>
+        <namedColor name="greenBG">
+            <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

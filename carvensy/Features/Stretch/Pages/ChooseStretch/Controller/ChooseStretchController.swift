@@ -7,10 +7,11 @@
 
 import UIKit
 
+var stretchType = [StretchType]()
+
 class ChooseStretchController: UIViewController, UITableViewDataSource, UITableViewDelegate{
    
     @IBOutlet var tableView: UITableView!
-    var stretchType = [StretchType]()
     var quickStretchSteps = [StretchSteps]()
     var focusStretchSteps = [StretchSteps]()
     
