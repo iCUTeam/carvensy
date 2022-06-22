@@ -39,6 +39,8 @@ class TimerPageController: UIViewController {
     let center = UNUserNotificationCenter.current()
     
     
+    var editBtn = UIBarButtonItem()
+    
     override func viewWillAppear(_ animated: Bool) {
         if currentState == .startWork
         {
@@ -75,7 +77,10 @@ class TimerPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editBtn = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
         
+        navigationItem.rightBarButtonItem = editBtn
+        title = "Break Timer"
         
         startTime = userdefaults.object(forKey: START_TIME) as? Date
         currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "startwork") ?? .startWork
@@ -98,6 +103,7 @@ class TimerPageController: UIViewController {
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             startBtn.setTitle("Start Work", for: .normal)
             endBtn.isHidden = true
+            editBtn.isEnabled = true
             
         }
         
@@ -107,6 +113,7 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
+            editBtn.isEnabled = false
         }
         
         else
@@ -120,6 +127,7 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("Snooze", for: .normal)
+            editBtn.isEnabled = false
         }
         
         layer.fontSize = fontsize
@@ -127,9 +135,7 @@ class TimerPageController: UIViewController {
         layer.alignmentMode = .center
         view.layer.addSublayer(layer)
         
-      
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
-        title = "Break Timer"
+
     }
     
     
@@ -177,26 +183,7 @@ class TimerPageController: UIViewController {
         scheduledTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
     }
     
-    
-    func secondsToHourMinutesSeconds(_ ms: Int) -> (Int, Int, Int)
-    {
-        let hour = ms/3600
-        let min = (ms % 3600) / 60
-        let sec = (ms % 3600) % 60
-        
-        return (hour, min, sec)
-    }
-    
-    func makeTimeString(hour: Int, min: Int, sec: Int) -> String
-    {
-        var timeString = ""
-        timeString += String(format: "%02d", hour)
-        timeString += ":"
-        timeString += String(format: "%02d", min)
-        timeString += ":"
-        timeString += String(format: "%02d", sec)
-        return timeString
-    }
+
     
 
     @objc private func editPage()
@@ -214,47 +201,14 @@ class TimerPageController: UIViewController {
             { (granted, error) in
                 
             }
-            //notif content
-            let notif = UNMutableNotificationContent()
-            notif.title = "User, prepare to rest your hand!"
-            notif.body = "5 minutes left until your break time, prepare yourself to loosen up a bit"
             
-            //notif trigger
-            let date = Date().addingTimeInterval(5)
-            
-            let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
-            
-            //notif request
-            let uuid = UUID().uuidString
-            
-            let request = UNNotificationRequest(identifier: uuid, content: notif, trigger: trigger)
-            
-            //register notif request
+            let request = scheduleNotification(title: "prepare to rest your hand", content: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - 300)
             
             center.add(request) { (error) in
                 
             }
             
-            let notif2 = UNMutableNotificationContent()
-            notif2.title = "User, it's time to rest your hand!"
-            notif2.body = "Enjoy your break time with simple care for your hands. How about some stretches?"
-
-            let date2 = Date().addingTimeInterval(10)
-
-            let dateComp2 = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
-
-            let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComp2, repeats: false)
-
-            let uuid2 = UUID().uuidString
-
-            let request2 = UNNotificationRequest(identifier: uuid2, content: notif2, trigger: trigger2)
-
-            center.add(request2)
-            { (error) in
-
-            }
+            let request_timeToStretch = scheduleNotification(title: "it's time to rest your hand", content: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
             
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
@@ -264,6 +218,7 @@ class TimerPageController: UIViewController {
                 startTimer()
                 setStartTime(date: Date())
                 
+                editBtn.isEnabled = false
                 sender.setTitle("Jump to Break", for: .normal)
                 endBtn.isHidden = false
                 endBtn.setTitle("End Work", for: .normal)
@@ -334,7 +289,10 @@ class TimerPageController: UIViewController {
                 
                 center.removeAllPendingNotificationRequests()
                 //logic cek stretch and break
-               //storyboard reference
+
+                scheduledTimer.invalidate()
+                setSavedState(currState: .startWork)
+                //storyboard reference
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in

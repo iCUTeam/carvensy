@@ -16,6 +16,11 @@ class OverviewPageController: UIViewController {
     @IBOutlet weak var emojiView: UIImageView!
     @IBOutlet weak var painAssessCV: UICollectionView!
     
+    @IBOutlet weak var breakLbl: UILabel!
+    @IBOutlet weak var stretchLbl: UILabel!
+    @IBOutlet weak var routineLbl: UILabel!
+    @IBOutlet weak var postLbl: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         checkSession()
     }
@@ -45,6 +50,29 @@ class OverviewPageController: UIViewController {
             
             view.layer.addSublayer(textTitle)
             view.layer.addSublayer(textContent)
+            
+            breakCV.isHidden = true
+            stretchCV.isHidden = true
+            stretchPlanTableView.isHidden = true
+            emojiView.isHidden = true
+            painAssessCV.isHidden = true
+            breakLbl.isHidden = true
+            stretchLbl.isHidden = true
+            routineLbl.isHidden = true
+            postLbl.isHidden = true
+        }
+        
+        else
+        {
+            breakCV.isHidden = false
+            stretchCV.isHidden = false
+            stretchPlanTableView.isHidden = false
+            emojiView.isHidden = false
+            painAssessCV.isHidden = false
+            breakLbl.isHidden = false
+            stretchLbl.isHidden = false
+            routineLbl.isHidden = false
+            postLbl.isHidden = false
         }
     }
 
