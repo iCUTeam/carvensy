@@ -19,14 +19,16 @@ class StretchStepController: UIViewController {
     @IBOutlet weak var endBtn: UIButton!
     
     var stretchStepArray = [StretchSteps]()
-
+    var stretchChoice = 0
     var index = 0
+    
     
     var isPaused = false
     var countFired: CGFloat =  10
     
     override func viewWillAppear(_ animated: Bool) {
         setSteps()
+        stretchStepArray = stretchType[stretchChoice].stretchSteps
         progressBar.progress = 1
         countDown()
     }
@@ -34,7 +36,8 @@ class StretchStepController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSteps()
-       
+        stretchStepArray = stretchType[stretchChoice].stretchSteps
+        
         // Do any additional setup after loading the view.
     }
     
@@ -101,7 +104,7 @@ class StretchStepController: UIViewController {
         
         let alert = UIAlertController(title: "Are you sure?", message: "You haven't reached the end of the set. Make sure you already stretch properly before you proceed!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-            //pindah ke daily summary ??
+            performSegue(withIdentifier: "goBackToBreak", sender: self)
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -110,14 +113,6 @@ class StretchStepController: UIViewController {
         
         self.present(alert, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }

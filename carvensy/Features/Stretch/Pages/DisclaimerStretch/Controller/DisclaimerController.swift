@@ -11,6 +11,8 @@ class DisclaimerController: UIViewController {
     @IBOutlet weak var primaryButton: UIButton!
     @IBOutlet weak var secondaryButton: UIButton!
     
+    var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,12 +21,16 @@ class DisclaimerController: UIViewController {
     
     
     @IBAction func primaryButtonPressed(_ sender: Any) {
-        //TODO: I Understand Button Action
-        print("I Understand")
+        performSegue(withIdentifier: "goToSteps", sender: self)
     }
     
-    @IBAction func secondaryButtonPressed(_ sender: Any) {
-        //TODO: No Thanks Button Action
-        print("No Thanks")
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSteps"
+        {
+            guard let vc = segue.destination as? StretchStepController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            vc.stretchChoice = index
+        }
     }
 }

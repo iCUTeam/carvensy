@@ -100,6 +100,7 @@
                         <outlet property="stretchGuideGif" destination="vyx-lW-72b" id="HSX-Pl-1Ho"/>
                         <outlet property="stretchTitle" destination="NBC-or-Y6i" id="zV4-vZ-8Yh"/>
                         <segue destination="dae-tc-ZQW" kind="presentation" identifier="doStretchCam" modalPresentationStyle="fullScreen" id="gfP-d7-ZgM"/>
+                        <segue destination="d34-uS-5IP" kind="presentation" identifier="goBackToBreak" id="24w-y0-rEx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -113,6 +114,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WA3-wk-h0r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805" y="74"/>
+        </scene>
+        <!--BreakPage-->
+        <scene sceneID="cfW-0k-RKh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BreakPage" id="d34-uS-5IP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6L-OZ-IQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="188"/>
         </scene>
     </scenes>
     <resources>

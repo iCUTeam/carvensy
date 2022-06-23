@@ -52,17 +52,17 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="cDz-5N-4qY" id="UsB-uo-vSw"/>
-                        <segue destination="bzM-eN-0dO" kind="presentation" identifier="goToSteps" modalPresentationStyle="fullScreen" id="ImW-Mb-9Xk"/>
+                        <segue destination="bzM-eN-0dO" kind="presentation" identifier="goToDisclaimer" modalPresentationStyle="fullScreen" id="ImW-Mb-9Xk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="83.886255924170612"/>
         </scene>
-        <!--StretchStep-->
+        <!--DisclaimerStretch-->
         <scene sceneID="zD9-mF-emG">
             <objects>
-                <viewControllerPlaceholder storyboardName="StretchStep" id="bzM-eN-0dO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DisclaimerStretch" id="bzM-eN-0dO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuL-yT-luD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="22"/>

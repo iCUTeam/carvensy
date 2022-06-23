@@ -10,6 +10,9 @@ import UIKit
 class OverviewPageController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate{
 
     var lastSession: Session?
+    var sessionHelper = SessionCRUD()
+    var symtomps = [Session_Detail]()
+    
     @IBOutlet weak var breakCV: UICollectionView!
     @IBOutlet weak var stretchCV: UICollectionView!
     @IBOutlet weak var stretchPlanTableView: UITableView!
@@ -21,14 +24,25 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var routineLbl: UILabel!
     @IBOutlet weak var postLbl: UILabel!
     
+    var emojiArray = ["post work - sad emoji", "post work - think emoji", "post work - flat emoji", "post work - smile emoji", "post work - happy emoji"]
+    
     override func viewWillAppear(_ animated: Bool) {
         checkSession()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkSession()
+        let allSession = sessionHelper.fetchSession()
         
+        lastSession = sessionHelper.currentSession(sessions: allSession)
+        
+        if lastSession != nil
+        {
+            symtomps = sessionHelper.sessDetailToArray(session: lastSession!)
+        }
+        
+        checkSession()
+    
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
        
         // Do any additional setup after loading the view.
@@ -75,12 +89,22 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
             routineLbl.isHidden = false
             postLbl.isHidden = false
             
+            emojiView.image = UIImage(named: emojiArray[Int(lastSession?.pain_assesment ?? 2)])
+            
             
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if collectionView == painAssessCV
+        {
+            return symtomps.count
+        }
+        
+        else
+        {
+            return 2
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,6 +129,15 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
             {
                 cell.dataLbl.text = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             }
+        }
+        
+        else if collectionView == self.painAssessCV
+        {
+            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "overview-symtomps", for: indexPath) as! OverviewSymptomsCollectionViewCell
+            
+            cell2.lbl.text = symtomps[indexPath.row].symptoms
+            
+            return cell2
         }
         
         else
