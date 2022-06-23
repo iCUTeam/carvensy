@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-RT-17k">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="break page - clock" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-RT-17k">
                                 <rect key="frame" x="33" y="299" width="348" height="298"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="298" id="7Xx-B8-cOR"/>
@@ -120,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="break page - clock" width="1367" height="1168"/>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
