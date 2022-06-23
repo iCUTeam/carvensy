@@ -48,21 +48,6 @@ class BreakPlanRU
         return curr_plan
     }
     
-    //new breakplan
-    
-    func newBreakPlan(user: User, break_every:Double, notify: Double, snooze: Bool)
-    {
-        let context = coreDataHelper.getBackgroundContext()
-        
-        let break_plan = Break_Plan(context: context)
-        break_plan.break_every = break_every
-        break_plan.notify_before = notify
-        break_plan.snooze = snooze
-        
-        user.break_plan = break_plan
-        
-        coreDataHelper.saveContext(saveContext: context)
-    }
     
     //edit breakplan
     

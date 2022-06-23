@@ -12,15 +12,43 @@ class BreakPageController: UIViewController {
     @IBOutlet weak var stretchButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     
+    var session: Session?
+    
+    var sessionHelper = SessionCRUD()
+    
+    var count: Double = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addCount), userInfo: nil, repeats: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Break"
         
-        //TODO: Start Break Time Duration Counter Here
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addCount), userInfo: nil, repeats: false)
         
     }
     
+    @objc func addCount()
+    {
+        count += 1
+    }
+    
     @IBAction func stretchButtonPressed(_ sender: Any) {
+        
+        let allSession = sessionHelper.fetchSession()
+        session = sessionHelper.currentSession(sessions: allSession)
+        
+        if session?.break_relation == nil
+        {
+            sessionHelper.firstBreak(Current_session: session!, duration: count)
+        }
+        
+        else
+        {
+            sessionHelper.addBreak(Current_Session: session!, duration: count)
+        }
         performSegue(withIdentifier: "goToChooseStretch", sender: self)
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OverviewPageController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class OverviewPageController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate{
 
     var lastSession: Session?
     @IBOutlet weak var breakCV: UICollectionView!
@@ -29,6 +29,7 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         checkSession()
         
+        self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
        
         // Do any additional setup after loading the view.
     }
@@ -122,6 +123,23 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.dataLbl.text = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             }
         }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type") as! ChooseStretchTableViewCell
+        let gifImage = UIImage.gifImageWithName(stretchType[0].stretchIcon ?? "Stop Stretch")
+        cell.stretchImage.image = gifImage
+        cell.layer.cornerRadius = 50
+        cell.stretchTitle.text = stretchType[0].stretchTitle
+        cell.stretchTypes.text = stretchType[0].stretchContent
+        cell.maxReps.text = "Max \(stretchType[0].stretchSteps[1].numberofReps ?? 0) reps per move"
+        cell.maxHold.text = "Max \(stretchType[0].stretchSteps[0].holdSec ?? 0) secs hold each"
         
         return cell
     }
