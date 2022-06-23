@@ -8,7 +8,7 @@
 import UIKit
 
 class IntroductionPageViewController: UIViewController {
-    @IBOutlet weak var aboutButton: UIButton!
+ 
     @IBOutlet weak var breakCardView: UIView!
     @IBOutlet weak var stretchCardView: UIView!
     
@@ -18,12 +18,6 @@ class IntroductionPageViewController: UIViewController {
         breakCardView.roundViewCorner([.bottomRight,.bottomLeft,.topRight,.topLeft], radius: 10)
         stretchCardView.roundViewCorner([.bottomRight,.bottomLeft,.topRight,.topLeft], radius: 10)
     }
-    
-    @IBAction func aboutButtonPressed(_ sender: Any) {
-        //TODO: Add CTS Information Page Modal View
-        
-    }
-    
 
 }
 
