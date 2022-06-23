@@ -112,7 +112,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="*Find Out More About CTS"/>
                                 <connections>
-                                    <action selector="aboutButtonPressed:" destination="FUA-sL-OcE" eventType="touchUpInside" id="Atr-07-7KT"/>
+                                    <segue destination="b0Q-Tu-Zf0" kind="presentation" id="chK-Zv-K27"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -139,7 +139,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aboutButton" destination="otb-0a-pmt" id="f2U-FW-Kc3"/>
                         <outlet property="breakCardView" destination="uTF-36-35p" id="VNE-iT-PB9"/>
                         <outlet property="stretchCardView" destination="kIP-21-GnK" id="Bda-Ug-fdl"/>
                     </connections>
@@ -147,6 +146,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHP-DP-tva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="943" y="113"/>
+        </scene>
+        <!--AboutCTSPage-->
+        <scene sceneID="UBm-oO-drq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AboutCTSPage" id="b0Q-Tu-Zf0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2d5-66-HnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="113"/>
         </scene>
     </scenes>
     <resources>

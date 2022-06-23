@@ -42,7 +42,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="*CTS Common Symptoms"/>
                                 <connections>
-                                    <action selector="symptomButtonPressed:" destination="63r-3C-Lmi" eventType="touchUpInside" id="z3g-vM-c3Y"/>
+                                    <segue destination="Z0s-pS-CyP" kind="presentation" id="bau-Zq-Jkz"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3K-D0-cUb">
@@ -273,16 +273,41 @@
                     <connections>
                         <outlet property="firstCard" destination="W3K-D0-cUb" id="QKy-5N-b9y"/>
                         <outlet property="secondCard" destination="TfT-nv-1gN" id="EdD-EI-i8e"/>
-                        <outlet property="symptomButton" destination="c3z-xu-eg0" id="NM9-9b-ouH"/>
                         <outlet property="tapAreaFirst" destination="HQC-i8-waz" id="fHH-Qd-fdd"/>
                         <outlet property="tapAreaSecond" destination="DfG-Hz-Ryb" id="cqB-Vv-Hiw"/>
                         <outlet property="tapAreaThird" destination="NhK-x4-rnO" id="E0t-Rb-WwX"/>
                         <outlet property="thirdCard" destination="e8P-vh-DwZ" id="1Sa-Ag-aPa"/>
+                        <segue destination="H88-2B-d45" kind="presentation" identifier="showWorkingAssessModal" id="M8o-Kc-kHb"/>
+                        <segue destination="2ae-eK-tPO" kind="presentation" identifier="goShowPlanSettings" modalPresentationStyle="fullScreen" id="4Zx-LL-id1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pic-0m-BYR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2382.608695652174" y="112.5"/>
+        </scene>
+        <!--SymptomPage-->
+        <scene sceneID="y2b-OZ-Afu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SymptomPage" id="Z0s-pS-CyP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="baI-h8-YAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2383" y="602"/>
+        </scene>
+        <!--CompleteAndShowPlanPage-->
+        <scene sceneID="IcO-LX-zPc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CompleteAndShowPlanPage" id="2ae-eK-tPO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OGT-83-4Xo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3238" y="-54"/>
+        </scene>
+        <!--WorkingAssessmentPage-->
+        <scene sceneID="GAa-2r-Ih0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WorkingAssessmentPage" id="H88-2B-d45" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5L-eG-QJB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3225" y="282"/>
         </scene>
     </scenes>
     <resources>

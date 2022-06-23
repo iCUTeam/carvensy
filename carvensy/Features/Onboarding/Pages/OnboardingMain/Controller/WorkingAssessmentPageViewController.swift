@@ -1,43 +1,27 @@
 //
-//  PainAssessmentPageViewController.swift
+//  WorkingAssessmentPageViewController.swift
 //  carvensy
 //
-//  Created by Ariel Waraney on 21/06/22.
+//  Created by Ariel Waraney on 23/06/22.
 //
 
 import UIKit
 
-class PainAssessmentPageViewController: UIViewController {
+class WorkingAssessmentPageViewController: UIViewController {
+
+    @IBOutlet weak var firstCard: UIView!
+    @IBOutlet weak var secondCard: UIView!
+    @IBOutlet weak var thirdCard: UIView!
     
     @IBOutlet weak var tapAreaFirst: UIControl!
     @IBOutlet weak var tapAreaSecond: UIControl!
     @IBOutlet weak var tapAreaThird: UIControl!
     
-    @IBOutlet weak var firstCard: UIView!
-    @IBOutlet weak var secondCard: UIView!
-    @IBOutlet weak var thirdCard: UIView!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpCardCornerRadius()
         setUpCardShadow()
-    }
-    
-    @IBAction func moderateCardAreaPressed(_ sender: Any) {
-        //card index number = 1 (Moderate)
-        showAlert(cardIndexNumber: 1)
-    }
-    
-    @IBAction func mildCardAreaPressed(_ sender: Any) {
-        //card index number = 2 (Mild)
-        showAlert(cardIndexNumber: 2)
-    }
-    
-    @IBAction func noSymptomCardAreaPressed(_ sender: Any) {
-        //Assessment Modal View
-        self.performSegue(withIdentifier: "showWorkingAssessModal", sender: self)
     }
     
     private func setUpCardCornerRadius(){
@@ -61,6 +45,21 @@ class PainAssessmentPageViewController: UIViewController {
         thirdCard.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
     
+    @IBAction func hecticCardPressed(_ sender: Any) {
+        //card index number = 3 (Hectic)
+        showAlert(cardIndexNumber: 3)
+    }
+    
+    @IBAction func buzyCardPressed(_ sender: Any) {
+        //card index number = 4 (Busy)
+        showAlert(cardIndexNumber: 4)
+    }
+    
+    @IBAction func normalCardPressed(_ sender: Any) {
+        //card index number = 5 (Normal)
+        showAlert(cardIndexNumber: 5)
+    }    
+
     private func showAlert(cardIndexNumber: Int) {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)

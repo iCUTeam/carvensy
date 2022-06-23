@@ -68,6 +68,15 @@
 		A97C1B0F2862003000FFCB78 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */; };
 		A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */; };
 		A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */; };
+		A97C1B182864219E00FFCB78 /* AboutCTSPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B172864219E00FFCB78 /* AboutCTSPage.storyboard */; };
+		A97C1B1A286421B400FFCB78 /* AboutCTSPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B19286421B400FFCB78 /* AboutCTSPageViewController.swift */; };
+		A97C1B1C2864310900FFCB78 /* SymptomPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B1B2864310900FFCB78 /* SymptomPage.storyboard */; };
+		A97C1B1E2864312900FFCB78 /* SymptomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B1D2864312900FFCB78 /* SymptomPageViewController.swift */; };
+		A97C1B202864350B00FFCB78 /* WorkingAssessmentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B1F2864350B00FFCB78 /* WorkingAssessmentPageViewController.swift */; };
+		A97C1B2228643B5F00FFCB78 /* WorkingAssessmentPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B2128643B5F00FFCB78 /* WorkingAssessmentPage.storyboard */; };
+		A97C1B242864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B232864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard */; };
+		A97C1B262864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */; };
+		A97C1B292864739300FFCB78 /* BreakSettingRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */; };
 		A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E6E86A285982720077BBF8 /* EditPage.storyboard */; };
 		A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E6E86C2859829D0077BBF8 /* EditPageController.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +148,15 @@
 		A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
 		A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePageViewController.swift; sourceTree = "<group>"; };
 		A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainAssessmentPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B172864219E00FFCB78 /* AboutCTSPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutCTSPage.storyboard; sourceTree = "<group>"; };
+		A97C1B19286421B400FFCB78 /* AboutCTSPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCTSPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B1B2864310900FFCB78 /* SymptomPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SymptomPage.storyboard; sourceTree = "<group>"; };
+		A97C1B1D2864312900FFCB78 /* SymptomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B1F2864350B00FFCB78 /* WorkingAssessmentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingAssessmentPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B2128643B5F00FFCB78 /* WorkingAssessmentPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorkingAssessmentPage.storyboard; sourceTree = "<group>"; };
+		A97C1B232864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompleteAndShowPlanPage.storyboard; sourceTree = "<group>"; };
+		A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteAndShowPlanPageViewController.swift; sourceTree = "<group>"; };
+		A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSettingRecommendation.swift; sourceTree = "<group>"; };
 		A9E6E86A285982720077BBF8 /* EditPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPage.storyboard; sourceTree = "<group>"; };
 		A9E6E86C2859829D0077BBF8 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -512,6 +530,7 @@
 		950636B72859ECBA008C2639 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				A97C1B272864733600FFCB78 /* Model */,
 				950636C32859EDDB008C2639 /* Pages */,
 			);
 			path = Onboarding;
@@ -584,6 +603,7 @@
 		950636C32859EDDB008C2639 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A97C1B142864217200FFCB78 /* InformationModal */,
 				A97C1AF82861FD5D00FFCB78 /* OnboardingMain */,
 				950636C42859EDE6008C2639 /* Splash */,
 			);
@@ -738,8 +758,10 @@
 			children = (
 				A97C1B042861FE0500FFCB78 /* OnboardingMain.storyboard */,
 				A97C1B0C2861FFFD00FFCB78 /* PainAssessmentPage.storyboard */,
+				A97C1B2128643B5F00FFCB78 /* WorkingAssessmentPage.storyboard */,
 				A97C1B0A2861FFE300FFCB78 /* InputNamePage.storyboard */,
 				A97C1B082861FFC800FFCB78 /* IntroductionPage.storyboard */,
+				A97C1B232864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -751,8 +773,45 @@
 				A97C1B0E2862003000FFCB78 /* IntroductionPageViewController.swift */,
 				A97C1B102862004700FFCB78 /* InputNamePageViewController.swift */,
 				A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */,
+				A97C1B1F2864350B00FFCB78 /* WorkingAssessmentPageViewController.swift */,
+				A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A97C1B142864217200FFCB78 /* InformationModal */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B162864218500FFCB78 /* Controller */,
+				A97C1B152864218100FFCB78 /* View */,
+			);
+			path = InformationModal;
+			sourceTree = "<group>";
+		};
+		A97C1B152864218100FFCB78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B172864219E00FFCB78 /* AboutCTSPage.storyboard */,
+				A97C1B1B2864310900FFCB78 /* SymptomPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A97C1B162864218500FFCB78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B19286421B400FFCB78 /* AboutCTSPageViewController.swift */,
+				A97C1B1D2864312900FFCB78 /* SymptomPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A97C1B272864733600FFCB78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A9E6E86F285982A90077BBF8 /* Edit */ = {
@@ -826,6 +885,8 @@
 				A97C1B092861FFC800FFCB78 /* IntroductionPage.storyboard in Resources */,
 				1436F77A285CAAAF0090582B /* StretchFinish.storyboard in Resources */,
 				143B7E0F286355F200C8BDEE /* Push Out.gif in Resources */,
+				A97C1B242864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard in Resources */,
+				A97C1B2228643B5F00FFCB78 /* WorkingAssessmentPage.storyboard in Resources */,
 				95E3C4C5285844ED0065DFB0 /* LaunchScreen.storyboard in Resources */,
 				A97C1B0D2861FFFD00FFCB78 /* PainAssessmentPage.storyboard in Resources */,
 				A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */,
@@ -834,10 +895,12 @@
 				A97B08E5285AE4B5002493BC /* BreakPage.storyboard in Resources */,
 				14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */,
 				145A1D4A2861EA9F001A6BA4 /* PostWork.storyboard in Resources */,
+				A97C1B1C2864310900FFCB78 /* SymptomPage.storyboard in Resources */,
 				143B7E152863591D00C8BDEE /* Thumb Glides.gif in Resources */,
 				145A1D422861E047001A6BA4 /* DailySummary.storyboard in Resources */,
 				145A1D462861EA37001A6BA4 /* PainAssessment.storyboard in Resources */,
 				145A1D312861C5C4001A6BA4 /* StretchCamView.storyboard in Resources */,
+				A97C1B182864219E00FFCB78 /* AboutCTSPage.storyboard in Resources */,
 				A97C1B0B2861FFE300FFCB78 /* InputNamePage.storyboard in Resources */,
 				95E3C4C2285844ED0065DFB0 /* Assets.xcassets in Resources */,
 				A97C1B052861FE0500FFCB78 /* OnboardingMain.storyboard in Resources */,
@@ -855,6 +918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97C1B1A286421B400FFCB78 /* AboutCTSPageViewController.swift in Sources */,
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
@@ -872,6 +936,8 @@
 				A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				143B7E0228634F4400C8BDEE /* NewUser.swift in Sources */,
+				A97C1B292864739300FFCB78 /* BreakSettingRecommendation.swift in Sources */,
+				A97C1B262864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift in Sources */,
 				143B7E0728634F6F00C8BDEE /* PainAssessCollectionViewCell.swift in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
 				143B7E0428634F4400C8BDEE /* SessionCRU.swift in Sources */,
@@ -885,11 +951,13 @@
 				143B7DE828630CF600C8BDEE /* MakeTimeString.swift in Sources */,
 				143B7DFD2863457100C8BDEE /* TriviaViewController.swift in Sources */,
 				145A1D352861CF81001A6BA4 /* CameraView.swift in Sources */,
+				A97C1B1E2864312900FFCB78 /* SymptomPageViewController.swift in Sources */,
 				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
 				143B7E0328634F4400C8BDEE /* CoreDataHelper.swift in Sources */,
 				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
 				145A1D482861EA8B001A6BA4 /* PainAssessmentController.swift in Sources */,
+				A97C1B202864350B00FFCB78 /* WorkingAssessmentPageViewController.swift in Sources */,
 				1405D0AA285CDE54000D3157 /* OverviewSymptomsCollectionViewCell.swift in Sources */,
 				14573B42285ADE16008F714F /* StretchStepController.swift in Sources */,
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
