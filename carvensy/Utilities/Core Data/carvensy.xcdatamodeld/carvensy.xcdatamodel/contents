@@ -12,6 +12,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="break_plan" inverseEntity="User"/>
     </entity>
     <entity name="Session" representedClassName=".Session" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="pain_assesment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="break_relation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Break" inverseName="session" inverseEntity="Break"/>
         <relationship name="session_detail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session_Detail" inverseName="session" inverseEntity="Session_Detail"/>
@@ -40,7 +41,7 @@
     <elements>
         <element name="Break" positionX="0" positionY="54" width="128" height="74"/>
         <element name="Break_Plan" positionX="-54" positionY="0" width="128" height="89"/>
-        <element name="Session" positionX="-36" positionY="36" width="128" height="104"/>
+        <element name="Session" positionX="-36" positionY="36" width="128" height="119"/>
         <element name="Session_Detail" positionX="-18" positionY="45" width="128" height="59"/>
         <element name="Stretch" positionX="18" positionY="81" width="128" height="89"/>
         <element name="Stretch_detail" positionX="27" positionY="117" width="128" height="59"/>

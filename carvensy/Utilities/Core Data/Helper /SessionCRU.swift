@@ -14,23 +14,73 @@ class SessionCRUD
     
     //fetch session
     
+    func fetchSession() -> [Session]
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        
+        let fetchRequest = Session.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        do
+        {
+            let session = try context.fetch(fetchRequest)
+       
+            return session
+        }
+        
+        catch
+        {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    //convert to single session
+    
+    func currentSession(sessions: [Session]) -> Session
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        let session = Session(context: context)
+        
+        guard let current_session = sessions.first else { return session}
+        
+        return current_session
+    }
+    
     //make first session + add to user
     
-    func newSession(User: User, duration: Double)
+    func newSession(User: User)
     {
         let context = coreDataHelper.getBackgroundContext()
         
         let session = Session(context: context)
+        
+        User.addToSession(session)
+   
+        session.date = Date()
+        
+        coreDataHelper.saveContext(saveContext: context)
+    }
+    
+    //add first break to session
+    
+    func firstBreak(Current_session: Session, duration: Double)
+    {
+        let context = coreDataHelper.getBackgroundContext()
         
         let breakRelation = Break(context: context)
         
         breakRelation.total_duration = duration
         breakRelation.break_amount = 1
         
-        User.addToSession(session)
-        session.break_relation = breakRelation
+        Current_session.break_relation = breakRelation
         
         coreDataHelper.saveContext(saveContext: context)
+        
     }
 
     
@@ -109,5 +159,20 @@ class SessionCRUD
         
         coreDataHelper.saveContext(saveContext: context)
     }
+    
+    //convert session detail NSSet to Array
+    
+    func sessDetailToArray(session: Session) -> [Session_Detail]
+    {
+        return session.session_detail?.allObjects as? [Session_Detail] ?? []
+    }
+    
+    //convert stretch detail NSSet to Array
+    
+    func stretchDetailToArray(session: Session) -> [Stretch_detail]
+    {
+        return session.stretch?.stretch_detail?.allObjects as? [Stretch_detail] ?? []
+    }
+
     
 }

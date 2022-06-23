@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-RT-17k">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="break page - clock" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-RT-17k">
                                 <rect key="frame" x="33" y="299" width="348" height="298"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="298" id="7Xx-B8-cOR"/>
@@ -75,6 +75,7 @@
                         <outlet property="image" destination="rtl-RT-17k" id="4Yc-8O-0bI"/>
                         <outlet property="stretchButton" destination="aTL-JC-jEB" id="eyW-Md-WQx"/>
                         <segue destination="CIP-oJ-aaw" kind="show" identifier="goToChooseStretch" id="gxk-da-3Uv"/>
+                        <segue destination="yly-pB-CGW" kind="presentation" identifier="goBackToWork" modalPresentationStyle="fullScreen" id="QQi-3f-jtv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -89,7 +90,15 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlT-Oi-Av7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="122"/>
+            <point key="canvasLocation" x="1722" y="-19"/>
+        </scene>
+        <!--TimerPage-->
+        <scene sceneID="ixO-BO-CaF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TimerPage" id="yly-pB-CGW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBu-ox-7sm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760" y="212"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0bM-rA-ndS">
@@ -111,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="break page - clock" width="1367" height="1168"/>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -15,7 +15,7 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var postAssessTxt: UITextView!
     
-    var emojiImgs = ["A", "B", "C", "D", "E"]
+    var emojiImgs = ["post work - sad emoji", "post work - think emoji", "post work - flat emoji", "post work - smile emoji", "post work - happy emoji"]
     var descImg = ["Worsen", "", "", "", "Better"]
     var symtomps = ["Pain", "Tremor", "Tingling", "Numbness", "Burning", "Itching", "Swollen", "Stiffness", "Weakness"]
     

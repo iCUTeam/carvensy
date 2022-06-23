@@ -19,7 +19,16 @@ class TriviaViewController: UIViewController {
     
     @IBAction func changeSegment(_ sender: UISegmentedControl)
     {
+        //more about CTS
+        if sender.selectedSegmentIndex == 0
+        {
+            //show info
+        }
         
+        else
+        {
+            //show info
+        }
     }
 
 }

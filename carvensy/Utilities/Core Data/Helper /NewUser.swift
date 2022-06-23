@@ -32,4 +32,36 @@ class NewUser
     }
     
     //fetch user
+    
+    func fetchUser() -> [User]
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        do
+        {
+            let user = try context.fetch(User.fetchRequest())
+            
+            return user
+        }
+        
+        catch
+        {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    // convert array to single object
+    
+    func currentUser(users: [User]) -> User
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        let user_default = User(context: context)
+        user_default.name = "User"
+        
+        guard let user = users.first else { return user_default }
+        
+        return user
+    }
 }

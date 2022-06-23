@@ -47,7 +47,6 @@
 		1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */; };
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
-		950636BB2859ECF9008C2639 /* blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636BA2859ECF9008C2639 /* blank.swift */; };
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
 		95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */; };
 		95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */; };
@@ -115,8 +114,6 @@
 		1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarTimer.swift; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
-		950636B82859ECE9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
-		950636BA2859ECF9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
 		95E3C4B2285844EC0065DFB0 /* carvensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carvensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -494,7 +491,6 @@
 			children = (
 				148BD0AB285A0AB000420125 /* Model */,
 				148BD0972859F9D200420125 /* Pages */,
-				950636BA2859ECF9008C2639 /* blank.swift */,
 			);
 			path = Stretch;
 			sourceTree = "<group>";
@@ -504,7 +500,6 @@
 			children = (
 				145A1D362861DE46001A6BA4 /* Model */,
 				145A1D372861DE4B001A6BA4 /* Pages */,
-				950636B82859ECE9008C2639 /* blank.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -859,7 +854,6 @@
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
 				A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */,
-				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				143B7E0528634F4400C8BDEE /* BreakPlanRU.swift in Sources */,
