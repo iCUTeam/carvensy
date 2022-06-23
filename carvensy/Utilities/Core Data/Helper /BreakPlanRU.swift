@@ -33,6 +33,21 @@ class BreakPlanRU
         return []
     }
     
+    //convert to single breakplan
+    
+    func currentBreakPlan(break_plans: [Break_Plan]) -> Break_Plan
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        let break_plan = Break_Plan(context: context)
+        break_plan.notify_before = 300
+        break_plan.break_every = 3600
+        break_plan.snooze = false
+        
+        guard let curr_plan = break_plans.first else { return break_plan }
+        
+        return curr_plan
+    }
+    
     //edit breakplan
     
     func editBreakPlan(BreakPlan: Break_Plan, break_every: Double, notify: Double, snooze: Bool)
