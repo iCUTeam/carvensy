@@ -27,7 +27,8 @@ class TimerPageController: UIViewController {
     //user defaults
     var startTime: Date?
     var currentState : state = .startWork
-    var choosenHour: Double = 60
+    var choosenHour: Double = 3600
+    var notifyTime: Double = 300
     
     let userdefaults = UserDefaults.standard
     let START_TIME = "starttime"
@@ -39,8 +40,13 @@ class TimerPageController: UIViewController {
     
     let center = UNUserNotificationCenter.current()
     
-    
     var editBtn = UIBarButtonItem()
+    
+    var user: User?
+    
+    let userHelper = NewUser()
+    
+    let sessionHelper = SessionCRUD()
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -97,6 +103,12 @@ class TimerPageController: UIViewController {
         let width = breakTimer.frame.size.width
         let height = breakTimer.frame.size.height
         let fontsize : CGFloat
+        
+        let alluser = userHelper.fetchUser()
+        user = userHelper.currentUser(users: alluser)
+        
+        choosenHour = user?.break_plan?.break_every ?? 3600
+        notifyTime = user?.break_plan?.notify_before ?? 300
         
         fontsize = min(width, height) / 6
         layer.backgroundColor = UIColor.clear.cgColor
@@ -210,7 +222,7 @@ class TimerPageController: UIViewController {
                 
             }
             
-            let request = scheduleNotification(title: "prepare to rest your hand", content: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - 300)
+            let request = scheduleNotification(title: "prepare to rest your hand", content: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
             
             center.add(request) { (error) in
                 
@@ -234,6 +246,10 @@ class TimerPageController: UIViewController {
                 sender.setTitle("Jump to Break", for: .normal)
                 endBtn.isHidden = false
                 endBtn.setTitle("End Work", for: .normal)
+                
+                //add new session
+                
+                sessionHelper.newSession(User: user!)
                 
                 
             }))

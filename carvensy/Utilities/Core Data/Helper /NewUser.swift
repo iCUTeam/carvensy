@@ -5,7 +5,7 @@
 //  Created by Kathleen Febiola Susanto on 22/06/22.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class NewUser
@@ -13,7 +13,6 @@ class NewUser
     let coreDataHelper = CoreDataHelper()
     
     //add new user + break plan
-    
     func newUser(name: String, break_every: Double, notify: Double, snooze: Bool)
     {
         let context = coreDataHelper.getBackgroundContext()

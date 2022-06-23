@@ -50,7 +50,7 @@ class StretchStepController: UIViewController {
     
     private func countDown()
     {
-        
+      
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                 DispatchQueue.main.async {
                     

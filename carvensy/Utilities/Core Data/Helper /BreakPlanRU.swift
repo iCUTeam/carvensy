@@ -5,7 +5,7 @@
 //  Created by Kathleen Febiola Susanto on 22/06/22.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class BreakPlanRU
@@ -48,15 +48,32 @@ class BreakPlanRU
         return curr_plan
     }
     
+    //new breakplan
+    
+    func newBreakPlan(user: User, break_every:Double, notify: Double, snooze: Bool)
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        let break_plan = Break_Plan(context: context)
+        break_plan.break_every = break_every
+        break_plan.notify_before = notify
+        break_plan.snooze = snooze
+        
+        user.break_plan = break_plan
+        
+        coreDataHelper.saveContext(saveContext: context)
+    }
+    
     //edit breakplan
     
-    func editBreakPlan(BreakPlan: Break_Plan, break_every: Double, notify: Double, snooze: Bool)
+    func editBreakPlan(BreakPlan: Break_Plan, break_every: Double, notify: Double, snooze: Bool, name: String)
     {
         let context = coreDataHelper.getBackgroundContext()
         
         BreakPlan.break_every = break_every
         BreakPlan.notify_before = notify
         BreakPlan.snooze = snooze
+        BreakPlan.user?.name = name
         
         coreDataHelper.saveContext(saveContext: context)
     }
