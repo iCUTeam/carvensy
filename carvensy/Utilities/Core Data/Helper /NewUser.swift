@@ -32,4 +32,23 @@ class NewUser
     }
     
     //fetch user
+    
+    func fetchUser() -> [User]
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        do
+        {
+            let user = try context.fetch(User.fetchRequest())
+            
+            return user
+        }
+        
+        catch
+        {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
 }

@@ -15,6 +15,7 @@ class TimerPageController: UIViewController {
         case startWork = "startwork"
         case midWork = "midwork"
         case breakTime = "breaktime"
+        case inBreak = "inbreak"
     }
     
     @IBOutlet weak var titleLbl: UILabel!
@@ -42,6 +43,7 @@ class TimerPageController: UIViewController {
     var editBtn = UIBarButtonItem()
     
     override func viewWillAppear(_ animated: Bool) {
+        
         if currentState == .startWork
         {
             breakTimer.progress = 0
@@ -60,7 +62,7 @@ class TimerPageController: UIViewController {
             endBtn.setTitle("End Work", for: .normal)
         }
         
-        else
+        else if currentState == .breakTime
         {
             if scheduledTimer != nil
             {
@@ -71,6 +73,11 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("Snooze", for: .normal)
+        }
+        
+        else
+        {
+            performSegue(withIdentifier: "goToBreakPage", sender: self)
         }
     }
     
@@ -90,7 +97,6 @@ class TimerPageController: UIViewController {
         let width = breakTimer.frame.size.width
         let height = breakTimer.frame.size.height
         let fontsize : CGFloat
-        let offset = min(width, height) * 0.1
         
         fontsize = min(width, height) / 6
         layer.backgroundColor = UIColor.clear.cgColor
@@ -103,7 +109,6 @@ class TimerPageController: UIViewController {
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             startBtn.setTitle("Start Work", for: .normal)
             endBtn.isHidden = true
-            editBtn.isEnabled = true
             
         }
         
@@ -113,10 +118,9 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
-            editBtn.isEnabled = false
         }
         
-        else
+        else if currentState == .breakTime
         {
             if scheduledTimer != nil
             {
@@ -127,7 +131,11 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("Snooze", for: .normal)
-            editBtn.isEnabled = false
+        }
+        
+        else
+        {
+            performSegue(withIdentifier: "goToBreakPage", sender: self)
         }
         
         layer.fontSize = fontsize
@@ -210,6 +218,10 @@ class TimerPageController: UIViewController {
             
             let request_timeToStretch = scheduleNotification(title: "it's time to rest your hand", content: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
             
+            center.add(request_timeToStretch) { (error) in
+                
+            }
+            
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
@@ -245,7 +257,7 @@ class TimerPageController: UIViewController {
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 performSegue(withIdentifier: "goToBreakPage", sender: self)
                 center.removeAllPendingNotificationRequests()
-                setSavedState(currState: .startWork)
+                setSavedState(currState: .inBreak)
                 setStartTime(date: nil)
 
             }))
@@ -258,9 +270,9 @@ class TimerPageController: UIViewController {
             self.present(alert, animated: true)
         }
         
-        else
+        else if currentState == .breakTime
         {
-            setSavedState(currState: .startWork)
+            setSavedState(currState: .inBreak)
             performSegue(withIdentifier: "goToBreakPage", sender: self)
         }
     }

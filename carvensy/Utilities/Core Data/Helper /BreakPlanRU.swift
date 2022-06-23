@@ -14,6 +14,25 @@ class BreakPlanRU
     
     //fetch breakplan
     
+    func fetchBreakPlan() -> [Break_Plan]
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        do
+        {
+            let break_plan = try context.fetch(Break_Plan.fetchRequest())
+            
+            return break_plan
+        }
+        
+        catch
+        {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
     //edit breakplan
     
     func editBreakPlan(BreakPlan: Break_Plan, break_every: Double, notify: Double, snooze: Bool)
