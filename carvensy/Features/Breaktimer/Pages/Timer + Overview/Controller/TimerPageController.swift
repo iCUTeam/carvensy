@@ -27,7 +27,8 @@ class TimerPageController: UIViewController {
     //user defaults
     var startTime: Date?
     var currentState : state = .startWork
-    var choosenHour: Double = 60
+    var choosenHour: Double = 3600
+    var notifyTime: Double = 300
     
     let userdefaults = UserDefaults.standard
     let START_TIME = "starttime"
@@ -37,10 +38,15 @@ class TimerPageController: UIViewController {
     
     var scheduledTimer: Timer!
     
-    let center = UNUserNotificationCenter.current()
-    
+    let notificationCenter = UNUserNotificationCenter.current()
     
     var editBtn = UIBarButtonItem()
+    
+    var user: User?
+    
+    let userHelper = NewUser()
+    
+    let sessionHelper = SessionCRUD()
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -56,10 +62,18 @@ class TimerPageController: UIViewController {
         
         else if currentState == .midWork
         {
+            
+            let name = user?.name ?? "Dear user"
+            breakTimer.progress = 1
             startTimer()
+            setStartTime(date: Date())
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
+            
+            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+            
+            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
         }
         
         else if currentState == .breakTime
@@ -89,6 +103,8 @@ class TimerPageController: UIViewController {
         navigationItem.rightBarButtonItem = editBtn
         title = "Break Timer"
         
+        configureUserNotificationsCenter()
+        
         startTime = userdefaults.object(forKey: START_TIME) as? Date
         currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "startwork") ?? .startWork
         breakTimer.useNormalText = true
@@ -97,6 +113,12 @@ class TimerPageController: UIViewController {
         let width = breakTimer.frame.size.width
         let height = breakTimer.frame.size.height
         let fontsize : CGFloat
+        
+        let alluser = userHelper.fetchUser()
+        user = userHelper.currentUser(users: alluser)
+        
+        choosenHour = user?.break_plan?.break_every ?? 7200
+        notifyTime = user?.break_plan?.notify_before ?? 300
         
         fontsize = min(width, height) / 6
         layer.backgroundColor = UIColor.clear.cgColor
@@ -204,23 +226,7 @@ class TimerPageController: UIViewController {
         
         if currentState == .startWork
         {
-            //ijin notifikasi
-            center.requestAuthorization(options: [.alert, .sound])
-            { (granted, error) in
-                
-            }
             
-            let request = scheduleNotification(title: "prepare to rest your hand", content: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - 300)
-            
-            center.add(request) { (error) in
-                
-            }
-            
-            let request_timeToStretch = scheduleNotification(title: "it's time to rest your hand", content: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
-            
-            center.add(request_timeToStretch) { (error) in
-                
-            }
             
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
@@ -230,10 +236,19 @@ class TimerPageController: UIViewController {
                 startTimer()
                 setStartTime(date: Date())
                 
+                let name = user?.name ?? "Dear user"
+                
+                triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+                
+                triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
                 editBtn.isEnabled = false
                 sender.setTitle("Jump to Break", for: .normal)
                 endBtn.isHidden = false
                 endBtn.setTitle("End Work", for: .normal)
+                
+                //add new session
+                
+                sessionHelper.newSession(User: user!)
                 
                 
             }))
@@ -256,7 +271,7 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 performSegue(withIdentifier: "goToBreakPage", sender: self)
-                center.removeAllPendingNotificationRequests()
+                notificationCenter.removeAllPendingNotificationRequests()
                 setSavedState(currState: .inBreak)
                 setStartTime(date: nil)
 
@@ -299,7 +314,7 @@ class TimerPageController: UIViewController {
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 setSavedState(currState: .startWork)
                 
-                center.removeAllPendingNotificationRequests()
+                notificationCenter.removeAllPendingNotificationRequests()
                 //logic cek stretch and break
 
                 scheduledTimer.invalidate()
@@ -318,28 +333,63 @@ class TimerPageController: UIViewController {
         {
             let alert = UIAlertController(title: "Select Snooze Duration", message: nil, preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "5 Minutes", style: .default, handler: { _ in
+                
+                let name = self.user?.name ?? "Dear user"
                 self.choosenHour = 300
                 self.breakTimer.progress = 1
                 self.startTimer()
                 self.setStartTime(date: Date())
+                self.setSavedState(currState: .midWork)
+                
+                self.startBtn.setTitle("Jump to Break", for: .normal)
+                self.endBtn.isHidden = false
+                self.endBtn.setTitle("End Work", for: .normal)
+                
+                self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
             alert.addAction(UIAlertAction(title: "10 Minutes", style: .default, handler: { _ in
+                let name = self.user?.name ?? "Dear user"
                 self.choosenHour = 600
                 self.breakTimer.progress = 1
                 self.startTimer()
                 self.setStartTime(date: Date())
+                self.setSavedState(currState: .midWork)
+                
+                self.startBtn.setTitle("Jump to Break", for: .normal)
+                self.endBtn.isHidden = false
+                self.endBtn.setTitle("End Work", for: .normal)
+                
+                self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
             alert.addAction(UIAlertAction(title: "15 Minutes", style: .default, handler: { _ in
+                let name = self.user?.name ?? "Dear user"
                 self.choosenHour = 900
                 self.breakTimer.progress = 1
                 self.startTimer()
                 self.setStartTime(date: Date())
+                
+                self.setSavedState(currState: .midWork)
+                
+                self.startBtn.setTitle("Jump to Break", for: .normal)
+                self.endBtn.isHidden = false
+                self.endBtn.setTitle("End Work", for: .normal)
+                
+                self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
             alert.addAction(UIAlertAction(title: "20 Minutes", style: .default, handler: { _ in
+                let name = self.user?.name ?? "Dear user"
                 self.choosenHour = 1200
                 self.breakTimer.progress = 1
                 self.startTimer()
                 self.setStartTime(date: Date())
+                
+                self.setSavedState(currState: .midWork)
+                
+                self.startBtn.setTitle("Jump to Break", for: .normal)
+                self.endBtn.isHidden = false
+                self.endBtn.setTitle("End Work", for: .normal)
+                
+                self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
             
             self.present(alert, animated: true)
@@ -359,5 +409,73 @@ class TimerPageController: UIViewController {
         currentState = currState
         userdefaults.set(currentState.rawValue, forKey: CURRENT_STATE)
     }
+    
+    private func triggerNotification(notif_title: String, body: String, timeInterval: Double)
+  {
+        notificationCenter.getNotificationSettings { (notificationSettings) in
+            switch notificationSettings.authorizationStatus {
+            case .notDetermined:
+                self.requestAuthorization(completionHandler: { (success) in
+                    guard success else { return }
+                    self.scheduleNotification(notif_title: notif_title, body: body, timeInterval: timeInterval)
+                })
+            case .authorized:
+                self.scheduleNotification(notif_title: notif_title, body: body, timeInterval: timeInterval)
+            case .denied:
+                print("The application not allowed to display notifications")
+            case .provisional:
+                print("The application authorized to post non-interruptive user notifications")
+            case .ephemeral:
+                print("The application is temporarily authorized to post notifications. Only available to app clips.")
+            @unknown default:
+                print("Application Not Allowed to Display Notifications")
+            }
+        }
+    }
+    
+    private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {
+        // Request Authorization
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+            if let error = error {
+                print("Request Authorization Failed (\(error), \(error.localizedDescription))")
+            }
+            completionHandler(success)
+        }
+    }
+    
+    private func scheduleNotification(notif_title: String, body: String, timeInterval: Double)
+    {
+        
+            let content = UNMutableNotificationContent()
+            content.title = notif_title
+            content.body = body
+            content.sound = UNNotificationSound.default
+            content.badge = 1
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+            let identifier = "Local"
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }
+            }
+    }
+    
+    private func configureUserNotificationsCenter() {
+        notificationCenter.delegate = self
+    
+    }
 }
 
+extension TimerPageController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+}

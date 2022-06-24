@@ -193,7 +193,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="No Thanks"/>
                                                                 <connections>
-                                                                    <action selector="secondaryButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7AP-EJ-slr"/>
+                                                                    <segue destination="Zfm-FF-Jdj" kind="presentation" modalPresentationStyle="fullScreen" id="xra-bS-Tgp"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -244,11 +244,28 @@
                     <connections>
                         <outlet property="primaryButton" destination="fHi-be-2Ol" id="Q5I-t3-A5I"/>
                         <outlet property="secondaryButton" destination="fZT-OT-jeu" id="BMa-WV-EBm"/>
+                        <segue destination="klg-D9-Qti" kind="presentation" identifier="goToSteps" modalPresentationStyle="fullScreen" id="7GH-gy-NMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="83.705357142857139"/>
+        </scene>
+        <!--StretchStep-->
+        <scene sceneID="olr-oA-ExW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StretchStep" id="klg-D9-Qti" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvd-1w-alI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-58"/>
+        </scene>
+        <!--ChooseStretch-->
+        <scene sceneID="ePP-6t-A3u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChooseStretch" id="Zfm-FF-Jdj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWd-Hl-DmS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789" y="177"/>
         </scene>
     </scenes>
     <resources>

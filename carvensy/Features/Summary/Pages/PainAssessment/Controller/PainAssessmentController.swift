@@ -19,18 +19,36 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
     var descImg = ["Worsen", "", "", "", "Better"]
     var symtomps = ["Pain", "Tremor", "Tingling", "Numbness", "Burning", "Itching", "Swollen", "Stiffness", "Weakness"]
     
-    var symtompsSaveArray = [Session_Detail]()
     
-    var painlevel  = 0
+    var session: Session?
+    
+    var sessionHelper = SessionCRUD()
+    
+    var painlevel: Double = 0
+    
+    var selectedSymtomps = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         submitBtn.isEnabled = false
+        
+        let allSession = sessionHelper.fetchSession()
+        session = sessionHelper.currentSession(sessions: allSession)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func submitAction(_ sender: Any?)
     {
+        sessionHelper.addPainAssess(Current_session: session!, pain: painlevel)
+        
+        for x in 0..<symtomps.count
+        {
+            if selectedSymtomps[x] == 1
+            {
+                sessionHelper.addSymtomps(Current_session: session!, symtomps: symtomps[x])
+            }
+        }
+        
         performSegue(withIdentifier: "goToPostWork", sender: self)
     }
     
@@ -66,23 +84,14 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         
         if collectionView == self.painAssessmentCV
         {
-            let cell = collectionView.cellForItem(at: indexPath) as! PainAssessCollectionViewCell
-            painlevel = indexPath.row
-            cell.emojiImg.layer.borderWidth = 1
-            cell.emojiImg.layer.borderColor = CarvensyColor.greenMain?.cgColor
-            cell.emojiImg.layer.masksToBounds = false
-            cell.emojiImg.layer.cornerRadius = cell.emojiImg.frame.height/2
-            cell.emojiImg.clipsToBounds = true
+            painlevel = Double(indexPath.row)
             submitBtn.isEnabled = true
             
         }
         
         else
         {
-            let cell = collectionView.cellForItem(at: indexPath) as! SymtompssCollectionViewCell
-            cell.backgroundColor = CarvensyColor.greenMain
-            //save symptoms to array
-            //save to session
+            selectedSymtomps[indexPath.row] = 1
         }
     }
     
@@ -95,6 +104,16 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "smile-pain", for: indexPath) as! PainAssessCollectionViewCell
             cell.emojiImg.image = UIImage(named: emojiImgs[indexPath.row])
+            
+            if Int(painlevel) == indexPath.row
+            {
+                cell.emojiImg.layer.borderWidth = 1
+                cell.emojiImg.layer.borderColor = CarvensyColor.greenMain?.cgColor
+                cell.emojiImg.layer.masksToBounds = false
+                cell.emojiImg.layer.cornerRadius = cell.emojiImg.frame.height/2
+                cell.emojiImg.clipsToBounds = true
+            }
+            
             cell.conditionLbl.text = descImg[indexPath.row]
             
             
@@ -105,6 +124,16 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symtomps-det", for: indexPath) as! SymtompssCollectionViewCell
+            
+            if selectedSymtomps[indexPath.row] == 1
+            {
+                cell.backgroundColor = CarvensyColor.greenMain
+            }
+            
+            else
+            {
+                cell.backgroundColor = CarvensyColor.greenAccent
+            }
             
             cell.symtompsLbl.text = symtomps[indexPath.row]
     

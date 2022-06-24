@@ -16,10 +16,14 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var doneBtn: UIButton!
     
     var dailySession: Session?
+    var sessionHelper = SessionCRUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let allSession = sessionHelper.fetchSession()
+        dailySession = sessionHelper.currentSession(sessions: allSession)
+        
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         // Do any additional setup after loading the view.
     }

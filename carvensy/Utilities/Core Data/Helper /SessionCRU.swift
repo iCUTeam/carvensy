@@ -5,7 +5,7 @@
 //  Created by Kathleen Febiola Susanto on 22/06/22.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class SessionCRUD
