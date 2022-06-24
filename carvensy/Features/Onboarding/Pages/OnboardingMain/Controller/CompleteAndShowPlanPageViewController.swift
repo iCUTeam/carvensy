@@ -26,6 +26,7 @@ class CompleteAndShowPlanPageViewController: UIViewController {
         //user default
         if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {
             userNameView.text = "\(value), you are in good hands!"
+            userName = value
         }
         
         let breakTimeInDouble = breakDuration ?? 0
@@ -46,7 +47,17 @@ class CompleteAndShowPlanPageViewController: UIViewController {
     
     @IBAction func getStartedPressed(_ sender: Any) {
         //TODO: save to core data
-        dismiss(animated: true, completion: nil)
+        let breakTimeInDouble = breakDuration ?? 0
+        let notifyTimeInDouble = notifyDuration ?? 0
+        print("username : \(userName)")
+        print("break time every : \(breakTimeInDouble)")
+        print("notify in : \(notifyTimeInDouble)")
+        
+        let newUserHelper = NewUser()
+        newUserHelper.newUser(name: userName, break_every: breakTimeInDouble, notify: notifyTimeInDouble, snooze: true)
+        
+        //redirect to timer page
+        self.performSegue(withIdentifier: "newUserGoToBreakTimerPage", sender: self)
     }
     
     @IBAction func startOverPressed(_ sender: Any) {
