@@ -10,12 +10,12 @@ import AVFoundation
 import Vision
 
 
-class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-
-    private var cameraView: CameraView { view as! CameraView }
+class StretchCamController: UIViewController {
     
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
     private var cameraFeedSession: AVCaptureSession?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +26,14 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         super.viewDidAppear(animated)
         do {
             if cameraFeedSession == nil {
-                cameraView.previewLayer.videoGravity = .resizeAspectFill
                 try setupAVSession()
-                cameraView.previewLayer.session = cameraFeedSession
             }
             cameraFeedSession?.startRunning()
         } catch {
             AppError.display(error, inViewController: self)
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         cameraFeedSession?.stopRunning()
         super.viewWillDisappear(animated)
@@ -74,4 +73,61 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         cameraFeedSession = session
 }
     
+}
+
+extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
+{
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        //buat hand pose request
+        let handPoseRequest = VNDetectHumanHandPoseRequest()
+        
+        //image handler
+        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, options: [:])
+        
+        do
+        {
+            try handler.perform([handPoseRequest])
+            
+        }
+        
+        catch
+        {
+            assertionFailure("Hand Pose Request Failed: \(error)")
+        }
+        
+        //kalau ga ada tangan yang terdeteksi
+        guard let observation = handPoseRequest.results, !observation.isEmpty else
+        {
+            //bikin warning klo no hand detected
+            return
+        }
+        
+        //ambil handpose pertama yang terdeteksi
+        let handPose = observation.first
+        
+        //dapetin key point dari posenya
+        guard let keyPointMultiArray = try? handPose?.keypointsMultiArray()
+            else {fatalError()}
+        
+        let defaultConfig = MLModelConfiguration()
+        guard let model = try? HandModel(configuration: defaultConfig)
+        else{
+            fatalError()
+        }
+                
+        
+       guard let handPrediction = try? model.prediction(poses: keyPointMultiArray)
+        else
+        {
+           fatalError()
+       }
+        
+        let confidence = handPrediction.labelProbabilities[handPrediction.label]!
+        
+        if confidence > 0.8
+        {
+            //fungsi hold still + tambah reps
+        }
+    }
 }
