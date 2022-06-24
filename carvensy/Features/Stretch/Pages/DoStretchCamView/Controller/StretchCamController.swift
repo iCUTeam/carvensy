@@ -9,14 +9,26 @@ import UIKit
 import AVFoundation
 import Vision
 
+//buat nentuin skrg posenya apa
+enum handPose
+{
+    case push_out
+    case prayer
+    case stop
+    case thumb_glide
+}
+
 
 class StretchCamController: UIViewController {
     
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
     private var cameraFeedSession: AVCaptureSession?
+    var currentPose: handPose = .push_out
+    var countRep = 0
+    var countDown = 0
+    var canCount = false
     
-    
-    
+    var stretchStep : StretchSteps?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +50,7 @@ class StretchCamController: UIViewController {
         cameraFeedSession?.stopRunning()
         super.viewWillDisappear(animated)
     }
+
     
     func setupAVSession() throws {
         // Input kamera depan
@@ -110,6 +123,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         guard let keyPointMultiArray = try? handPose?.keypointsMultiArray()
             else {fatalError()}
         
+        
         let defaultConfig = MLModelConfiguration()
         guard let model = try? HandModel(configuration: defaultConfig)
         else{
@@ -121,7 +135,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         else
         {
            fatalError()
-       }
+        }
         
         let confidence = handPrediction.labelProbabilities[handPrediction.label]!
         
@@ -130,4 +144,158 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             //fungsi hold still + tambah reps
         }
     }
+    
+    func stretch(pose: String)
+    {
+        switch currentPose
+        {
+            case .push_out:
+            
+            if pose == "Push Out"
+            {
+                //kasi tau hold still
+                if canCount
+                {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                        DispatchQueue.main.async {
+                            self.countDown += 1
+                            
+                            if self.countDown == self.stretchStep?.holdSec
+                            {
+                                timer.invalidate()
+                                self.countRep += 1
+                                
+                                if self.countRep == self.stretchStep?.numberofReps
+                                {
+                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                }
+                                
+                                else
+                                {
+                                    self.canCount = false
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            else
+            {
+                //kasi tau kalau salah gerakan
+            }
+           
+            case .prayer:
+            
+            if pose == "Prayer"
+            {
+                //kasi tau hold still
+                if canCount
+                {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                        DispatchQueue.main.async {
+                            self.countDown += 1
+                            
+                            if self.countDown == self.stretchStep?.holdSec
+                            {
+                                timer.invalidate()
+                                self.countRep += 1
+                                
+                                if self.countRep == self.stretchStep?.numberofReps
+                                {
+                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                }
+                                
+                                else
+                                {
+                                    self.canCount = false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            else
+            {
+                //kasi tau kalau salah gerakan
+            }
+            
+            case .stop:
+            
+            if pose == "Stop"
+            {
+                //kasi tau hold still
+                if canCount
+                {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                        DispatchQueue.main.async {
+                            self.countDown += 1
+                            
+                            if self.countDown == self.stretchStep?.holdSec
+                            {
+                                timer.invalidate()
+                                self.countRep += 1
+                                
+                                if self.countRep == self.stretchStep?.numberofReps
+                                {
+                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                }
+                                
+                                else
+                                {
+                                    self.canCount = false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            else
+            {
+                //kasi tau kalau salah gerakan
+            }
+            
+            case .thumb_glide:
+            
+            if pose == "Thumb Glide"
+            {
+                //kasi tau hold still
+                if canCount
+                {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                        DispatchQueue.main.async {
+                            self.countDown += 1
+                            
+                            if self.countDown == self.stretchStep?.holdSec
+                            {
+                                timer.invalidate()
+                                self.countRep += 1
+                                
+                                if self.countRep == self.stretchStep?.numberofReps
+                                {
+                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                }
+                                
+                                else
+                                {
+                                    self.canCount = false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            else
+            {
+                //kasi tau kalau salah gerakan
+            }
+            
+        }
+    }
+    
 }

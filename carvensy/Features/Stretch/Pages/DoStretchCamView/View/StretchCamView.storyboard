@@ -18,10 +18,21 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
                     </view>
+                    <connections>
+                        <segue destination="2z2-bI-n9k" kind="presentation" identifier="goBackToSteps" modalPresentationStyle="fullScreen" id="aM5-TP-yxP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="65"/>
+        </scene>
+        <!--StretchStep-->
+        <scene sceneID="Qni-Ih-F2L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StretchStep" id="2z2-bI-n9k" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EkI-06-aWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="49"/>
         </scene>
     </scenes>
     <resources>
