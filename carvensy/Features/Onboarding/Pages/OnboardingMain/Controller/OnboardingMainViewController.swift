@@ -62,7 +62,19 @@ class OnboardingMainViewController: UIViewController {
     @objc func toRight(){
         //next frame
         if currentPage < pageControl.numberOfPages - 1 {
-            currentPage += 1
+            //check if name is empty
+            if currentPage == 1 {
+                //user default
+                if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {
+                    if value == "" {
+                        currentPage = 1
+                    } else {
+                        currentPage += 1
+                    }
+                }
+            } else {
+                currentPage += 1
+            }
         }
         refreshPageControl()
     }

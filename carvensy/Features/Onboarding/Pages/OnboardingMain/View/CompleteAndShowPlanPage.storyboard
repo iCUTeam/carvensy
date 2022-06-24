@@ -201,14 +201,26 @@ good hands!</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getStartedButton" destination="SMS-bq-fvz" id="S5n-8G-TT2"/>
                         <outlet property="intervalTime" destination="YqT-7T-uoE" id="xzD-Lc-CMV"/>
                         <outlet property="notifyTime" destination="EMv-fB-xU0" id="x2T-I9-P46"/>
                         <outlet property="snoozeStatus" destination="Efg-mw-c4n" id="bZ9-eS-JAh"/>
+                        <outlet property="userNameView" destination="xeN-zG-Nbc" id="mIY-hG-z8T"/>
+                        <outlet property="whiteView" destination="XGj-mn-S8T" id="b9A-MA-zmb"/>
+                        <segue destination="azs-yw-Ut7" kind="presentation" identifier="newUserGoToBreakTimerPage" modalPresentationStyle="fullScreen" id="9ep-HV-rIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6" y="60"/>
+        </scene>
+        <!--TimerPage-->
+        <scene sceneID="sJH-1Z-9SE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TimerPage" id="azs-yw-Ut7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XE-gf-FG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="38"/>
         </scene>
     </scenes>
     <resources>
