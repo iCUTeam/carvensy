@@ -113,6 +113,36 @@ class StretchStepController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "doStretchCam"
+        {
+            guard let vc = segue.destination as? StretchCamController
+            else {return}
+            vc.modalPresentationStyle = .fullScreen
+            vc.stretchStep = stretchStepArray[index]
+            
+            if stretchStepArray[index].stretchTitle == "Push Out"
+            {
+                vc.currentPose = .push_out
+            }
+            
+            else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
+            {
+                vc.currentPose = .stop
+            }
+            
+            else if stretchStepArray[index].stretchTitle == "Prayer Pose"
+            {
+                vc.currentPose = .prayer
+            }
+            
+            else
+            {
+                vc.currentPose = .thumb_glide
+            }
+        }
+    }
   
 
 }
