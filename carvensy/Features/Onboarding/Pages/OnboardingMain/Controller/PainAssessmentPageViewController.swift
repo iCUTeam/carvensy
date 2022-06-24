@@ -68,17 +68,10 @@ class PainAssessmentPageViewController: UIViewController {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)
         confirmationAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-//            print("card choose: \(cardIndexNumber)")
-            
-            
             self.performSegue(withIdentifier: "goShowPlanSettings", sender: self)
-            
-            
-            
         }))
         
         confirmationAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
         }))
         
         self.present(confirmationAlert, animated: true, completion: nil)
@@ -86,49 +79,48 @@ class PainAssessmentPageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if cardNumber >= 0 && cardNumber <= 4 {
-                    
-            let move = segue.destination as! CompleteAndShowPlanPageViewController
+        if segue.identifier == "goShowPlanSettings" {
             
-            var breakInterval: Double = 0
-            var notifyTime: Double = 0
-            
-            //TODO: send action code based on index
-            /*
-             1. Moderate Card
-             2. Mild Card
-             3. No Symptom - Hectic Work
-             4. No Symptom - Busy Work
-             5. No Symptom - Normal Work
-             */
-            
-            switch cardNumber {
-            case 1:
-                print("Moderate")
-                breakInterval = 3600 // 1h
-                notifyTime = 300 // 5m
-            case 2:
-                print("Mild")
-                breakInterval = 7200 // 2h
-                notifyTime = 300 // 5m
-            case 3:
-                print("Hectic")
-                breakInterval = 3600 // 1h
-                notifyTime = 300 // 5m
-            case 4:
-                print("Busy")
-                breakInterval = 7200 // 2h
-                notifyTime = 180 // 3m
-            case 5:
-                print("Normal")
-                breakInterval = 10800 // 2h
-                notifyTime = 60 // 3m
-            default:
-                print("## Error ##")
+            if cardNumber > 0 && cardNumber < 6 {
+                        
+                let move = segue.destination as! CompleteAndShowPlanPageViewController
+                
+                var breakInterval: Double = 0
+                var notifyTime: Double = 0
+                
+                //TODO: send action code based on index
+                /*
+                 1. Moderate Card
+                 2. Mild Card
+                 3. No Symptom - Hectic Work
+                 4. No Symptom - Busy Work
+                 5. No Symptom - Normal Work
+                 */
+                
+                switch cardNumber {
+                case 1:
+                    print("Moderate")
+                    breakInterval = 3600 // 1h
+                    notifyTime = 300 // 5m
+                case 2:
+                    print("Mild")
+                    breakInterval = 7200 // 2h
+                    notifyTime = 300 // 5m
+                default:
+                    print("## Error ##")
+                }
+                
+                move.breakDuration = breakInterval
+                move.notifyDuration = notifyTime
             }
-            
-            move.breakDuration = breakInterval
-            move.notifyDuration = notifyTime
         }
+        else if segue.identifier == "showWorkingAssessModal" {
+            _ = segue.destination as! WorkingAssessmentPageViewController
+        }
+        else if segue.identifier == "" {
+            _ = segue.destination as! SymptomPageViewController
+        }
+        
+        
     }
 }

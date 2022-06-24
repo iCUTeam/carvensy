@@ -14,6 +14,7 @@ class CompleteAndShowPlanPageViewController: UIViewController {
     @IBOutlet weak var notifyTime: UILabel!
     @IBOutlet weak var snoozeStatus: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet weak var whiteView: UIView!
     
     private var userName: String = ""
     var breakDuration: Double?
@@ -27,8 +28,11 @@ class CompleteAndShowPlanPageViewController: UIViewController {
             userNameView.text = "\(value), you are in good hands!"
         }
         
-        let breakText = "\(breakDuration ?? 0)"
-        let notifyText = "\(notifyDuration ?? 0)"
+        let breakTimeInDouble = breakDuration ?? 0
+        let notifyTimeInDouble = notifyDuration ?? 0
+        
+        let breakText = timeStringInHour(time: Int(breakTimeInDouble))
+        let notifyText = timeStringInHour(time: Int(notifyTimeInDouble))
         
         if breakDuration != nil {
             intervalTime.text = breakText
@@ -36,6 +40,8 @@ class CompleteAndShowPlanPageViewController: UIViewController {
         if notifyDuration != nil {
             notifyTime.text = notifyText
         }
+        
+        whiteView.roundViewCorner([.bottomRight,.bottomLeft,.topRight,.topLeft], radius: 10)
     }
     
     @IBAction func getStartedPressed(_ sender: Any) {

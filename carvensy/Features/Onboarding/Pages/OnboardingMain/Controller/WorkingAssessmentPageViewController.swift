@@ -17,6 +17,8 @@ class WorkingAssessmentPageViewController: UIViewController {
     @IBOutlet weak var tapAreaSecond: UIControl!
     @IBOutlet weak var tapAreaThird: UIControl!
     
+    private var cardNumber = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,40 +49,72 @@ class WorkingAssessmentPageViewController: UIViewController {
     
     @IBAction func hecticCardPressed(_ sender: Any) {
         //card index number = 3 (Hectic)
-        showAlert(cardIndexNumber: 3)
+        cardNumber = 3
+        showAlert(cardIndexNumber: cardNumber)
     }
     
     @IBAction func buzyCardPressed(_ sender: Any) {
         //card index number = 4 (Busy)
-        showAlert(cardIndexNumber: 4)
+        cardNumber = 4
+        showAlert(cardIndexNumber: cardNumber)
     }
     
     @IBAction func normalCardPressed(_ sender: Any) {
         //card index number = 5 (Normal)
-        showAlert(cardIndexNumber: 5)
+        cardNumber = 5
+        showAlert(cardIndexNumber: cardNumber)
     }    
 
     private func showAlert(cardIndexNumber: Int) {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)
         confirmationAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            //TODO: send action code based on index
-            /*
-                1. Moderate Card
-                2. Mild Card
-                3. No Symptom - Hectic Work
-                4. No Symptom - Busy Work
-                5. No Symptom - Normal Work
-             */
-            print("card choose: \(cardIndexNumber)")
-            
             self.performSegue(withIdentifier: "goShowPlanSettings", sender: self)
         }))
         
         confirmationAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
         }))
         
         self.present(confirmationAlert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if cardNumber >= 0 && cardNumber <= 6 {
+                    
+            let move = segue.destination as! CompleteAndShowPlanPageViewController
+            
+            var breakInterval: Double = 0
+            var notifyTime: Double = 0
+            
+            //TODO: send action code based on index
+            /*
+             1. Moderate Card
+             2. Mild Card
+             3. No Symptom - Hectic Work
+             4. No Symptom - Busy Work
+             5. No Symptom - Normal Work
+             */
+            
+            switch cardNumber {
+            case 3:
+                print("Hectic")
+                breakInterval = 3600 // 1h
+                notifyTime = 300 // 5m
+            case 4:
+                print("Busy")
+                breakInterval = 7200 // 2h
+                notifyTime = 180 // 3m
+            case 5:
+                print("Normal")
+                breakInterval = 10800 // 2h
+                notifyTime = 60 // 1m
+            default:
+                print("## Error ##")
+            }
+            
+            move.breakDuration = breakInterval
+            move.notifyDuration = notifyTime
+        }
     }
 }
