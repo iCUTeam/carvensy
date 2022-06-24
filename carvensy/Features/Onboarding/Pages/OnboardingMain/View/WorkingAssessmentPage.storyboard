@@ -273,6 +273,7 @@
                         <outlet property="tapAreaSecond" destination="yCf-xb-5Mk" id="7YK-Ih-fsI"/>
                         <outlet property="tapAreaThird" destination="xKn-K0-qX5" id="Qe6-0q-uUG"/>
                         <outlet property="thirdCard" destination="Mj7-um-9TO" id="IOy-HQ-058"/>
+                        <outlet property="userNameLabel" destination="VzP-MJ-BBO" id="SXb-AS-52I"/>
                         <segue destination="p5N-ER-7sG" kind="presentation" identifier="goShowPlanSettings" modalPresentationStyle="fullScreen" id="yhe-vf-YeV"/>
                     </connections>
                 </viewController>

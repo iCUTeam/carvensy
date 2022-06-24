@@ -9,6 +9,7 @@ import UIKit
 
 class WorkingAssessmentPageViewController: UIViewController {
 
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var firstCard: UIView!
     @IBOutlet weak var secondCard: UIView!
     @IBOutlet weak var thirdCard: UIView!
@@ -24,6 +25,10 @@ class WorkingAssessmentPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setUpCardCornerRadius()
         setUpCardShadow()
+        
+        if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {
+            userNameLabel.text = "\(value), just one more step"
+        }
     }
     
     private func setUpCardCornerRadius(){
