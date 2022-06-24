@@ -71,11 +71,11 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSteps"
+        if segue.identifier == "goToDisclaimer"
         {
-            guard let vc = segue.destination as? StretchStepController else { return }
+            guard let vc = segue.destination as? DisclaimerController else { return }
             vc.modalPresentationStyle = .fullScreen
-            vc.stretchStepArray = stretchType[index].stretchSteps
+            vc.index = index
         }
     }
     

@@ -16,15 +16,21 @@ class EditPageController: UIViewController {
     var breakPicker = UIPickerView()
     var notifierPicker = UIPickerView()
     
-    //MARK: move to model?
-    let breakOptions = ["15 mins", "30 mins", "1 hour", "2 hours", "3 hours"]
-    let notifyOptions = ["1 min", "3 mins", "5 mins", "10 mins", "15 mins"]
+    let breakOptions: [Double]  = [900, 1800, 3600, 7200, 10800]
+    let notifyOptions: [Double] = [60 , 180, 300, 600, 900]
+    
+    var breakOpt = 0
+    var notifOpt = 0
+    
+    var breakPlanHelper = BreakPlanRU()
+    
+    var breakPlan: Break_Plan?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Display all data that has been saved from core data
-        nameTextField.text = ""
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveChange))
+        setUpData()
         // set up picker
         breakEveryTextField.inputView = breakPicker
         breakPicker.delegate = self
@@ -41,6 +47,40 @@ class EditPageController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideSelector)))
         //dismiss keyboard when return key pressed
         nameTextField.delegate = self
+        
+       
+    }
+    
+    @objc private func saveChange()
+    {
+        breakPlanHelper.editBreakPlan(BreakPlan: breakPlan!, break_every: breakOptions[breakOpt], notify: notifyOptions[notifOpt], snooze: snoozeSwitch.isOn, name: nameTextField.text ?? "")
+    }
+    
+    private func setUpData()
+    {
+        let allBreakPlan = breakPlanHelper.fetchBreakPlan()
+        breakPlan = breakPlanHelper.currentBreakPlan(break_plans: allBreakPlan)
+        
+        nameTextField.text = breakPlan?.user?.name
+        
+        
+        for x in 0..<breakOptions.count
+        {
+            if breakOptions[x] == breakPlan?.break_every
+            {
+                breakOpt = x
+            }
+            
+            if notifyOptions[x] == breakPlan?.notify_before
+            {
+                notifOpt = x
+            }
+        }
+        
+        breakPicker.selectRow(breakOpt, inComponent: 1, animated: false)
+        notifierPicker.selectRow(notifOpt, inComponent: 1, animated: false)
+        snoozeSwitch.isOn = breakPlan?.snooze ?? false
+        
     }
     
     @objc private func hideSelector(){
@@ -65,11 +105,13 @@ extension EditPageController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        
         switch pickerView.tag {
         case 1:
-            return breakOptions[row]
+            return timeStringInHour(time: Int(breakOptions[row]))
         case 2:
-            return notifyOptions[row]
+            return timeStringInHour(time: Int(notifyOptions[row]))
         default:
             return "Data Not Found!"
         }
@@ -78,10 +120,12 @@ extension EditPageController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 1:
-            breakEveryTextField.text = breakOptions[row]
+            breakOpt = row
+            breakEveryTextField.text = timeStringInHour(time: Int(breakOptions[row]))
             breakEveryTextField.resignFirstResponder()
         case 2:
-            notifyBeforeTextField.text = notifyOptions[row]
+            notifOpt = row
+            notifyBeforeTextField.text = timeStringInHour(time: Int(notifyOptions[row]))
             notifyBeforeTextField.resignFirstResponder()
         default:
            return

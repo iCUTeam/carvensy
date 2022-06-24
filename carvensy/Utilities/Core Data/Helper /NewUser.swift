@@ -5,7 +5,7 @@
 //  Created by Kathleen Febiola Susanto on 22/06/22.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class NewUser
@@ -13,7 +13,6 @@ class NewUser
     let coreDataHelper = CoreDataHelper()
     
     //add new user + break plan
-    
     func newUser(name: String, break_every: Double, notify: Double, snooze: Bool)
     {
         let context = coreDataHelper.getBackgroundContext()
@@ -32,4 +31,36 @@ class NewUser
     }
     
     //fetch user
+    
+    func fetchUser() -> [User]
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        
+        do
+        {
+            let user = try context.fetch(User.fetchRequest())
+            
+            return user
+        }
+        
+        catch
+        {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    // convert array to single object
+    
+    func currentUser(users: [User]) -> User
+    {
+        let context = coreDataHelper.getBackgroundContext()
+        let user_default = User(context: context)
+        user_default.name = "User"
+        
+        guard let user = users.first else { return user_default }
+        
+        return user
+    }
 }

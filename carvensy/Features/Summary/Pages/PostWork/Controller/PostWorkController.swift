@@ -15,15 +15,19 @@ class PostWorkController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func endWork(_ sender: Any)
+    {
+        performSegue(withIdentifier: "goToStartTimer", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToStartTimer"
+        {
+            guard let vc = segue.destination as? TimerPageController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            vc.currentState = .startWork
+        }
+    }
 
+   
 }

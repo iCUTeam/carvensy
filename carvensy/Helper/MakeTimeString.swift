@@ -26,3 +26,18 @@ public func makeTimeString(hour: Int, min: Int, sec: Int) -> String
     timeString += String(format: "%02d", sec)
     return timeString
 }
+
+public func timeStringInHour(time: Int) -> String
+{
+    let curr_item = secondsToHourMinutesSeconds(time)
+    
+    if curr_item.0 != 0
+    {
+        return "\(curr_item.0) hour(s)"
+    }
+    
+    else
+    {
+        return "\(curr_item.1) min(s)"
+    }
+}

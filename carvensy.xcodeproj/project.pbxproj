@@ -20,7 +20,6 @@
 		143B7E0528634F4400C8BDEE /* BreakPlanRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B7E0128634F4400C8BDEE /* BreakPlanRU.swift */; };
 		143B7E0728634F6F00C8BDEE /* PainAssessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B7E0628634F6F00C8BDEE /* PainAssessCollectionViewCell.swift */; };
 		143B7E0928634F7E00C8BDEE /* SymtompssCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B7E0828634F7E00C8BDEE /* SymtompssCollectionViewCell.swift */; };
-		143B7E0B28634F9500C8BDEE /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B7E0A28634F9500C8BDEE /* NotificationHelper.swift */; };
 		143B7E0F286355F200C8BDEE /* Push Out.gif in Resources */ = {isa = PBXBuildFile; fileRef = 143B7E0E286355F200C8BDEE /* Push Out.gif */; };
 		143B7E11286357AF00C8BDEE /* Prayer Pose.gif in Resources */ = {isa = PBXBuildFile; fileRef = 143B7E10286357AF00C8BDEE /* Prayer Pose.gif */; };
 		143B7E132863589200C8BDEE /* Stop Stretch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 143B7E122863589200C8BDEE /* Stop Stretch.gif */; };
@@ -47,7 +46,6 @@
 		1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */; };
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
-		950636BB2859ECF9008C2639 /* blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950636BA2859ECF9008C2639 /* blank.swift */; };
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
 		95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */; };
 		95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */; };
@@ -94,7 +92,6 @@
 		143B7E0128634F4400C8BDEE /* BreakPlanRU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakPlanRU.swift; sourceTree = "<group>"; };
 		143B7E0628634F6F00C8BDEE /* PainAssessCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainAssessCollectionViewCell.swift; sourceTree = "<group>"; };
 		143B7E0828634F7E00C8BDEE /* SymtompssCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymtompssCollectionViewCell.swift; sourceTree = "<group>"; };
-		143B7E0A28634F9500C8BDEE /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		143B7E0E286355F200C8BDEE /* Push Out.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Push Out.gif"; sourceTree = "<group>"; };
 		143B7E10286357AF00C8BDEE /* Prayer Pose.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Prayer Pose.gif"; sourceTree = "<group>"; };
 		143B7E122863589200C8BDEE /* Stop Stretch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Stop Stretch.gif"; sourceTree = "<group>"; };
@@ -123,8 +120,6 @@
 		1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarTimer.swift; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
-		950636B82859ECE9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
-		950636BA2859ECF9008C2639 /* blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blank.swift; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
 		95E3C4B2285844EC0065DFB0 /* carvensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carvensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,14 +215,6 @@
 				143B7E0028634F4400C8BDEE /* SessionCRU.swift */,
 			);
 			path = "Helper ";
-			sourceTree = "<group>";
-		};
-		143B7DF72863252600C8BDEE /* Local Notification */ = {
-			isa = PBXGroup;
-			children = (
-				143B7E0A28634F9500C8BDEE /* NotificationHelper.swift */,
-			);
-			path = "Local Notification";
 			sourceTree = "<group>";
 		};
 		14573B3C285ADCA9008F714F /* StretchSteps */ = {
@@ -510,7 +497,6 @@
 			children = (
 				148BD0AB285A0AB000420125 /* Model */,
 				148BD0972859F9D200420125 /* Pages */,
-				950636BA2859ECF9008C2639 /* blank.swift */,
 			);
 			path = Stretch;
 			sourceTree = "<group>";
@@ -520,7 +506,6 @@
 			children = (
 				145A1D362861DE46001A6BA4 /* Model */,
 				145A1D372861DE4B001A6BA4 /* Pages */,
-				950636B82859ECE9008C2639 /* blank.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -638,7 +623,6 @@
 		950636C72859EE3F008C2639 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				143B7DF72863252600C8BDEE /* Local Notification */,
 				950636C82859EE46008C2639 /* Core Data */,
 			);
 			path = Utilities;
@@ -920,7 +904,6 @@
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
 				A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */,
-				950636BB2859ECF9008C2639 /* blank.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
 				148BD0AD285A0ABF00420125 /* StretchType.swift in Sources */,
 				143B7E0528634F4400C8BDEE /* BreakPlanRU.swift in Sources */,
@@ -959,7 +942,6 @@
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
 				145A1D442861E05E001A6BA4 /* DailySummaryController.swift in Sources */,
 				956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */,
-				143B7E0B28634F9500C8BDEE /* NotificationHelper.swift in Sources */,
 				95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
