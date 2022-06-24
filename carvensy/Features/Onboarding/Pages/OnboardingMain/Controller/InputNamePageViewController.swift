@@ -24,8 +24,25 @@ class InputNamePageViewController: UIViewController {
         //keyboard appearance
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //user default
+        if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {
+            userName.text = value
+        }
     }
 
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        performAction()
+        return true
+    }
+    
+    private func performAction(){
+        print("Done Pressed")
+        //TODO: saving data on the user default
+        UserDefaultManager.shared.defaults.setValue(userName.text, forKey: "userName")
+    }
+    
     @objc private func hideSelector(){
         self.view.endEditing(true)
     }
@@ -82,3 +99,11 @@ extension UIResponder {
         Static.responder = self
     }
 }
+
+class UserDefaultManager {
+    
+    static let shared = UserDefaultManager()
+    
+    let defaults = UserDefaults(suiteName: "com.carvensy.temp.saved.data")!
+}
+

@@ -76,7 +76,6 @@
 		A97C1B2228643B5F00FFCB78 /* WorkingAssessmentPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B2128643B5F00FFCB78 /* WorkingAssessmentPage.storyboard */; };
 		A97C1B242864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97C1B232864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard */; };
 		A97C1B262864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */; };
-		A97C1B292864739300FFCB78 /* BreakSettingRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */; };
 		A9E6E86B285982720077BBF8 /* EditPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E6E86A285982720077BBF8 /* EditPage.storyboard */; };
 		A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E6E86C2859829D0077BBF8 /* EditPageController.swift */; };
 /* End PBXBuildFile section */
@@ -156,7 +155,6 @@
 		A97C1B2128643B5F00FFCB78 /* WorkingAssessmentPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorkingAssessmentPage.storyboard; sourceTree = "<group>"; };
 		A97C1B232864683E00FFCB78 /* CompleteAndShowPlanPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompleteAndShowPlanPage.storyboard; sourceTree = "<group>"; };
 		A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteAndShowPlanPageViewController.swift; sourceTree = "<group>"; };
-		A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSettingRecommendation.swift; sourceTree = "<group>"; };
 		A9E6E86A285982720077BBF8 /* EditPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPage.storyboard; sourceTree = "<group>"; };
 		A9E6E86C2859829D0077BBF8 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -809,7 +807,6 @@
 		A97C1B272864733600FFCB78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A97C1B282864739300FFCB78 /* BreakSettingRecommendation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -936,7 +933,6 @@
 				A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				143B7E0228634F4400C8BDEE /* NewUser.swift in Sources */,
-				A97C1B292864739300FFCB78 /* BreakSettingRecommendation.swift in Sources */,
 				A97C1B262864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift in Sources */,
 				143B7E0728634F6F00C8BDEE /* PainAssessCollectionViewCell.swift in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
@@ -1111,7 +1107,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4C96B7697Z;
+				DEVELOPMENT_TEAM = P7PL5J4AMN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1140,7 +1136,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4C96B7697Z;
+				DEVELOPMENT_TEAM = P7PL5J4AMN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

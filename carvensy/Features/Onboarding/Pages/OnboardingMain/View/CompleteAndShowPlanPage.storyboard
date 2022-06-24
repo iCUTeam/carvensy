@@ -201,9 +201,11 @@ good hands!</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getStartedButton" destination="SMS-bq-fvz" id="S5n-8G-TT2"/>
                         <outlet property="intervalTime" destination="YqT-7T-uoE" id="xzD-Lc-CMV"/>
                         <outlet property="notifyTime" destination="EMv-fB-xU0" id="x2T-I9-P46"/>
                         <outlet property="snoozeStatus" destination="Efg-mw-c4n" id="bZ9-eS-JAh"/>
+                        <outlet property="userNameView" destination="xeN-zG-Nbc" id="mIY-hG-z8T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -216,7 +218,7 @@ good hands!</string>
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="greenMain">
-            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.4392156862745098" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
