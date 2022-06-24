@@ -17,7 +17,8 @@ class PainAssessmentPageViewController: UIViewController {
     @IBOutlet weak var secondCard: UIView!
     @IBOutlet weak var thirdCard: UIView!
     
-
+    private var cardNumber = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,12 +28,14 @@ class PainAssessmentPageViewController: UIViewController {
     
     @IBAction func moderateCardAreaPressed(_ sender: Any) {
         //card index number = 1 (Moderate)
-        showAlert(cardIndexNumber: 1)
+        cardNumber = 1
+        showAlert(cardIndexNumber: cardNumber)
     }
     
     @IBAction func mildCardAreaPressed(_ sender: Any) {
         //card index number = 2 (Mild)
-        showAlert(cardIndexNumber: 2)
+        cardNumber = 2
+        showAlert(cardIndexNumber: cardNumber)
     }
     
     @IBAction func noSymptomCardAreaPressed(_ sender: Any) {
@@ -65,23 +68,59 @@ class PainAssessmentPageViewController: UIViewController {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)
         confirmationAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            //TODO: send action code based on index
-            /*
-                1. Moderate Card
-                2. Mild Card
-                3. No Symptom - Hectic Work
-                4. No Symptom - Busy Work
-                5. No Symptom - Normal Work
-             */
-            print("card choose: \(cardIndexNumber)")
-            
             self.performSegue(withIdentifier: "goShowPlanSettings", sender: self)
         }))
         
         confirmationAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
         }))
         
         self.present(confirmationAlert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "goShowPlanSettings" {
+            
+            if cardNumber > 0 && cardNumber < 6 {
+                        
+                let move = segue.destination as! CompleteAndShowPlanPageViewController
+                
+                var breakInterval: Double = 0
+                var notifyTime: Double = 0
+                
+                //TODO: send action code based on index
+                /*
+                 1. Moderate Card
+                 2. Mild Card
+                 3. No Symptom - Hectic Work
+                 4. No Symptom - Busy Work
+                 5. No Symptom - Normal Work
+                 */
+                
+                switch cardNumber {
+                case 1:
+                    print("Moderate")
+                    breakInterval = 3600 // 1h
+                    notifyTime = 300 // 5m
+                case 2:
+                    print("Mild")
+                    breakInterval = 7200 // 2h
+                    notifyTime = 300 // 5m
+                default:
+                    print("## Error ##")
+                }
+                
+                move.breakDuration = breakInterval
+                move.notifyDuration = notifyTime
+            }
+        }
+        else if segue.identifier == "showWorkingAssessModal" {
+            _ = segue.destination as! WorkingAssessmentPageViewController
+        }
+        else if segue.identifier == "" {
+            _ = segue.destination as! SymptomPageViewController
+        }
+        
+        
     }
 }
