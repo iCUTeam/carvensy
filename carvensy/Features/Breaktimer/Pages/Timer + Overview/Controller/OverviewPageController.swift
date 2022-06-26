@@ -32,6 +32,8 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Overview"
+        
         let allSession = sessionHelper.fetchSession()
         
         lastSession = sessionHelper.currentSession(sessions: allSession)
