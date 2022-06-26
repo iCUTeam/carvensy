@@ -64,6 +64,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <connections>
                         <segue destination="qcF-G5-Oeh" kind="presentation" identifier="goToStartTimer" modalPresentationStyle="fullScreen" id="gYE-cJ-jCd"/>

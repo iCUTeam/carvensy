@@ -25,7 +25,7 @@ class PostWorkController: UIViewController {
         {
             guard let vc = segue.destination as? TimerPageController else { return }
             vc.modalPresentationStyle = .fullScreen
-            vc.currentState = .startWork
+            vc.currentState = .notWorking
         }
     }
 

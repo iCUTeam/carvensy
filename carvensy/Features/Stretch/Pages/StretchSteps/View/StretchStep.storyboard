@@ -90,6 +90,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <connections>
                         <outlet property="endBtn" destination="gfe-x7-0by" id="lKD-H6-81H"/>

@@ -154,6 +154,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Mg-88-hFo"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <navigationItem key="navigationItem" id="MG3-tG-ufZ"/>
                     <connections>
@@ -175,13 +176,13 @@
         <!--Timer Page Controller-->
         <scene sceneID="6ld-Nn-mD6">
             <objects>
-                <viewController id="XgZ-Pj-8rO" customClass="TimerPageController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="time-page" id="XgZ-Pj-8rO" customClass="TimerPageController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AKs-CK-59O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aot-z3-U2D" customClass="TimerProgressBar" customModule="carvensy" customModuleProvider="target">
-                                <rect key="frame" x="65" y="279" width="284" height="284"/>
+                                <rect key="frame" x="65" y="239" width="284" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
                             </view>
@@ -193,7 +194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-dp-4SF">
-                                <rect key="frame" x="145" y="724" width="124" height="31"/>
+                                <rect key="frame" x="145" y="666" width="124" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="End Work"/>
@@ -202,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-1v-fUI">
-                                <rect key="frame" x="124" y="648" width="167" height="54"/>
+                                <rect key="frame" x="124" y="590" width="167" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Session">
@@ -273,11 +274,12 @@
         <!--Tab Bar Controller-->
         <scene sceneID="4jN-L9-7DM">
             <objects>
-                <tabBarController id="SQg-Ub-nbb" sceneMemberID="viewController">
+                <tabBarController id="SQg-Ub-nbb" customClass="TabBarController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hCR-DT-QlH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="greenMain"/>
                     </tabBar>
                     <connections>
                         <segue destination="eX2-j3-g5R" kind="relationship" relationship="viewControllers" id="dux-mW-hv9"/>

@@ -137,6 +137,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                     <fontDescription key="titleFontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="18"/>
+                                    <color key="baseBackgroundColor" name="greenMain"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="submitAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Ve-pk-33v"/>
@@ -145,6 +146,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <connections>
                         <outlet property="painAssessmentCV" destination="awb-gK-1Ng" id="uP6-f8-ekd"/>
@@ -173,6 +175,9 @@
         </namedColor>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greenMain">
+            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

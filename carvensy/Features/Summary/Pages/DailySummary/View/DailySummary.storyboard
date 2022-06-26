@@ -102,6 +102,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <connections>
                         <outlet property="breakCV" destination="eUx-9A-mN2" id="gJr-Qn-4in"/>

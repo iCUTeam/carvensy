@@ -38,7 +38,7 @@
                                 </constraints>
                                 <color key="tintColor" name="greenMain"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Stretch"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Stretch"/>
                                 <connections>
                                     <action selector="stretchButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qcw-g2-bcb"/>
                                 </connections>
@@ -58,6 +58,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                         <constraints>
                             <constraint firstItem="H6G-Ue-bxM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3x1-1u-qcy"/>
                             <constraint firstItem="rtl-RT-17k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8ha-XT-hbm"/>

@@ -62,7 +62,6 @@ class StretchStepController: UIViewController {
                     if !self.isPaused
                     {
                         self.countFired -= 1
-                        print(self.progressBar.progress)
                         self.progressBar.progress = min(CGFloat(0.1 * self.countFired), 1)
                     }
                    

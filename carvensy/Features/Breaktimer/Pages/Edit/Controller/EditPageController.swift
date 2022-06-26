@@ -30,6 +30,7 @@ class EditPageController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveChange))
+        navigationItem.rightBarButtonItem?.tintColor = CarvensyColor.greenMain
         setUpData()
         // set up picker
         breakEveryTextField.inputView = breakPicker
