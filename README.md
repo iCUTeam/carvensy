@@ -1,6 +1,10 @@
 # Carvensy
+
 (Carpal Tunnel Syndrome Prevention made Easy)
+
 MC2 ADA@BINUS - C5 | iCU (i Care U) - Group 4 Afternoon
+
+
 
 ## App Architecture
 
@@ -89,7 +93,6 @@ carvensy
 
 .
 
-.
 
 Each page may have the below architecture:
 
