@@ -77,8 +77,8 @@ class EditPageController: UIViewController {
             }
         }
         
-        breakPicker.selectRow(breakOpt, inComponent: 1, animated: false)
-        notifierPicker.selectRow(notifOpt, inComponent: 1, animated: false)
+        breakPicker.selectRow(breakOpt, inComponent: 0, animated: false)
+        notifierPicker.selectRow(notifOpt, inComponent: 0, animated: false)
         snoozeSwitch.isOn = breakPlan?.snooze ?? false
         
     }
