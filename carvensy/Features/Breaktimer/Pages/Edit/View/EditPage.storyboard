@@ -117,11 +117,20 @@
                         <outlet property="nameTextField" destination="wR0-yn-DtR" id="bdx-65-PnW"/>
                         <outlet property="notifyBeforeTextField" destination="Gao-0b-kPi" id="fOR-YP-rnM"/>
                         <outlet property="snoozeSwitch" destination="6e0-0S-mP5" id="dle-A3-9z2"/>
+                        <segue destination="2lU-No-urR" kind="presentation" identifier="goToTimer" modalPresentationStyle="fullScreen" id="UFm-Kd-SRE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="108.48214285714285"/>
+        </scene>
+        <!--TimerPage-->
+        <scene sceneID="hRB-uW-iQL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TimerPage" id="2lU-No-urR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76W-eW-FQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="85"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Se-Ds-4xt">

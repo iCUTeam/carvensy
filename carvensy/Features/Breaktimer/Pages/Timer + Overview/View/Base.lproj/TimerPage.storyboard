@@ -215,6 +215,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Een-Ka-yHj"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hai-L8-IVZ"/>
                     <connections>
@@ -617,6 +618,8 @@
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="greenMain">
+            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         <namedColor name="redFont">
             <color red="0.80400002002716064" green="0.28999999165534973" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

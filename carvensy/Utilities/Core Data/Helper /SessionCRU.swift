@@ -11,7 +11,7 @@ import CoreData
 class SessionCRUD
 {
     let coreDataHelper = CoreDataHelper()
-    
+ 
     //fetch session
     
     func fetchSession() -> [Session]
@@ -37,18 +37,6 @@ class SessionCRUD
         }
         
         return []
-    }
-    
-    //convert to single session
-    
-    func currentSession(sessions: [Session]) -> Session
-    {
-        let context = coreDataHelper.getBackgroundContext()
-        let session = Session(context: context)
-        
-        guard let current_session = sessions.first else { return session}
-        
-        return current_session
     }
     
     //make first session + add to user

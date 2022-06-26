@@ -21,7 +21,7 @@ class CoreDataHelper {
     }
     
     func getBackgroundContext() -> NSManagedObjectContext {
-        if let context = container?.newBackgroundContext() {
+        if let context = container?.viewContext {
             return context
         } else {
             return viewContext

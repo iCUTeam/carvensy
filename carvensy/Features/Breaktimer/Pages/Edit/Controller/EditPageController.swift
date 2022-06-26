@@ -54,13 +54,19 @@ class EditPageController: UIViewController {
     @objc private func saveChange()
     {
         breakPlanHelper.editBreakPlan(BreakPlan: breakPlan!, break_every: breakOptions[breakOpt], notify: notifyOptions[notifOpt], snooze: snoozeSwitch.isOn, name: nameTextField.text ?? "")
+        performSegue(withIdentifier: "goToTimer", sender: self)
     }
     
     private func setUpData()
     {
-        let allBreakPlan = breakPlanHelper.fetchBreakPlan()
-        breakPlan = breakPlanHelper.currentBreakPlan(break_plans: allBreakPlan)
         
+        let allPlan = breakPlanHelper.fetchBreakPlan()
+        
+        if allPlan.count != 0
+        {
+            breakPlan = allPlan.first
+        }
+
         nameTextField.text = breakPlan?.user?.name
         
         
@@ -77,8 +83,10 @@ class EditPageController: UIViewController {
             }
         }
         
-        breakPicker.selectRow(breakOpt, inComponent: 1, animated: false)
-        notifierPicker.selectRow(notifOpt, inComponent: 1, animated: false)
+        breakPicker.selectRow(breakOpt, inComponent: 0, animated: false)
+        breakEveryTextField.text = timeStringInHour(time: Int(breakOptions[breakOpt]))
+        notifierPicker.selectRow(notifOpt, inComponent: 0, animated: false)
+        notifyBeforeTextField.text = timeStringInHour(time: Int(notifyOptions[notifOpt]))
         snoozeSwitch.isOn = breakPlan?.snooze ?? false
         
     }

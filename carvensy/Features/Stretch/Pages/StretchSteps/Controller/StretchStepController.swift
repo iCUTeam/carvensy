@@ -35,8 +35,10 @@ class StretchStepController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSteps()
+       
         stretchStepArray = stretchType[stretchChoice].stretchSteps
+        setSteps()
+        print(stretchStepArray.count)
         
         // Do any additional setup after loading the view.
     }

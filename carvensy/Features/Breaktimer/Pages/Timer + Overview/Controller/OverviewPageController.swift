@@ -36,7 +36,10 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
         
         let allSession = sessionHelper.fetchSession()
         
-        lastSession = sessionHelper.currentSession(sessions: allSession)
+        if allSession.count != 0
+        {
+            lastSession = allSession.first
+        }
         
         if lastSession != nil
         {

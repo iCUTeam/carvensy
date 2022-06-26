@@ -22,7 +22,11 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
 
         let allSession = sessionHelper.fetchSession()
-        dailySession = sessionHelper.currentSession(sessions: allSession)
+        
+        if allSession.count != 0
+        {
+            dailySession = allSession.first
+        }
         
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         // Do any additional setup after loading the view.
