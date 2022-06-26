@@ -66,7 +66,7 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
         if indexPath.section < stretchType.count
         {
             index = indexPath.section
-            performSegue(withIdentifier: "goToSteps", sender: self)
+            performSegue(withIdentifier: "goToDisclaimer", sender: self)
         }
     }
     

@@ -115,8 +115,12 @@ class TimerPageController: UIViewController {
         let fontsize : CGFloat
         
         let alluser = userHelper.fetchUser()
-        user = userHelper.currentUser(users: alluser)
         
+        if alluser.count != 0
+        {
+            user = alluser.first
+        }
+       
         choosenHour = user?.break_plan?.break_every ?? 7200
         notifyTime = user?.break_plan?.notify_before ?? 300
         
@@ -237,6 +241,7 @@ class TimerPageController: UIViewController {
                 setStartTime(date: Date())
                 
                 let name = user?.name ?? "Dear user"
+                print(name)
                 
                 triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
                 
@@ -303,6 +308,7 @@ class TimerPageController: UIViewController {
         {
             guard let vc = segue.destination as? EditPageController else {return}
             vc.modalPresentationStyle = .fullScreen
+            vc.breakPlan = user?.break_plan
         }
     }
     @IBAction func endAction(_ sender: Any) {

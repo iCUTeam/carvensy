@@ -43,6 +43,7 @@
 		148BD0AF285A133800420125 /* StretchSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD0AE285A133800420125 /* StretchSteps.swift */; };
 		1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1D82858BB280009C41F /* TimerProgressBar.swift */; };
 		1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */; };
+		14A9F83D28684A2B003F0B94 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9F83C28684A2B003F0B94 /* CameraView.swift */; };
 		14B997522865A8070036842E /* HandModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B997512865A8070036842E /* HandModel.mlmodel */; };
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
@@ -117,6 +118,7 @@
 		148BD0AE285A133800420125 /* StretchSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSteps.swift; sourceTree = "<group>"; };
 		1498D1D82858BB280009C41F /* TimerProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressBar.swift; sourceTree = "<group>"; };
 		1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarTimer.swift; sourceTree = "<group>"; };
+		14A9F83C28684A2B003F0B94 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		14B997512865A8070036842E /* HandModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandModel.mlmodel; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		145A1D2F2861C545001A6BA4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14A9F83C28684A2B003F0B94 /* CameraView.swift */,
 				145A1D322861C5DB001A6BA4 /* StretchCamController.swift */,
 			);
 			path = Controller;
@@ -910,6 +913,7 @@
 				A97C1B1A286421B400FFCB78 /* AboutCTSPageViewController.swift in Sources */,
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
+				14A9F83D28684A2B003F0B94 /* CameraView.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
 				A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */,
 				148BD0A4285A04D200420125 /* ChooseStretchController.swift in Sources */,
@@ -924,9 +928,7 @@
 				A97C1B132862005D00FFCB78 /* PainAssessmentPageViewController.swift in Sources */,
 				95E3C4C0285844EC0065DFB0 /* carvensy.xcdatamodeld in Sources */,
 				143B7E0228634F4400C8BDEE /* NewUser.swift in Sources */,
-				A97C1B292864739300FFCB78 /* BreakSettingRecommendation.swift in Sources */,
 				14B997522865A8070036842E /* HandModel.mlmodel in Sources */,
-
 				A97C1B262864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift in Sources */,
 				143B7E0728634F6F00C8BDEE /* PainAssessCollectionViewCell.swift in Sources */,
 				A9E6E86D2859829D0077BBF8 /* EditPageController.swift in Sources */,
@@ -1099,7 +1101,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 4C96B7697Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1128,7 +1130,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 4C96B7697Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

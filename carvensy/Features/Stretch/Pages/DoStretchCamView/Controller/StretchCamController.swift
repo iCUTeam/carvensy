@@ -22,6 +22,7 @@ enum handPose
 class StretchCamController: UIViewController {
     
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
+    private var cameraView: CameraView { view as! CameraView }
     private var cameraFeedSession: AVCaptureSession?
     var currentPose: handPose = .push_out
     var countRep = 0
@@ -38,7 +39,9 @@ class StretchCamController: UIViewController {
         super.viewDidAppear(animated)
         do {
             if cameraFeedSession == nil {
+                cameraView.previewLayer.videoGravity = .resizeAspectFill
                 try setupAVSession()
+                cameraView.previewLayer.session = cameraFeedSession
             }
             cameraFeedSession?.startRunning()
         } catch {
@@ -121,20 +124,19 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         
         //dapetin key point dari posenya
         guard let keyPointMultiArray = try? handPose?.keypointsMultiArray()
-            else {fatalError()}
-        
+            else {fatalError("Can't detect hand")}
         
         let defaultConfig = MLModelConfiguration()
         guard let model = try? HandModel(configuration: defaultConfig)
         else{
-            fatalError()
+            fatalError("Model not found")
         }
                 
         
        guard let handPrediction = try? model.prediction(poses: keyPointMultiArray)
         else
         {
-           fatalError()
+           fatalError("Can't make hand prediction")
         }
         
         let confidence = handPrediction.labelProbabilities[handPrediction.label]!

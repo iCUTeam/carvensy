@@ -38,7 +38,11 @@ class BreakPageController: UIViewController {
     @IBAction func stretchButtonPressed(_ sender: Any) {
         
         let allSession = sessionHelper.fetchSession()
-        session = sessionHelper.currentSession(sessions: allSession)
+        
+        if allSession.count != 0
+        {
+            session = allSession.first
+        }
         
         if session?.break_relation == nil
         {

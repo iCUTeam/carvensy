@@ -33,7 +33,11 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         submitBtn.isEnabled = false
         
         let allSession = sessionHelper.fetchSession()
-        session = sessionHelper.currentSession(sessions: allSession)
+        
+        if allSession.count != 0
+        {
+            session = allSession.first
+        }
         // Do any additional setup after loading the view.
     }
     
