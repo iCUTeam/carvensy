@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SQg-Ub-nbb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SQg-Ub-nbb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -257,12 +257,12 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hCR-DT-QlH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="eX2-j3-g5R" kind="relationship" relationship="viewControllers" id="dux-mW-hv9"/>
                         <segue destination="PUM-i4-HPe" kind="relationship" relationship="viewControllers" id="GgQ-1B-h1r"/>
-                        <segue destination="VX0-8M-yty" kind="relationship" relationship="viewControllers" id="IsM-2d-fw9"/>
+                        <segue destination="js6-9n-f3h" kind="relationship" relationship="viewControllers" id="IsM-2d-fw9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLj-V2-qiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -278,6 +278,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="o6j-Qk-tCS">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -297,6 +298,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ulx-Kb-NdT">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -307,7 +309,7 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="371.65178571428572"/>
         </scene>
-        <!--About CTS-->
+        <!--Trivia View Controller-->
         <scene sceneID="8H5-VX-sy0">
             <objects>
                 <viewController id="VX0-8M-yty" customClass="TriviaViewController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,9 +317,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-mu-yS5">
-                                <rect key="frame" x="20" y="98" width="374" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-mu-yS5">
+                                <rect key="frame" x="20" y="150" width="374" height="32"/>
                                 <segments>
                                     <segment title="More About CTS"/>
                                     <segment title="Common Symtomps"/>
@@ -326,26 +327,298 @@
                                     <action selector="changeSegment:" destination="VX0-8M-yty" eventType="valueChanged" id="XUh-tt-HIR"/>
                                 </connections>
                             </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpp-o5-in2" userLabel="Container View Symptom">
+                                <rect key="frame" x="0.0" y="191" width="414" height="622"/>
+                                <connections>
+                                    <segue destination="5Ey-xh-pl0" kind="embed" id="0BR-r1-O3A"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72W-wM-gaF" userLabel="Container View About CTS">
+                                <rect key="frame" x="0.0" y="191" width="414" height="622"/>
+                                <connections>
+                                    <segue destination="lDd-kf-Map" kind="embed" id="QtI-iQ-5gC"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="04X-Bd-BOh"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <constraints>
+                            <constraint firstItem="04X-Bd-BOh" firstAttribute="bottom" secondItem="72W-wM-gaF" secondAttribute="bottom" id="8hN-jH-ii1"/>
+                            <constraint firstItem="XLp-mu-yS5" firstAttribute="top" secondItem="04X-Bd-BOh" secondAttribute="top" constant="10" id="EWX-AX-tDR"/>
+                            <constraint firstItem="Vpp-o5-in2" firstAttribute="trailing" secondItem="04X-Bd-BOh" secondAttribute="trailing" id="Fi1-Ap-R1t"/>
+                            <constraint firstItem="Vpp-o5-in2" firstAttribute="leading" secondItem="04X-Bd-BOh" secondAttribute="leading" id="IxJ-8i-sq0"/>
+                            <constraint firstItem="Vpp-o5-in2" firstAttribute="top" secondItem="XLp-mu-yS5" secondAttribute="bottom" constant="10" id="Jeo-3b-AIL"/>
+                            <constraint firstItem="72W-wM-gaF" firstAttribute="top" secondItem="XLp-mu-yS5" secondAttribute="bottom" constant="10" id="JtG-2j-DUc"/>
+                            <constraint firstItem="04X-Bd-BOh" firstAttribute="trailing" secondItem="XLp-mu-yS5" secondAttribute="trailing" constant="20" id="N5M-WN-Ad1"/>
+                            <constraint firstItem="04X-Bd-BOh" firstAttribute="trailing" secondItem="72W-wM-gaF" secondAttribute="trailing" id="Rbc-el-KY6"/>
+                            <constraint firstItem="XLp-mu-yS5" firstAttribute="leading" secondItem="04X-Bd-BOh" secondAttribute="leading" constant="20" id="SXm-WD-p2P"/>
+                            <constraint firstItem="Vpp-o5-in2" firstAttribute="bottom" secondItem="04X-Bd-BOh" secondAttribute="bottom" id="ncs-TH-k0L"/>
+                            <constraint firstItem="72W-wM-gaF" firstAttribute="leading" secondItem="04X-Bd-BOh" secondAttribute="leading" id="tIK-nZ-PEt"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About CTS" image="info" catalog="system" id="0t2-1R-5CA"/>
+                    <navigationItem key="navigationItem" id="BOp-uD-jsA"/>
                     <connections>
                         <outlet property="segmentedControl" destination="XLp-mu-yS5" id="aVs-Qc-idD"/>
+                        <outlet property="viewAbout" destination="72W-wM-gaF" id="EBn-AE-LvW"/>
+                        <outlet property="viewSymptom" destination="Vpp-o5-in2" id="7t5-EM-zax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t6-jE-ABU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842.0289855072465" y="1064.7321428571429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g8v-iB-Cwf">
+            <objects>
+                <viewController id="5Ey-xh-pl0" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="V61-Ll-Yqh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="622"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2a-BY-UjI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="961"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7dv-tC-kXy">
+                                        <rect key="frame" x="20" y="20" width="374" height="921"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iw-3U-xKC">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cts common symptoms - hand nerves" translatesAutoresizingMaskIntoConstraints="NO" id="Q0e-Su-Qsu">
+                                                        <rect key="frame" x="29" y="5" width="316" height="190"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="190" id="6Dk-Gk-cOv"/>
+                                                            <constraint firstAttribute="width" constant="316" id="Hjk-YG-dny"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Q0e-Su-Qsu" firstAttribute="centerX" secondItem="2iw-3U-xKC" secondAttribute="centerX" id="0Hd-Bc-Iip"/>
+                                                    <constraint firstItem="Q0e-Su-Qsu" firstAttribute="centerY" secondItem="2iw-3U-xKC" secondAttribute="centerY" id="JEg-9O-ba5"/>
+                                                    <constraint firstAttribute="height" constant="200" id="JRH-tZ-ZnU"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know the most common CTS symptoms? You might experience some of these:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-kB-DHI">
+                                                <rect key="frame" x="0.0" y="220" width="374" height="86"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jJC-VG-PGF">
+                                                <rect key="frame" x="0.0" y="326" width="374" height="155.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.  Numbness and/or tingling on the fingertips (thumb, index, middle, and half of the ring finger)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jo4-5q-bx1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="38.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Electric shock pain/shoot up to the arm" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CME-Gy-sTu">
+                                                        <rect key="frame" x="0.0" y="43.5" width="374" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Constant burning, itching, and soreness" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irf-8y-xfD">
+                                                        <rect key="frame" x="0.0" y="68" width="374" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Puffy or swollen feeling on the hand or fingers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4he-bI-NJf">
+                                                        <rect key="frame" x="0.0" y="92.5" width="374" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5. Weakness in the hand and wrist that cause clumsiness" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-1z-h7n">
+                                                        <rect key="frame" x="0.0" y="117" width="374" height="38.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But, if you have also reached any of these symptoms below:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTE-bS-dth">
+                                                <rect key="frame" x="0.0" y="501.5" width="374" height="57.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ubq-yi-WnE">
+                                                <rect key="frame" x="0.0" y="579" width="374" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyt-QM-gDt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="57.5"/>
+                                                        <string key="text">1. The common symptoms are consistent and intense all day long, and holding phone or steering wheel will greatly worsens the pain</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFL-k1-AbP">
+                                                        <rect key="frame" x="0.0" y="62.5" width="374" height="57.5"/>
+                                                        <string key="text">2. Overall loss of grip strength, need assistance to do daily activities and lose touch sensibility to differ hot and cold. Muscle loss at the base of thumb</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We suggest you to see doctor immediately, you are at the Severe stage" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-ew-q4d">
+                                                <rect key="frame" x="0.0" y="719" width="374" height="86"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" name="redFont"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLQ-sO-1wD">
+                                                <rect key="frame" x="0.0" y="825" width="374" height="96"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7dv-tC-kXy" firstAttribute="leading" secondItem="V2a-BY-UjI" secondAttribute="leading" constant="20" id="55b-y5-WO5"/>
+                                    <constraint firstAttribute="bottom" secondItem="7dv-tC-kXy" secondAttribute="bottom" constant="20" id="Uwc-2c-lDw"/>
+                                    <constraint firstAttribute="trailing" secondItem="7dv-tC-kXy" secondAttribute="trailing" constant="20" id="eVE-y0-vTx"/>
+                                    <constraint firstItem="7dv-tC-kXy" firstAttribute="top" secondItem="V2a-BY-UjI" secondAttribute="top" constant="20" id="zLK-Of-I1q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bim-Bn-2sj"/>
+                        <constraints>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="bottom" secondItem="0ME-WP-Ljc" secondAttribute="bottom" id="3hs-ca-g0a"/>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="top" secondItem="0ME-WP-Ljc" secondAttribute="top" id="9nP-Cs-hfk"/>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="leading" secondItem="0ME-WP-Ljc" secondAttribute="leading" id="9ye-xX-NO7"/>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="trailing" secondItem="0ME-WP-Ljc" secondAttribute="trailing" id="SU4-DV-N72"/>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="height" secondItem="0yg-4e-0E8" secondAttribute="height" priority="250" id="kMh-ea-dgA"/>
+                            <constraint firstItem="V2a-BY-UjI" firstAttribute="width" secondItem="0yg-4e-0E8" secondAttribute="width" id="q2L-ZM-oHv"/>
+                        </constraints>
+                        <viewLayoutGuide key="contentLayoutGuide" id="0ME-WP-Ljc"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="0yg-4e-0E8"/>
+                    </scrollView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ktb-P0-SZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="1101"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZFh-OT-s5j">
+            <objects>
+                <viewController id="lDd-kf-Map" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="JW2-F3-fza">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="622"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxX-d9-gDG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2tH-Az-cAR">
+                                        <rect key="frame" x="20" y="20" width="374" height="607"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beV-X0-mML">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="260"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="informasi cts - find out more" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-6U-bxm">
+                                                        <rect key="frame" x="93.5" y="1.5" width="187" height="257"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="257" id="YR0-Se-hVg"/>
+                                                            <constraint firstAttribute="width" constant="187" id="vC6-kW-2fy"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="260" id="GNO-Zg-Aud"/>
+                                                    <constraint firstItem="VS0-6U-bxm" firstAttribute="centerY" secondItem="beV-X0-mML" secondAttribute="centerY" id="Hvd-E0-65e"/>
+                                                    <constraint firstItem="VS0-6U-bxm" firstAttribute="centerX" secondItem="beV-X0-mML" secondAttribute="centerX" id="am3-5g-NV8"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Carpal Tunnel Syndrome (CTS)?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2il-Do-NM7">
+                                                <rect key="frame" x="0.0" y="275" width="374" height="57.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8w-Qa-C0i">
+                                                <rect key="frame" x="0.0" y="347.5" width="374" height="76.5"/>
+                                                <string key="text">Carpal Tunnel Syndrome is a very common condition that causes pain, numbness, tingling, and weakness in the hand and wrist that affects up to 3 out of every 1000 adults in the world. </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-Hi-V5L">
+                                                <rect key="frame" x="0.0" y="439" width="374" height="95.5"/>
+                                                <string key="text">It is caused when the carpal tunnel in the wrist narrows and presses down on the median nerve and tendons inside it, makes them swell and cuts off sensation in the hand and specific fingers (thumb, index, middle, and half of the ring finger). </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLK-tH-QYO">
+                                                <rect key="frame" x="0.0" y="549.5" width="374" height="57.5"/>
+                                                <string key="text">Those who do activities or jobs that involve intense and prolonged repetitive finger, hand, wrist use are at risk, and you might be at risk too.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2tH-Az-cAR" firstAttribute="top" secondItem="WxX-d9-gDG" secondAttribute="top" constant="20" id="P1f-hA-Mbv"/>
+                                    <constraint firstAttribute="bottom" secondItem="2tH-Az-cAR" secondAttribute="bottom" constant="20" id="SCu-RY-Vcq"/>
+                                    <constraint firstAttribute="trailing" secondItem="2tH-Az-cAR" secondAttribute="trailing" constant="20" id="rSV-iI-cLK"/>
+                                    <constraint firstItem="2tH-Az-cAR" firstAttribute="leading" secondItem="WxX-d9-gDG" secondAttribute="leading" constant="20" id="uya-Gf-Reg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kvE-4w-06C"/>
+                        <constraints>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="height" secondItem="idV-Nk-ySg" secondAttribute="height" priority="250" id="1K7-jF-ygM"/>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="bottom" secondItem="EMD-sM-iRm" secondAttribute="bottom" id="25p-FY-lYb"/>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="top" secondItem="EMD-sM-iRm" secondAttribute="top" id="Tqt-Is-wP3"/>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="leading" secondItem="EMD-sM-iRm" secondAttribute="leading" id="jUi-3H-lK6"/>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="width" secondItem="idV-Nk-ySg" secondAttribute="width" id="ovv-ug-dgh"/>
+                            <constraint firstItem="WxX-d9-gDG" firstAttribute="trailing" secondItem="EMD-sM-iRm" secondAttribute="trailing" id="yfz-CG-jVj"/>
+                        </constraints>
+                        <viewLayoutGuide key="contentLayoutGuide" id="EMD-sM-iRm"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="idV-Nk-ySg"/>
+                    </scrollView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7I-Kd-laB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1843" y="1727"/>
+        </scene>
+        <!--About CTS-->
+        <scene sceneID="U1S-Eo-uZy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="js6-9n-f3h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About CTS" image="info" catalog="system" id="0t2-1R-5CA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ll4-un-rgB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VX0-8M-yty" kind="relationship" relationship="rootViewController" id="ZRA-6h-9p3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImI-mB-Acq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="1064.7321428571429"/>
         </scene>
     </scenes>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
+        <image name="cts common symptoms - hand nerves" width="1424" height="857"/>
         <image name="info" catalog="system" width="93" height="128"/>
+        <image name="informasi cts - find out more" width="541" height="745"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redFont">
+            <color red="0.80400002002716064" green="0.28999999165534973" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
