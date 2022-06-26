@@ -48,6 +48,9 @@
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
+		956C9AEE28685A1400361BB7 /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C9AED28685A1400361BB7 /* LandscapeManager.swift */; };
+		956C9AF028685A5200361BB7 /* Storyboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */; };
+		956C9AF228685DCD00361BB7 /* ConciergeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C9AF128685DCD00361BB7 /* ConciergeViewController.swift */; };
 		95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */; };
 		95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */; };
 		95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3C4B9285844EC0065DFB0 /* TimerPageController.swift */; };
@@ -123,6 +126,9 @@
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
+		956C9AED28685A1400361BB7 /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
+		956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Ext.swift"; sourceTree = "<group>"; };
+		956C9AF128685DCD00361BB7 /* ConciergeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConciergeViewController.swift; sourceTree = "<group>"; };
 		95E3C4B2285844EC0065DFB0 /* carvensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carvensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E3C4B5285844EC0065DFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E3C4B7285844EC0065DFB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,7 +214,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		143B7DEF2863222E00C8BDEE /* Helper  */ = {
+		143B7DEF2863222E00C8BDEE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				143B7E0128634F4400C8BDEE /* BreakPlanRU.swift */,
@@ -216,7 +222,7 @@
 				143B7DFE28634F4400C8BDEE /* NewUser.swift */,
 				143B7E0028634F4400C8BDEE /* SessionCRU.swift */,
 			);
-			path = "Helper ";
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		14573B3C285ADCA9008F714F /* StretchSteps */ = {
@@ -268,13 +274,6 @@
 				145A1D322861C5DB001A6BA4 /* StretchCamController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		145A1D362861DE46001A6BA4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		145A1D372861DE4B001A6BA4 /* Pages */ = {
@@ -515,7 +514,6 @@
 		950636B62859ECAC008C2639 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
-				145A1D362861DE46001A6BA4 /* Model */,
 				145A1D372861DE4B001A6BA4 /* Pages */,
 			);
 			path = Summary;
@@ -524,7 +522,6 @@
 		950636B72859ECBA008C2639 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				A97C1B272864733600FFCB78 /* Model */,
 				950636C32859EDDB008C2639 /* Pages */,
 			);
 			path = Onboarding;
@@ -590,6 +587,8 @@
 				1498D1DA2858BEDC0009C41F /* ProgressBarTimer.swift */,
 				145A1D2928618584001A6BA4 /* GIFProcessorExtension.swift */,
 				143B7DE728630CF600C8BDEE /* MakeTimeString.swift */,
+				956C9AED28685A1400361BB7 /* LandscapeManager.swift */,
+				956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -642,7 +641,7 @@
 		950636C82859EE46008C2639 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				143B7DEF2863222E00C8BDEE /* Helper  */,
+				143B7DEF2863222E00C8BDEE /* Helper */,
 				95E3C4BE285844EC0065DFB0 /* carvensy.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -768,6 +767,7 @@
 				A97C1B122862005D00FFCB78 /* PainAssessmentPageViewController.swift */,
 				A97C1B1F2864350B00FFCB78 /* WorkingAssessmentPageViewController.swift */,
 				A97C1B252864686400FFCB78 /* CompleteAndShowPlanPageViewController.swift */,
+				956C9AF128685DCD00361BB7 /* ConciergeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -797,13 +797,6 @@
 				A97C1B1D2864312900FFCB78 /* SymptomPageViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A97C1B272864733600FFCB78 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A9E6E86F285982A90077BBF8 /* Edit */ = {
@@ -913,6 +906,7 @@
 				A97C1B1A286421B400FFCB78 /* AboutCTSPageViewController.swift in Sources */,
 				1498D1D92858BB280009C41F /* TimerProgressBar.swift in Sources */,
 				1436F77C285CAAB50090582B /* StretchFinishPageController.swift in Sources */,
+				956C9AEE28685A1400361BB7 /* LandscapeManager.swift in Sources */,
 				14A9F83D28684A2B003F0B94 /* CameraView.swift in Sources */,
 				1405D0AC285CDE72000D3157 /* OverviewCollectionViewCell.swift in Sources */,
 				A97C1B112862004700FFCB78 /* InputNamePageViewController.swift in Sources */,
@@ -943,9 +937,11 @@
 				143B7DE828630CF600C8BDEE /* MakeTimeString.swift in Sources */,
 				143B7DFD2863457100C8BDEE /* TriviaViewController.swift in Sources */,
 				A97C1B1E2864312900FFCB78 /* SymptomPageViewController.swift in Sources */,
+				956C9AF028685A5200361BB7 /* Storyboard+Ext.swift in Sources */,
 				95E3C4BA285844EC0065DFB0 /* TimerPageController.swift in Sources */,
 				143B7E0328634F4400C8BDEE /* CoreDataHelper.swift in Sources */,
 				95E3C4B6285844EC0065DFB0 /* AppDelegate.swift in Sources */,
+				956C9AF228685DCD00361BB7 /* ConciergeViewController.swift in Sources */,
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
 				145A1D482861EA8B001A6BA4 /* PainAssessmentController.swift in Sources */,
 				A97C1B202864350B00FFCB78 /* WorkingAssessmentPageViewController.swift in Sources */,
@@ -1101,13 +1097,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4C96B7697Z;
+				DEVELOPMENT_TEAM = S955BH56FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to detect your hand pose";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = OnboardingMain;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1115,11 +1113,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = carvensy.carvensy;
+				PRODUCT_BUNDLE_IDENTIFIER = Carvensy.carvensy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1130,13 +1128,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4C96B7697Z;
+				DEVELOPMENT_TEAM = S955BH56FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to detect your hand pose";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = OnboardingMain;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1144,11 +1144,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = carvensy.carvensy;
+				PRODUCT_BUNDLE_IDENTIFIER = Carvensy.carvensy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -15,20 +15,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQX-4w-0Z5">
-                                <rect key="frame" x="77" y="318" width="261" height="261"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="LOGO"/>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splash - logo carvensy" translatesAutoresizingMaskIntoConstraints="NO" id="ZNu-cH-sYk">
+                                <rect key="frame" x="-61" y="305" width="537" height="286"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.95294117647058818" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dQX-4w-0Z5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OjK-Po-HtS"/>
-                            <constraint firstItem="dQX-4w-0Z5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b8B-77-0fP"/>
-                            <constraint firstItem="dQX-4w-0Z5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fhe-Iz-L92"/>
-                            <constraint firstItem="dQX-4w-0Z5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zxC-Oh-TEn"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,4 +29,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash - logo carvensy" width="1307" height="1326.5"/>
+    </resources>
 </document>
