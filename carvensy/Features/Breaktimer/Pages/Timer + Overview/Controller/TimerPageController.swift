@@ -84,8 +84,18 @@ class TimerPageController: UIViewController {
             titleLbl.textColor = CarvensyColor.redFont
             layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
             startBtn.setTitle("Break", for: .normal)
-            endBtn.isHidden = false
-            endBtn.setTitle("Snooze", for: .normal)
+            
+            if user?.break_plan?.snooze == true
+            {
+                endBtn.isHidden = false
+                endBtn.setTitle("Snooze", for: .normal)
+            }
+            
+            else
+            {
+                endBtn.isHidden = true
+            }
+           
         }
         
         else
