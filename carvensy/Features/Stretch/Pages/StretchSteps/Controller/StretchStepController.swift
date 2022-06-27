@@ -24,7 +24,7 @@ class StretchStepController: UIViewController {
     
     
     var isPaused = false
-    var countFired: CGFloat =  10
+    var countFired: CGFloat = 3
     
     override func viewWillAppear(_ animated: Bool) {
         setSteps()
@@ -70,7 +70,6 @@ class StretchStepController: UIViewController {
                     if self.countFired == 0
                     {
                         timer.invalidate()
-                        self.index += 1
                         self.performSegue(withIdentifier: "doStretchCam", sender: StretchStepController.self)
                     }
                 }
@@ -127,16 +126,19 @@ class StretchStepController: UIViewController {
             if stretchStepArray[index].stretchTitle == "Push Out"
             {
                 vc.currentPose = .push_out
+                self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
             {
                 vc.currentPose = .stop
+                self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Prayer Pose"
             {
                 vc.currentPose = .prayer
+                self.index += 1
             }
             
             else

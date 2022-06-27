@@ -270,10 +270,10 @@
             </objects>
             <point key="canvasLocation" x="2848" y="-115"/>
         </scene>
-        <!--Concierge View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Pqa-fW-CYx">
             <objects>
-                <viewController id="Fse-0l-gay" customClass="ConciergeViewController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fse-0l-gay" customClass="MainViewController" customModule="carvensy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eIU-X9-6Mr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
