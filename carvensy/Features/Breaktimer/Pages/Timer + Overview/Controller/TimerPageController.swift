@@ -39,6 +39,8 @@ class TimerPageController: UIViewController {
     
     var scheduledTimer: Timer!
     
+    var doneWorking = false
+    
     let notificationCenter = UNUserNotificationCenter.current()
     
     var editBtn = UIBarButtonItem()
@@ -148,6 +150,7 @@ class TimerPageController: UIViewController {
         fontsize = min(width, height) / 6
         layer.backgroundColor = UIColor.clear.cgColor
         layer.foregroundColor = UIColor.systemGray.cgColor
+        
         
         if currentState == .notWorking
         {
@@ -271,7 +274,6 @@ class TimerPageController: UIViewController {
         if currentState == .notWorking
         {
             
-            
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -282,6 +284,7 @@ class TimerPageController: UIViewController {
                 breakTimer.progress = 1
                 setSavedState(currState: .startWork)
                 startTimer()
+                doneWorking = false
                 setStartTime(date: Date())
                 
                 let name = user?.name ?? "Dear user"
@@ -352,6 +355,12 @@ class TimerPageController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             vc.breakPlan = user?.break_plan
         }
+        
+        else if segue.identifier == "goToDailySummary"
+        {
+            guard let vc = segue.destination as? DailySummaryController else {return}
+            vc.dateStart = startTime
+        }
     }
     @IBAction func endAction(_ sender: Any) {
         
@@ -360,14 +369,11 @@ class TimerPageController: UIViewController {
             let alert = UIAlertController(title: "Finished already?", message: "Make sure you have taken proper break before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                setSavedState(currState: .startWork)
-                
+                setSavedState(currState: .notWorking)
                 notificationCenter.removeAllPendingNotificationRequests()
-                //logic cek stretch and break
-
                 scheduledTimer.invalidate()
-                setSavedState(currState: .startWork)
-                //storyboard reference
+                performSegue(withIdentifier: "goToDailySummary", sender: self)
+                doneWorking = true
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in

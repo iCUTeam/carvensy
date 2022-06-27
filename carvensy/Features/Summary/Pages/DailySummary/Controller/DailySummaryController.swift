@@ -15,22 +15,37 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var stretchPlanTableView: UITableView!
     @IBOutlet weak var doneBtn: UIButton!
     
+    var dateStart : Date?
     var dailySession: Session?
     var sessionHelper = SessionCRUD()
-    
+    var coreDataHelper = CoreDataHelper()
     var stretchType = [StretchType]()
     var dataSeeder = StretchSeeder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        date.text = "\(dateStart ?? Date())"
         stretchType = dataSeeder.seedData()
-        let allSession = sessionHelper.fetchSession()
+//        let allSession = sessionHelper.fetchSession()
+//
+//        if allSession.count != 0
+//        {
+//            dailySession = allSession.first
+//        }
         
-        if allSession.count != 0
-        {
-            dailySession = allSession.first
-        }
+        dailySession = Session(context: coreDataHelper.getBackgroundContext())
+        
+        let breakDummy = Break(context: coreDataHelper.getBackgroundContext())
+        breakDummy.total_duration = 3600
+        breakDummy.break_amount = 4
+        
+        let stretchDummy = Stretch(context: coreDataHelper.getBackgroundContext())
+        stretchDummy.total_stretch_duration = 300
+        stretchDummy.stretch_amount = 3
+        
+        dailySession?.break_relation = breakDummy
+        dailySession?.stretch = stretchDummy
         
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         // Do any additional setup after loading the view.
@@ -40,19 +55,29 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         performSegue(withIdentifier: "goToPainAssess", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPainAssess"
+        {
+            guard let vc = segue.destination as? PainAssessmentController else {return}
+            vc.session = dailySession
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "overview-cell", for: indexPath) as! OverviewCollectionViewCell
+   
         
         let breakTitle = ["Break Amount", "Total Break Duration"]
         let stretchTitle = ["Stretch Amount", "Total Stretch Duration"]
         
         if collectionView == self.breakCV
         {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summary-break", for: indexPath) as! OverviewCollectionViewCell
+            
             let time = secondsToHourMinutesSeconds(Int(dailySession?.break_relation?.total_duration ?? 0))
             let amount = Int(dailySession?.break_relation?.break_amount ?? 0)
             cell.infoType.text = breakTitle[indexPath.row]
@@ -66,10 +91,13 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
             {
                 cell.dataLbl.text = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             }
+            
+            return cell
         }
         
         else
         {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summary-stretch", for: indexPath) as! OverviewCollectionViewCell
             let time = secondsToHourMinutesSeconds(Int(dailySession?.stretch?.total_stretch_duration ?? 0))
             let amount = Int(dailySession?.stretch?.stretch_amount ?? 0)
             cell.infoType.text = stretchTitle[indexPath.row]
@@ -83,9 +111,10 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
             {
                 cell.dataLbl.text = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             }
+            
+            return cell
         }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

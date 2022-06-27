@@ -6,10 +6,12 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="SF-Pro.ttf">
+            <string>SFPro-Regular</string>
             <string>SFPro-Semibold</string>
         </array>
     </customFonts>
@@ -32,7 +34,44 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="summary-stretch" id="uBH-QC-x9A" customClass="OverviewCollectionViewCell" customModule="carvensy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5.5" width="170" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XrC-Hs-Nv9">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzY-qd-OD5">
+                                                    <rect key="frame" x="8" y="3" width="154" height="19"/>
+                                                    <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxm-0g-GRp">
+                                                    <rect key="frame" x="8" y="23" width="154" height="29"/>
+                                                    <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lzY-qd-OD5" secondAttribute="trailing" constant="8" id="0nF-Jl-VlW"/>
+                                                <constraint firstItem="lzY-qd-OD5" firstAttribute="top" secondItem="XrC-Hs-Nv9" secondAttribute="top" constant="3" id="2P8-Gg-IWU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xxm-0g-GRp" secondAttribute="trailing" constant="8" id="HOm-DV-UrW"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xxm-0g-GRp" secondAttribute="bottom" constant="8" id="NNk-Wa-9Gs"/>
+                                                <constraint firstItem="lzY-qd-OD5" firstAttribute="leading" secondItem="XrC-Hs-Nv9" secondAttribute="leading" constant="8" id="gzJ-LH-3Qc"/>
+                                                <constraint firstItem="Xxm-0g-GRp" firstAttribute="leading" secondItem="XrC-Hs-Nv9" secondAttribute="leading" constant="8" id="rIR-sm-TV9"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <size key="customSize" width="170" height="60"/>
+                                        <connections>
+                                            <outlet property="dataLbl" destination="Xxm-0g-GRp" id="sam-Q3-Pwy"/>
+                                            <outlet property="infoType" destination="lzY-qd-OD5" id="ON5-Sq-dyU"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="xEl-cn-Fra"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="7aU-xH-iGd"/>
@@ -93,7 +132,44 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="summary-break" id="78L-y8-bin" customClass="OverviewCollectionViewCell" customModule="carvensy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5.5" width="170" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C0w-EK-LR6">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvD-KN-DtZ">
+                                                    <rect key="frame" x="8" y="3" width="154" height="19"/>
+                                                    <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-aV-53P">
+                                                    <rect key="frame" x="8" y="23" width="154" height="29"/>
+                                                    <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cJi-aV-53P" firstAttribute="leading" secondItem="C0w-EK-LR6" secondAttribute="leading" constant="8" id="MeU-U2-Isg"/>
+                                                <constraint firstAttribute="trailing" secondItem="pvD-KN-DtZ" secondAttribute="trailing" constant="8" id="Quz-Aw-T7G"/>
+                                                <constraint firstAttribute="bottom" secondItem="cJi-aV-53P" secondAttribute="bottom" constant="8" id="RIP-Hc-cCg"/>
+                                                <constraint firstItem="pvD-KN-DtZ" firstAttribute="leading" secondItem="C0w-EK-LR6" secondAttribute="leading" constant="8" id="Zyw-au-EQi"/>
+                                                <constraint firstAttribute="trailing" secondItem="cJi-aV-53P" secondAttribute="trailing" constant="8" id="mcI-GJ-dIb"/>
+                                                <constraint firstItem="pvD-KN-DtZ" firstAttribute="top" secondItem="C0w-EK-LR6" secondAttribute="top" constant="3" id="s42-hW-ULK"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <size key="customSize" width="170" height="60"/>
+                                        <connections>
+                                            <outlet property="dataLbl" destination="cJi-aV-53P" id="uhf-hr-GQy"/>
+                                            <outlet property="infoType" destination="pvD-KN-DtZ" id="bef-Bf-wOd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="jhm-Vr-Gaw"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="df6-yY-0uk"/>

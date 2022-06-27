@@ -291,6 +291,7 @@
                         <outlet property="titleLbl" destination="pIL-QU-ihc" id="eru-tu-oS9"/>
                         <segue destination="IWe-tj-CZa" kind="presentation" identifier="goToBreakPage" modalPresentationStyle="fullScreen" id="y0z-ta-kYY"/>
                         <segue destination="Pna-fx-9jZ" kind="presentation" identifier="goToEditPage" modalPresentationStyle="fullScreen" id="n9Z-A9-zCm"/>
+                        <segue destination="SM7-g7-jj6" kind="presentation" identifier="goToDailySummary" modalPresentationStyle="fullScreen" id="8h7-nF-vdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sE-VS-txu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -306,6 +307,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YG1-Fi-DAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="-579"/>
+        </scene>
+        <!--DailySummary-->
+        <scene sceneID="4Nv-js-Stj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DailySummary" id="SM7-g7-jj6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEA-vB-0Fo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2793" y="-325"/>
         </scene>
         <!--EditPage-->
         <scene sceneID="Jxr-cg-wjV">
