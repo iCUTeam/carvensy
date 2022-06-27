@@ -227,6 +227,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
+                                    print("goBack")
                                     self.performSegue(withIdentifier: "goBackToSteps", sender: self)
                                 }
                                 
@@ -274,7 +275,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    self.dismiss(animated: true)
                                 }
                                 
                                 else
