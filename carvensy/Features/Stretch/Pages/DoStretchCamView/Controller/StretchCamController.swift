@@ -21,6 +21,15 @@ enum handPose
 
 class StretchCamController: UIViewController {
     
+    @IBOutlet weak var stretchInstructionView: UIView!
+    @IBOutlet weak var stretchRepsView: UIView!
+    @IBOutlet weak var stretchGuideGifCam: UIImageView!
+    @IBOutlet weak var stretchTitleCam: UILabel!
+    @IBOutlet weak var stretchDescCam: UITextView!
+    @IBOutlet weak var stretchRepsCam: UILabel!
+    @IBOutlet weak var stretchHoldTimer: TimerProgressBar!
+    @IBOutlet weak var repsProgress: RepsProgress!
+    
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
     private var cameraView: CameraView { view as! CameraView }
     private var cameraFeedSession: AVCaptureSession?
@@ -28,14 +37,29 @@ class StretchCamController: UIViewController {
     var countRep = 0
     var countDown = 0
     var canCount = false
+
     var totalDuration: Double = 0
-    
-    var stretchPlan: Int?
+    var stretchPlan: Int? 
+
     var stretchStep : StretchSteps?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        stretchInstructionView.roundViewCorner(UIRectCorner.allCorners, radius: 20.0)
+        stretchInstructionView.layer.opacity = 0.7
+        stretchRepsView.roundViewCorner(UIRectCorner.allCorners, radius: 20.0)
+        stretchRepsView.layer.opacity = 0.7
+        
+        stretchTitleCam.text = stretchStep?.stretchTitle
+        let gifImage = UIImage.gifImageWithName(stretchStep?.stretchIcon ?? "nothing")
+        stretchGuideGifCam.image = gifImage
+        stretchDescCam.text = stretchStep?.stretchDesc
+        
+        stretchRepsCam.text = "Reps"
+        
+        repsProgress.progress = "\(countRep + 1) / \(stretchStep?.numberofReps ?? 5)"
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +74,9 @@ class StretchCamController: UIViewController {
         } catch {
             AppError.display(error, inViewController: self)
         }
+        
+        stretchRepsCam.text = "Hold"
+        repsProgress.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

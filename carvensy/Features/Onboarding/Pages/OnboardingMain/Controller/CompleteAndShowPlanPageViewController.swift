@@ -23,6 +23,8 @@ class CompleteAndShowPlanPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        getStartedButton.tintColor = CarvensyColor.greenMain
+        
         //user default
         if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {
             userNameView.text = "\(value), you are in good hands!"
@@ -58,6 +60,9 @@ class CompleteAndShowPlanPageViewController: UIViewController {
         
         //redirect to timer page
         self.performSegue(withIdentifier: "newUserGoToBreakTimerPage", sender: self)
+        
+        //flag user done with onboarding process
+        OnboardManager.shared.isDoneOnboarding = true
     }
     
     @IBAction func startOverPressed(_ sender: Any) {

@@ -1,5 +1,5 @@
 //
-//  ConciergeViewController.swift
+//  MainViewController.swift
 //  carvensy
 //
 //  Created by Kevin Gosalim on 26/06/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
- class ConciergeViewController: UIViewController {
+ class MainViewController: UIViewController {
 
      // MARK: - Life Cycle
      override func viewDidLoad() {
@@ -15,9 +15,8 @@ import UIKit
      }
 
      override func viewDidAppear(_ animated: Bool) {
-         if LandscapeManager.shared.isFirstLaunch {
+         if OnboardManager.shared.isDoneOnboarding {
              performSegue(withIdentifier: "toOnboardingMain", sender: nil)
-             LandscapeManager.shared.isFirstLaunch = true
          } else {
              performSegue(withIdentifier: "toTimerPage", sender: nil)
          }

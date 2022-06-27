@@ -28,6 +28,8 @@ class BreakPageController: UIViewController {
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addCount), userInfo: nil, repeats: false)
         
+        stretchButton.tintColor = CarvensyColor.greenMain
+        finishButton.tintColor = CarvensyColor.greenMain
     }
     
     @objc func addCount()
