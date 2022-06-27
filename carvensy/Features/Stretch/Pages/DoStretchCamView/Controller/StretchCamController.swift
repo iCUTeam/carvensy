@@ -58,7 +58,8 @@ class StretchCamController: UIViewController {
         stretchGuideGifCam.image = gifImage
         stretchDescCam.text = stretchStep?.stretchDesc
         
-        stretchHoldTimer.progress = 0
+        stretchHoldTimer.progress = 1
+        countDown = stretchStep?.holdSec ?? 5
         stretchHoldTimer.maxDuration = stretchStep?.holdSec ?? 5
         
         stretchRepsCam.text = "Reps"
@@ -176,13 +177,9 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         
         if confidence > 0.8
         {
-            stretch(pose: currentPose.rawValue)
+            stretch(pose: handPrediction.label)
         }
         
-        else
-        {
-            stretch(pose: "Not sure")
-        }
     }
     
     func wakeWarning(message: String)
@@ -218,15 +215,15 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
-                            self.countDown += 1
-                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
+                            self.countDown -= 1
+                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
                             
-                            if self.countDown == self.stretchStep?.holdSec
+                            if self.countDown == 0
                             {
                                 timer.invalidate()
                                 self.countRep += 1
-                                self.countDown = 0
-                                self.stretchHoldTimer.progress = 0
+                                self.countDown = self.stretchStep?.holdSec ?? 5
+                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
@@ -265,15 +262,15 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
-                            self.countDown += 1
-                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
+                            self.countDown -= 1
+                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
                             
-                            if self.countDown == self.stretchStep?.holdSec
+                            if self.countDown == 0
                             {
                                 timer.invalidate()
                                 self.countRep += 1
-                                self.countDown = 0
-                                self.stretchHoldTimer.progress = 0
+                                self.countDown = self.stretchStep?.holdSec ?? 5
+                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
@@ -310,15 +307,15 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
-                            self.countDown += 1
-                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
+                            self.countDown -= 1
+                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
                             
-                            if self.countDown == self.stretchStep?.holdSec
+                            if self.countDown == 0
                             {
                                 timer.invalidate()
                                 self.countRep += 1
-                                self.countDown = 0
-                                self.stretchHoldTimer.progress = 0
+                                self.countDown = self.stretchStep?.holdSec ?? 5
+                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
@@ -355,15 +352,15 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
-                            self.countDown += 1
-                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
+                            self.countDown -= 1
+                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
                             
-                            if self.countDown == self.stretchStep?.holdSec
+                            if self.countDown == 0
                             {
                                 timer.invalidate()
                                 self.countRep += 1
-                                self.countDown = 0
-                                self.stretchHoldTimer.progress = 0
+                                self.countDown = self.stretchStep?.holdSec ?? 5
+                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
