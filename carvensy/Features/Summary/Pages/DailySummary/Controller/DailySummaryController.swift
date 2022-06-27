@@ -25,7 +25,12 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        date.text = "\(dateStart ?? Date())"
+        let timezone = TimeZone.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = timezone
+        dateFormatter.dateFormat = "d MMM yyyy h:mm a"
+        
+        date.text = dateFormatter.string(from: dateStart ?? Date())
         stretchType = dataSeeder.seedData()
 //        let allSession = sessionHelper.fetchSession()
 //
