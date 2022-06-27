@@ -10,18 +10,20 @@ import AVFoundation
 import Vision
 
 //buat nentuin skrg posenya apa
-enum handPose
+enum handPose : String
 {
-    case push_out
-    case prayer
-    case stop
-    case thumb_glide
+    case push_out = "Push Out"
+    case prayer = "Prayer"
+    case stop = "Stop"
+    case thumb_glide = "Thumb Glide"
 }
 
 
 class StretchCamController: UIViewController {
     
     @IBOutlet weak var stretchInstructionView: UIView!
+    @IBOutlet weak var stretchWarning: UIView!
+    @IBOutlet weak var warningText: UILabel!
     @IBOutlet weak var stretchRepsView: UIView!
     @IBOutlet weak var stretchGuideGifCam: UIImageView!
     @IBOutlet weak var stretchTitleCam: UILabel!
@@ -56,9 +58,13 @@ class StretchCamController: UIViewController {
         stretchGuideGifCam.image = gifImage
         stretchDescCam.text = stretchStep?.stretchDesc
         
-        stretchRepsCam.text = "Reps"
+        stretchHoldTimer.progress = 0
+        stretchHoldTimer.maxDuration = stretchStep?.holdSec ?? 5
         
-        repsProgress.progress = "\(countRep + 1) / \(stretchStep?.numberofReps ?? 5)"
+        stretchRepsCam.text = "Reps"
+        stretchWarning.layer.opacity = 0
+        
+        repsProgress.progress = "\(countRep) / \(stretchStep?.numberofReps ?? 2)"
         
     }
     
@@ -74,9 +80,6 @@ class StretchCamController: UIViewController {
         } catch {
             AppError.display(error, inViewController: self)
         }
-        
-        stretchRepsCam.text = "Hold"
-        repsProgress.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,8 +176,29 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         
         if confidence > 0.8
         {
-            //fungsi hold still + tambah reps
+            stretch(pose: currentPose.rawValue)
         }
+        
+        else
+        {
+            stretch(pose: "Not sure")
+        }
+    }
+    
+    func wakeWarning(message: String)
+    {
+        warningText.text = message
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
+            self.stretchWarning.layer.opacity = 1
+        } completion: { done in
+            if done
+            {
+                UIView.animate(withDuration: 1, delay: 5, options: .curveEaseOut) {
+                    self.stretchWarning.layer.opacity = 0
+                }
+            }
+        }
+
     }
     
     func stretch(pose: String)
@@ -185,18 +209,26 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             if pose == "Push Out"
             {
-                //kasi tau hold still
+                canCount = true
+                wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -217,25 +249,33 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             else
             {
-                //kasi tau kalau salah gerakan
+                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
             }
            
             case .prayer:
             
             if pose == "Prayer"
             {
-                //kasi tau hold still
+                canCount = true
+                wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -254,25 +294,33 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             else
             {
-                //kasi tau kalau salah gerakan
+                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
             }
             
             case .stop:
             
             if pose == "Stop"
             {
-                //kasi tau hold still
+                canCount = true
+                wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -291,25 +339,33 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             else
             {
-                //kasi tau kalau salah gerakan
+                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
             }
             
             case .thumb_glide:
             
             if pose == "Thumb Glide"
             {
-                //kasi tau hold still
+                canCount = true
+                wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -351,7 +407,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             else
             {
-                //kasi tau kalau salah gerakan
+                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
             }
             
         }
