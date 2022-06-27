@@ -209,13 +209,14 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             if pose == "Push Out"
             {
+                canCount = true
                 wakeWarning(message: "Pose detected! Please hold your position")
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
                             self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
@@ -255,13 +256,14 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             if pose == "Prayer"
             {
+                canCount = true
                 wakeWarning(message: "Pose detected! Please hold your position")
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
                             self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
@@ -299,13 +301,14 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             if pose == "Stop"
             {
+                canCount = true
                 wakeWarning(message: "Pose detected! Please hold your position")
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
                             self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
@@ -343,13 +346,14 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             
             if pose == "Thumb Glide"
             {
+                canCount = true
                 wakeWarning(message: "Pose detected! Please hold your position")
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
                             self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))

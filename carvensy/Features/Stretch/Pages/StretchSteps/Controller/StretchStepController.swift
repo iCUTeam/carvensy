@@ -26,11 +26,10 @@ class StretchStepController: UIViewController {
     
     
     var isPaused = false
-    var countFired: CGFloat = 3
+    var countFired: CGFloat = 10
     
     override func viewWillAppear(_ animated: Bool) {
         setSteps()
-        stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         progressBar.progress = 1
         countDown()
@@ -39,6 +38,7 @@ class StretchStepController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         setSteps()
         print(stretchStepArray.count)
