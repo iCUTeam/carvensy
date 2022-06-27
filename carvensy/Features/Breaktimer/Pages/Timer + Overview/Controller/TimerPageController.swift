@@ -374,6 +374,7 @@ class TimerPageController: UIViewController {
                 scheduledTimer.invalidate()
                 performSegue(withIdentifier: "goToDailySummary", sender: self)
                 doneWorking = true
+                print(currentState)
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
