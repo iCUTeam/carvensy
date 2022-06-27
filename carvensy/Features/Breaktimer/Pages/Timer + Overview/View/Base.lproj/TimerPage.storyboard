@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fse-0l-gay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fse-0l-gay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -180,30 +180,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aot-z3-U2D" customClass="TimerProgressBar" customModule="carvensy" customModuleProvider="target">
-                                <rect key="frame" x="65" y="279" width="284" height="284"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aot-z3-U2D" customClass="TimerProgressBar" customModule="carvensy" customModuleProvider="target">
+                                <rect key="frame" x="74.5" y="250" width="265" height="265"/>
                                 <color key="backgroundColor" name="greenBG"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="Ed2-MS-VC1"/>
+                                    <constraint firstAttribute="height" constant="265" id="Fiy-Zi-kOQ"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Break in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIL-QU-ihc">
-                                <rect key="frame" x="83" y="171" width="248" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIL-QU-ihc">
+                                <rect key="frame" x="20" y="192" width="374" height="36"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-dp-4SF">
-                                <rect key="frame" x="145" y="724" width="124" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-dp-4SF">
+                                <rect key="frame" x="125.5" y="640" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="OZB-v6-KDH"/>
+                                    <constraint firstAttribute="width" constant="163" id="vhu-x4-zBv"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="End Work"/>
                                 <connections>
                                     <action selector="endAction:" destination="XgZ-Pj-8rO" eventType="touchUpInside" id="Urc-xU-AFA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-1v-fUI">
-                                <rect key="frame" x="124" y="648" width="167" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-1v-fUI">
+                                <rect key="frame" x="125.5" y="567" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="lLo-jP-Xac"/>
+                                    <constraint firstAttribute="height" constant="52" id="pcf-eL-bq9"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Session">
                                     <fontDescription key="titleFontDescription" name="SFPro-Regular" family="SF Pro" pointSize="18"/>
@@ -216,6 +224,17 @@
                         <viewLayoutGuide key="safeArea" id="Een-Ka-yHj"/>
                         <color key="backgroundColor" name="greenBG"/>
                         <color key="tintColor" name="greenMain"/>
+                        <constraints>
+                            <constraint firstItem="aot-z3-U2D" firstAttribute="centerX" secondItem="AKs-CK-59O" secondAttribute="centerX" id="ER6-tM-buL"/>
+                            <constraint firstItem="pIL-QU-ihc" firstAttribute="leading" secondItem="Een-Ka-yHj" secondAttribute="leading" constant="20" id="Mhl-6I-Qbk"/>
+                            <constraint firstItem="u4V-dp-4SF" firstAttribute="centerX" secondItem="AKs-CK-59O" secondAttribute="centerX" id="QGT-01-Lxy"/>
+                            <constraint firstItem="xZC-1v-fUI" firstAttribute="centerX" secondItem="AKs-CK-59O" secondAttribute="centerX" id="Qw2-ed-uO1"/>
+                            <constraint firstItem="xZC-1v-fUI" firstAttribute="top" secondItem="aot-z3-U2D" secondAttribute="bottom" constant="52" id="gDf-ht-5lU"/>
+                            <constraint firstItem="u4V-dp-4SF" firstAttribute="top" secondItem="xZC-1v-fUI" secondAttribute="bottom" constant="21" id="kPx-6V-PYe"/>
+                            <constraint firstItem="pIL-QU-ihc" firstAttribute="top" secondItem="Een-Ka-yHj" secondAttribute="top" constant="52" id="nLw-Hg-prE"/>
+                            <constraint firstItem="aot-z3-U2D" firstAttribute="top" secondItem="pIL-QU-ihc" secondAttribute="bottom" constant="22" id="pTy-8t-cBI"/>
+                            <constraint firstItem="Een-Ka-yHj" firstAttribute="trailing" secondItem="pIL-QU-ihc" secondAttribute="trailing" constant="20" id="qkq-8P-TJw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hai-L8-IVZ"/>
                     <connections>
@@ -224,7 +243,7 @@
                         <outlet property="startBtn" destination="xZC-1v-fUI" id="ZhU-Qz-BFA"/>
                         <outlet property="titleLbl" destination="pIL-QU-ihc" id="eru-tu-oS9"/>
                         <segue destination="IWe-tj-CZa" kind="presentation" identifier="goToBreakPage" modalPresentationStyle="fullScreen" id="y0z-ta-kYY"/>
-                        <segue destination="Pna-fx-9jZ" kind="presentation" identifier="goToEditPage" modalPresentationStyle="fullScreen" id="n9Z-A9-zCm"/>
+                        <segue destination="Pna-fx-9jZ" kind="show" identifier="goToEditPage" id="oXn-tG-t4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sE-VS-txu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,7 +296,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hCR-DT-QlH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="greenMain"/>
+                        <color key="selectedImageTintColor" name="greenMain"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="eX2-j3-g5R" kind="relationship" relationship="viewControllers" id="dux-mW-hv9"/>
@@ -306,7 +328,40 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="o6j-Qk-tCS">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <navigationBarAppearance key="scrollEdgeAppearance"/>
+                        <color key="tintColor" name="greenMain"/>
+                        <color key="barTintColor" name="greenMain"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="greenMain"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                            <barButtonItemAppearance key="doneButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="greenMain"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                            <barButtonItemAppearance key="backButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="greenMain"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -646,7 +701,7 @@
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="greenMain">
-            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.4392156862745098" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="redFont">
             <color red="0.80400002002716064" green="0.28999999165534973" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

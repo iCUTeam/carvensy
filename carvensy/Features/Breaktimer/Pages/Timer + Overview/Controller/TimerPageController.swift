@@ -99,7 +99,9 @@ class TimerPageController: UIViewController {
         super.viewDidLoad()
         
         editBtn = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPage))
+        editBtn.tintColor = CarvensyColor.greenMain
         
+        navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = editBtn
         title = "Break Timer"
         
@@ -113,6 +115,8 @@ class TimerPageController: UIViewController {
         let width = breakTimer.frame.size.width
         let height = breakTimer.frame.size.height
         let fontsize : CGFloat
+        
+        print("width: \(width), height: \(height)")
         
         let alluser = userHelper.fetchUser()
         
@@ -165,7 +169,8 @@ class TimerPageController: UIViewController {
         }
         
         layer.fontSize = fontsize
-        layer.frame = CGRect(x: width - 225, y: height + 100, width: width, height: height)
+//        layer.frame = CGRect(x: width - 225, y: height + 100, width: width, height: height)
+        layer.frame = CGRect(x: width - 205, y: height + 90, width: width, height: height)
         layer.alignmentMode = .center
         view.layer.addSublayer(layer)
         

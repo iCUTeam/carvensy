@@ -28,7 +28,9 @@ class EditPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Edit"
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem?.tintColor = CarvensyColor.greenMain
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveChange))
         setUpData()
         // set up picker
