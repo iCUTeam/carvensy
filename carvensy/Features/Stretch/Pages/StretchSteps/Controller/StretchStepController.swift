@@ -18,7 +18,9 @@ class StretchStepController: UIViewController {
     @IBOutlet weak var pauseBtn: UIButton!
     @IBOutlet weak var endBtn: UIButton!
     
+    var stretchType = [StretchType]()
     var stretchStepArray = [StretchSteps]()
+    var dataSeeder = StretchSeeder()
     var stretchChoice = 0
     var index = 0
     
@@ -28,6 +30,7 @@ class StretchStepController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setSteps()
+        stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         progressBar.progress = 1
         countDown()

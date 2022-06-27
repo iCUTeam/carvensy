@@ -18,9 +18,13 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     var dailySession: Session?
     var sessionHelper = SessionCRUD()
     
+    var stretchType = [StretchType]()
+    var dataSeeder = StretchSeeder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        stretchType = dataSeeder.seedData()
         let allSession = sessionHelper.fetchSession()
         
         if allSession.count != 0
