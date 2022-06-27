@@ -19,7 +19,7 @@ enum handPose : String
 }
 
 
-class StretchCamController: UIViewController {
+class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate{
     
     @IBOutlet weak var stretchInstructionView: UIView!
     @IBOutlet weak var stretchWarning: UIView!
@@ -122,11 +122,6 @@ class StretchCamController: UIViewController {
         session.commitConfiguration()
         cameraFeedSession = session
 }
-    
-}
-
-extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
-{
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         //buat hand pose request
@@ -177,7 +172,9 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         
         if confidence > 0.8
         {
-            stretch(pose: handPrediction.label)
+            DispatchQueue.main.async {
+                self.stretch(pose: handPrediction.label)
+            }
         }
         
     }
@@ -197,6 +194,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
         }
 
     }
+    
     
     func stretch(pose: String)
     {
@@ -411,3 +409,4 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
     }
     
 }
+
