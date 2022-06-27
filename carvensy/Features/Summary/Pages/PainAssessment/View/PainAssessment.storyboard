@@ -32,11 +32,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-wm-nbI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How are your hand post break and stretch?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-wm-nbI">
                                 <rect key="frame" x="20" y="148" width="374" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -45,34 +44,40 @@
                                 <rect key="frame" x="20" y="255" width="374" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ha6-9X-OWT">
-                                    <size key="itemSize" width="128" height="119"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ha6-9X-OWT">
+                                    <size key="itemSize" width="83" height="94"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="smile-pain" id="RmY-8u-ptI" customClass="PainAssessCollectionViewCell" customModule="carvensy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="83" height="94"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rzx-3j-2ZT">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="83" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7As-6w-auD">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7As-6w-auD">
                                                     <rect key="frame" x="8" y="8" width="63" height="63"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="63" id="74t-DY-xGy"/>
+                                                        <constraint firstAttribute="width" constant="63" id="ccx-Nt-D3r"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86t-Fr-2Bz">
-                                                    <rect key="frame" x="21" y="73" width="36" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86t-Fr-2Bz">
+                                                    <rect key="frame" x="8" y="73" width="66" height="17"/>
                                                     <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="86t-Fr-2Bz" firstAttribute="leading" secondItem="Rzx-3j-2ZT" secondAttribute="leading" constant="8" id="CU9-C3-BrI"/>
+                                                <constraint firstAttribute="trailing" secondItem="86t-Fr-2Bz" secondAttribute="trailing" constant="9" id="NlW-4v-jYR"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="80" height="90"/>
+                                        <size key="customSize" width="83" height="94"/>
                                         <connections>
                                             <outlet property="conditionLbl" destination="86t-Fr-2Bz" id="2cn-8V-2w8"/>
                                             <outlet property="emojiImg" destination="7As-6w-auD" id="glA-5x-Zyv"/>
@@ -95,9 +100,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iD0-Qh-ShZ">
                                 <rect key="frame" x="20" y="449" width="374" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3zX-AE-Qxb">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3zX-AE-Qxb">
                                     <size key="itemSize" width="122" height="95"/>
+                                    <size key="estimatedItemSize" width="122" height="95"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -110,14 +115,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLL-XV-ubI">
-                                                    <rect key="frame" x="34" y="10" width="43" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLL-XV-ubI">
+                                                    <rect key="frame" x="8" y="10" width="94" height="20"/>
                                                     <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LLL-XV-ubI" secondAttribute="trailing" constant="8" id="FkT-4O-E4x"/>
+                                                <constraint firstItem="LLL-XV-ubI" firstAttribute="leading" secondItem="mcq-J2-GSU" secondAttribute="leading" constant="8" id="Fth-6B-hxN"/>
+                                                <constraint firstAttribute="bottom" secondItem="LLL-XV-ubI" secondAttribute="bottom" constant="10" id="GLi-Ag-l5U"/>
+                                                <constraint firstItem="LLL-XV-ubI" firstAttribute="top" secondItem="mcq-J2-GSU" secondAttribute="top" constant="10" id="TCT-jS-bXd"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="greenAccent"/>
                                         <size key="customSize" width="110" height="40"/>
@@ -137,6 +147,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                     <fontDescription key="titleFontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="18"/>
+                                    <color key="baseBackgroundColor" name="greenMain"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="submitAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Ve-pk-33v"/>
@@ -145,6 +156,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <color key="tintColor" name="greenMain"/>
                     </view>
                     <connections>
                         <outlet property="painAssessmentCV" destination="awb-gK-1Ng" id="uP6-f8-ekd"/>
@@ -173,6 +185,9 @@
         </namedColor>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greenMain">
+            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

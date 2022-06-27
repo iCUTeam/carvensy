@@ -12,10 +12,11 @@ class TimerPageController: UIViewController {
     
     enum state : String
     {
+        case notWorking = "notworking"
         case startWork = "startwork"
         case midWork = "midwork"
         case breakTime = "breaktime"
-        case inBreak = "inbreak"
+        case duringBreak = "duringbreak"
     }
     
     @IBOutlet weak var titleLbl: UILabel!
@@ -26,7 +27,7 @@ class TimerPageController: UIViewController {
     
     //user defaults
     var startTime: Date?
-    var currentState : state = .startWork
+    var currentState : state = .notWorking
     var choosenHour: Double = 3600
     var notifyTime: Double = 300
     
@@ -37,6 +38,8 @@ class TimerPageController: UIViewController {
     let layer = CATextLayer()
     
     var scheduledTimer: Timer!
+    
+    var doneWorking = false
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -50,30 +53,26 @@ class TimerPageController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if currentState == .startWork
+        if currentState == .notWorking
         {
             breakTimer.progress = 0
             let time = secondsToHourMinutesSeconds(Int(choosenHour))
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             startBtn.setTitle("Start Work", for: .normal)
             endBtn.isHidden = true
+            editBtn.isEnabled = true
             
         }
         
         else if currentState == .midWork
         {
-            
-            let name = user?.name ?? "Dear user"
-            breakTimer.progress = 1
+           
+            editBtn.isEnabled = false
             startTimer()
-            setStartTime(date: Date())
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
             
-            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
-            
-            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
         }
         
         else if currentState == .breakTime
@@ -83,15 +82,39 @@ class TimerPageController: UIViewController {
                 scheduledTimer.invalidate()
             }
             
+            titleLbl.text = "It's your break time!"
+            titleLbl.textColor = CarvensyColor.redFont
             layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
             startBtn.setTitle("Break", for: .normal)
-            endBtn.isHidden = false
-            endBtn.setTitle("Snooze", for: .normal)
+            
+            if user?.break_plan?.snooze == true
+            {
+                endBtn.isHidden = false
+                endBtn.setTitle("Snooze", for: .normal)
+            }
+            
+            else
+            {
+                endBtn.isHidden = true
+            }
+           
         }
         
         else
         {
-            performSegue(withIdentifier: "goToBreakPage", sender: self)
+            let name = user?.name ?? "Dear user"
+            editBtn.isEnabled = false
+            breakTimer.progress = 1
+            startTimer()
+            setStartTime(date: Date())
+            setSavedState(currState: .startWork)
+            startBtn.setTitle("Jump to Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("End Work", for: .normal)
+            
+            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+            
+            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
         }
     }
     
@@ -108,7 +131,7 @@ class TimerPageController: UIViewController {
         configureUserNotificationsCenter()
         
         startTime = userdefaults.object(forKey: START_TIME) as? Date
-        currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "startwork") ?? .startWork
+        currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "notworking") ?? .notWorking
         breakTimer.useNormalText = true
         
         
@@ -132,19 +155,33 @@ class TimerPageController: UIViewController {
         layer.backgroundColor = UIColor.clear.cgColor
         layer.foregroundColor = UIColor.systemGray.cgColor
         
-        if currentState == .startWork
+        
+        if currentState == .notWorking
         {
             breakTimer.progress = 0
             let time = secondsToHourMinutesSeconds(Int(choosenHour))
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
             startBtn.setTitle("Start Work", for: .normal)
             endBtn.isHidden = true
+            editBtn.isEnabled = true
             
+        }
+        
+        else if currentState == .startWork
+        {
+            breakTimer.progress = 1
+            startTimer()
+            setStartTime(date: Date())
+            editBtn.isEnabled = false
+            startBtn.setTitle("Jump to Break", for: .normal)
+            endBtn.isHidden = false
+            endBtn.setTitle("End Work", for: .normal)
         }
         
         else if currentState == .midWork
         {
             startTimer()
+            editBtn.isEnabled = false
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
@@ -157,6 +194,9 @@ class TimerPageController: UIViewController {
                 scheduledTimer.invalidate()
             }
             
+            titleLbl.text = "It's your break time!"
+            titleLbl.textColor = CarvensyColor.redFont
+            editBtn.isEnabled = false
             layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
             startBtn.setTitle("Break", for: .normal)
             endBtn.isHidden = false
@@ -169,6 +209,7 @@ class TimerPageController: UIViewController {
         }
         
         layer.fontSize = fontsize
+
 //        layer.frame = CGRect(x: width - 225, y: height + 100, width: width, height: height)
         layer.frame = CGRect(x: width - 205, y: height + 90, width: width, height: height)
         layer.alignmentMode = .center
@@ -189,6 +230,8 @@ class TimerPageController: UIViewController {
                 scheduledTimer.invalidate()
                 layer.string = makeTimeString(hour: 0, min: 0, sec: 0)
                 breakTimer.progress = 0
+                titleLbl.textColor = CarvensyColor.redFont
+                titleLbl.text = "It's your break time!"
                 setSavedState(currState: .breakTime)
                 startBtn.setTitle("Break", for: .normal)
                 endBtn.isHidden = false
@@ -197,6 +240,7 @@ class TimerPageController: UIViewController {
             
             else
             {
+                setSavedState(currState: .midWork)
                 breakTimer.progress = min((choosenHour - diff) / choosenHour, 1)
                 let time = secondsToHourMinutesSeconds(Int(choosenHour - diff))
                 layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
@@ -233,16 +277,20 @@ class TimerPageController: UIViewController {
 
     @IBAction func startAction(_ sender: UIButton) {
         
-        if currentState == .startWork
+        if currentState == .notWorking
         {
-            
             
             let alert = UIAlertController(title: "Are you ready?", message: "Make sure your break setting has been adjusted to your needs before proceeding", preferredStyle: .alert)
             
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                alert.dismiss(animated: true)
+            }))
+            
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 breakTimer.progress = 1
-                setSavedState(currState: .midWork)
+                setSavedState(currState: .startWork)
                 startTimer()
+                doneWorking = false
                 setStartTime(date: Date())
                 
                 let name = user?.name ?? "Dear user"
@@ -263,14 +311,10 @@ class TimerPageController: UIViewController {
                 
             }))
             
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
-                alert.dismiss(animated: true)
-            }))
-            
             self.present(alert, animated: true)
         }
         
-        else if currentState == .midWork
+        else if currentState == .midWork || currentState == .startWork
         {
             if scheduledTimer != nil
             {
@@ -279,25 +323,27 @@ class TimerPageController: UIViewController {
             
             let alert = UIAlertController(title: "Are you sure?", message: "It’s not your scheduled break time yet. Please make sure you are comfortable to rest before you proceed.", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                performSegue(withIdentifier: "goToBreakPage", sender: self)
-                notificationCenter.removeAllPendingNotificationRequests()
-                setSavedState(currState: .inBreak)
-                setStartTime(date: nil)
-
-            }))
-            
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
                 alert.dismiss(animated: true)
                 self.startTimer()
             }))
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
+                performSegue(withIdentifier: "goToBreakPage", sender: self)
+                notificationCenter.removeAllPendingNotificationRequests()
+                setSavedState(currState: .duringBreak)
+                setStartTime(date: nil)
+
+            }))
+            
+           
             
             self.present(alert, animated: true)
         }
         
         else if currentState == .breakTime
         {
-            setSavedState(currState: .inBreak)
+            setSavedState(currState: .duringBreak)
             performSegue(withIdentifier: "goToBreakPage", sender: self)
         }
     }
@@ -315,22 +361,26 @@ class TimerPageController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             vc.breakPlan = user?.break_plan
         }
+        
+        else if segue.identifier == "goToDailySummary"
+        {
+            guard let vc = segue.destination as? DailySummaryController else {return}
+            vc.dateStart = startTime
+        }
     }
     @IBAction func endAction(_ sender: Any) {
         
-        if currentState == .midWork
+        if currentState == .midWork || currentState == .startWork
         {
             let alert = UIAlertController(title: "Finished already?", message: "Make sure you have taken proper break before proceeding", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
-                setSavedState(currState: .startWork)
-                
+                setSavedState(currState: .notWorking)
                 notificationCenter.removeAllPendingNotificationRequests()
-                //logic cek stretch and break
-
                 scheduledTimer.invalidate()
-                setSavedState(currState: .startWork)
-                //storyboard reference
+                performSegue(withIdentifier: "goToDailySummary", sender: self)
+                doneWorking = true
+                print(currentState)
             }))
             
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in

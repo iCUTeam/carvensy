@@ -85,6 +85,7 @@
                         <outlet property="stretchRepsView" destination="NnD-JO-xXx" id="S1P-Hq-Bir"/>
                         <outlet property="stretchTitleCam" destination="cRH-kR-Cds" id="ynB-Oe-h83"/>
                         <segue destination="2z2-bI-n9k" kind="presentation" identifier="goBackToSteps" modalPresentationStyle="fullScreen" id="aM5-TP-yxP"/>
+                        <segue destination="hsh-e9-mUU" kind="presentation" identifier="stretchEnd" modalPresentationStyle="fullScreen" id="IQH-Se-sG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,6 +99,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkI-06-aWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="774" y="49"/>
+        </scene>
+        <!--StretchFinish-->
+        <scene sceneID="fDy-mc-oXQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StretchFinish" id="hsh-e9-mUU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZj-q5-jXB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="159"/>
         </scene>
     </scenes>
     <resources>

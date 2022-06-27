@@ -18,7 +18,9 @@ class StretchStepController: UIViewController {
     @IBOutlet weak var pauseBtn: UIButton!
     @IBOutlet weak var endBtn: UIButton!
     
+    var stretchType = [StretchType]()
     var stretchStepArray = [StretchSteps]()
+    var dataSeeder = StretchSeeder()
     var stretchChoice = 0
     var index = 0
     
@@ -28,6 +30,7 @@ class StretchStepController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setSteps()
+        stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         progressBar.progress = 1
         countDown()
@@ -62,7 +65,6 @@ class StretchStepController: UIViewController {
                     if !self.isPaused
                     {
                         self.countFired -= 1
-                        print(self.progressBar.progress)
                         self.progressBar.progress = min(CGFloat(0.1 * self.countFired), 1)
                     }
                    
@@ -122,28 +124,35 @@ class StretchStepController: UIViewController {
             else {return}
             vc.modalPresentationStyle = .fullScreen
             vc.stretchStep = stretchStepArray[index]
+            vc.stretchPlan = index
             
             if stretchStepArray[index].stretchTitle == "Push Out"
             {
                 vc.currentPose = .push_out
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
                 self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
             {
                 vc.currentPose = .stop
+
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 20
                 self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Prayer Pose"
             {
                 vc.currentPose = .prayer
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
+
                 self.index += 1
             }
             
             else
             {
                 vc.currentPose = .thumb_glide
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 20
             }
         }
     }

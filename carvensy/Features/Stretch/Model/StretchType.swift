@@ -22,6 +22,7 @@ struct StretchType
         self.stretchIcon = icon
         self.stretchSteps = steps
     }
+    
 }
 
 

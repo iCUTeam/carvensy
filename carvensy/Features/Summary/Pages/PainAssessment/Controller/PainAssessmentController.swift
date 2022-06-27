@@ -21,35 +21,34 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
     
     
     var session: Session?
-    
     var sessionHelper = SessionCRUD()
+    var coreDataHelper = CoreDataHelper()
     
-    var painlevel: Double = 0
+    var painlevel: Double = 9
     
-    var selectedSymtomps = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var selectedSymtomps = [false, false, false, false, false, false, false, false, false]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         submitBtn.isEnabled = false
         
-        let allSession = sessionHelper.fetchSession()
-        
-        if allSession.count != 0
-        {
-            session = allSession.first
-        }
         // Do any additional setup after loading the view.
     }
     
     @IBAction func submitAction(_ sender: Any?)
     {
-        sessionHelper.addPainAssess(Current_session: session!, pain: painlevel)
+//        sessionHelper.addPainAssess(Current_session: session!, pain: painlevel)
+        session?.pain_assesment = painlevel
         
         for x in 0..<symtomps.count
         {
-            if selectedSymtomps[x] == 1
+            if selectedSymtomps[x] == true
             {
-                sessionHelper.addSymtomps(Current_session: session!, symtomps: symtomps[x])
+//                sessionHelper.addSymtomps(Current_session: session!, symtomps: symtomps[x])
+                
+                let sessionDet = Session_Detail(context: coreDataHelper.getBackgroundContext())
+                sessionDet.symptoms = symtomps[x]
+                session?.addToSession_detail(sessionDet)
             }
         }
         
@@ -66,21 +65,10 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         
         else
         {
-            return 3
+            return 9
         }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == self.painAssessmentCV
-        {
-            return 1
-        }
-        
-        else
-        {
-            return 3
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -95,7 +83,7 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         
         else
         {
-            selectedSymtomps[indexPath.row] = 1
+            selectedSymtomps[indexPath.row].toggle()
         }
     }
     
@@ -111,11 +99,16 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
             
             if Int(painlevel) == indexPath.row
             {
-                cell.emojiImg.layer.borderWidth = 1
+                cell.emojiImg.layer.borderWidth = 2
                 cell.emojiImg.layer.borderColor = CarvensyColor.greenMain?.cgColor
                 cell.emojiImg.layer.masksToBounds = false
                 cell.emojiImg.layer.cornerRadius = cell.emojiImg.frame.height/2
                 cell.emojiImg.clipsToBounds = true
+            }
+            
+            else
+            {
+                cell.emojiImg.layer.borderWidth = 0
             }
             
             cell.conditionLbl.text = descImg[indexPath.row]
@@ -129,7 +122,7 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "symtomps-det", for: indexPath) as! SymtompssCollectionViewCell
             
-            if selectedSymtomps[indexPath.row] == 1
+            if selectedSymtomps[indexPath.row] == true
             {
                 cell.backgroundColor = CarvensyColor.greenMain
             }

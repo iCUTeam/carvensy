@@ -62,7 +62,7 @@ class BreakPageController: UIViewController {
         let alert = UIAlertController(title: "Are you sure?", message: "Make sure your hands are fully rested and ready for another round of work before proceeding", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            self.performSegue(withIdentifier: "goBackToWork", sender: self)
+            self.dismiss(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -83,7 +83,7 @@ class BreakPageController: UIViewController {
         {
             guard let vc = segue.destination as? TimerPageController else { return }
             vc.modalPresentationStyle = .fullScreen
-            vc.currentState = .midWork
+            vc.currentState = .startWork
         }
     }
 }
