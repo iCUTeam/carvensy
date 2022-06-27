@@ -57,19 +57,36 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
     
     private func checkSession()
     {
-        if lastSession == nil
+        if lastSession?.pain_assesment == nil || lastSession == nil
         {
-            //add Image
+            
+            let imageView = CALayer()
+            let image = UIImage(named: "first overview")?.cgImage
+            imageView.frame = CGRect(x: 10, y: 200, width: 365, height: 256)
+            imageView.contents = image
+            
             let textTitle = CATextLayer()
             textTitle.string = "Still got nothing here..."
-            textTitle.font = UIFont(name: "SF-Pro", size: 24)
+            textTitle.fontSize = 30
+            textTitle.foregroundColor = UIColor.darkGray.cgColor
+            textTitle.frame = CGRect(x: 20, y: imageView.frame.height + 225, width: view.frame.width, height: 200)
             
             let textContent = CATextLayer()
-            textContent.string = "You haven't done any break or stretch sessions, try one and give your hands some love."
-            textContent.font = UIFont(name: "SF-Pro", size: 16)
+            textContent.string = "You haven't done any break or stretch sessions"
+            textContent.fontSize = 16
+            textContent.foregroundColor = UIColor.darkGray.cgColor
+            textContent.frame = CGRect(x: 20, y: imageView.frame.height + 275, width: view.frame.width, height: 100)
+            
+            let textContent2 = CATextLayer()
+            textContent2.string = "try one and give your hands some love."
+            textContent2.fontSize = 16
+            textContent2.foregroundColor = UIColor.darkGray.cgColor
+            textContent2.frame = CGRect(x: 20, y: imageView.frame.height + 300, width: view.frame.width, height: 100)
             
             view.layer.addSublayer(textTitle)
             view.layer.addSublayer(textContent)
+            view.layer.addSublayer(textContent2)
+            view.layer.addSublayer(imageView)
             
             breakCV.isHidden = true
             stretchCV.isHidden = true

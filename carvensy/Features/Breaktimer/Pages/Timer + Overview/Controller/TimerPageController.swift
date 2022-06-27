@@ -221,6 +221,8 @@ class TimerPageController: UIViewController {
                 scheduledTimer.invalidate()
                 layer.string = makeTimeString(hour: 0, min: 0, sec: 0)
                 breakTimer.progress = 0
+                titleLbl.textColor = CarvensyColor.redFont
+                titleLbl.text = "It's your break time!"
                 setSavedState(currState: .breakTime)
                 startBtn.setTitle("Break", for: .normal)
                 endBtn.isHidden = false
