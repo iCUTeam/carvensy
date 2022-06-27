@@ -28,11 +28,14 @@ class StretchCamController: UIViewController {
     var countRep = 0
     var countDown = 0
     var canCount = false
+    var totalDuration: Double = 0
     
+    var stretchPlan: Int?
     var stretchStep : StretchSteps?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -166,6 +169,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                             {
                                 timer.invalidate()
                                 self.countRep += 1
+                                self.countDown = 0
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -204,6 +208,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                             {
                                 timer.invalidate()
                                 self.countRep += 1
+                                self.countDown = 0
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -240,6 +245,7 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                             {
                                 timer.invalidate()
                                 self.countRep += 1
+                                self.countDown = 0
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -276,10 +282,34 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
                             {
                                 timer.invalidate()
                                 self.countRep += 1
+                                self.countDown = 0
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    let sessionHelper = SessionCRUD()
+                                    
+                                    let sessions = sessionHelper.fetchSession()
+                                    
+                                    if sessions.count != 0
+                                    {
+                                        let currentSession = sessions.first
+                                        
+                                        if currentSession?.stretch == nil
+                                        {
+                                            sessionHelper.firstStretch(Current_session: currentSession!, duration: self.totalDuration, plan: Double(self.stretchPlan ?? 0))
+                                        }
+                                        else
+                                        {
+                                            sessionHelper.addStretch(Current_session: currentSession!, duration: self.totalDuration, plan: Double(self.stretchPlan ?? 0))
+                                        }
+                                        self.performSegue(withIdentifier: "stretchEnd", sender: self)
+                                    }
+                                    
+                                    else
+                                    {
+                                        fatalError("Session not found")
+                                    }
+                                    
                                 }
                                 
                                 else

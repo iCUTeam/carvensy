@@ -15,8 +15,8 @@ struct StretchSteps
     var stretchDesc: String?
     var numberofReps: Int?
     var holdSec: Int?
-    var isDone: Bool
     var bothHand: Bool
+    var totalDuration: Double?
     
     init(title: String?, desc: String?, icon: String?, reps: Int, holdSec: Int, bothHand: Bool)
     {
@@ -25,7 +25,7 @@ struct StretchSteps
         self.stretchIcon = icon
         self.numberofReps = reps
         self.holdSec = holdSec
-        self.isDone = false
         self.bothHand = bothHand
+        self.totalDuration = Double(reps * holdSec)
     }
 }

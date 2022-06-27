@@ -122,25 +122,30 @@ class StretchStepController: UIViewController {
             else {return}
             vc.modalPresentationStyle = .fullScreen
             vc.stretchStep = stretchStepArray[index]
+            vc.stretchPlan = index
             
             if stretchStepArray[index].stretchTitle == "Push Out"
             {
                 vc.currentPose = .push_out
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
             }
             
             else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
             {
                 vc.currentPose = .stop
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 20
             }
             
             else if stretchStepArray[index].stretchTitle == "Prayer Pose"
             {
                 vc.currentPose = .prayer
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
             }
             
             else
             {
                 vc.currentPose = .thumb_glide
+                vc.totalDuration += stretchStepArray[index].totalDuration ?? 20
             }
         }
     }
