@@ -71,6 +71,20 @@
                                 </subviews>
                                 <color key="backgroundColor" name="greenBG"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeP-rf-yX0">
+                                <rect key="frame" x="20" y="573" width="370" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Warning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kge-7v-rES">
+                                        <rect key="frame" x="0.0" y="6" width="370" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="greenBG"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,6 +98,8 @@
                         <outlet property="stretchRepsCam" destination="x0s-fG-uCU" id="Tmb-Rx-92M"/>
                         <outlet property="stretchRepsView" destination="NnD-JO-xXx" id="S1P-Hq-Bir"/>
                         <outlet property="stretchTitleCam" destination="cRH-kR-Cds" id="ynB-Oe-h83"/>
+                        <outlet property="stretchWarning" destination="XeP-rf-yX0" id="3Dq-JX-6tC"/>
+                        <outlet property="warningText" destination="Kge-7v-rES" id="QbF-jE-thg"/>
                         <segue destination="2z2-bI-n9k" kind="presentation" identifier="goBackToSteps" modalPresentationStyle="fullScreen" id="aM5-TP-yxP"/>
                         <segue destination="hsh-e9-mUU" kind="presentation" identifier="stretchEnd" modalPresentationStyle="fullScreen" id="IQH-Se-sG5"/>
                     </connections>
