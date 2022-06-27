@@ -58,10 +58,13 @@ class StretchCamController: UIViewController {
         stretchGuideGifCam.image = gifImage
         stretchDescCam.text = stretchStep?.stretchDesc
         
+        stretchHoldTimer.progress = 0
+        stretchHoldTimer.maxDuration = stretchStep?.holdSec ?? 5
+        
         stretchRepsCam.text = "Reps"
         stretchWarning.layer.opacity = 0
         
-        repsProgress.progress = "\(countRep + 1) / \(stretchStep?.numberofReps ?? 5)"
+        repsProgress.progress = "\(countRep) / \(stretchStep?.numberofReps ?? 2)"
         
     }
     
@@ -77,9 +80,6 @@ class StretchCamController: UIViewController {
         } catch {
             AppError.display(error, inViewController: self)
         }
-        
-        stretchRepsCam.text = "Hold"
-        repsProgress.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -210,17 +210,24 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             if pose == "Push Out"
             {
                 wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -249,17 +256,24 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             if pose == "Prayer"
             {
                 wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -286,17 +300,24 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             if pose == "Stop"
             {
                 wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
@@ -323,17 +344,24 @@ extension StretchCamController: AVCaptureVideoDataOutputSampleBufferDelegate
             if pose == "Thumb Glide"
             {
                 wakeWarning(message: "Pose detected! Please hold your position")
+                stretchRepsCam.text = "Hold"
+                repsProgress.isHidden = true
+                
                 if canCount
                 {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown += 1
+                            self.stretchHoldTimer.progress = CGFloat(min(self.countDown/(self.stretchStep?.holdSec ?? 5), 1))
                             
                             if self.countDown == self.stretchStep?.holdSec
                             {
                                 timer.invalidate()
                                 self.countRep += 1
                                 self.countDown = 0
+                                self.stretchHoldTimer.progress = 0
+                                self.stretchRepsCam.text = "Reps"
+                                self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
