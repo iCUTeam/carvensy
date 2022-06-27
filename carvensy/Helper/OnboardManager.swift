@@ -1,5 +1,5 @@
 //
-//  LandscapeManager.swift
+//  OnboardManager.swift
 //  carvensy
 //
 //  Created by Kevin Gosalim on 26/06/22.
@@ -7,10 +7,10 @@
 
 import Foundation
 
- class LandscapeManager {
-     static let shared = LandscapeManager()
+ class OnboardManager {
+     static let shared = OnboardManager()
 
-     var isFirstLaunch: Bool {
+     var isDoneOnboarding: Bool {
          get {
              !UserDefaults.standard.bool(forKey: #function)
          }

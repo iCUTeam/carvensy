@@ -58,6 +58,9 @@ class CompleteAndShowPlanPageViewController: UIViewController {
         
         //redirect to timer page
         self.performSegue(withIdentifier: "newUserGoToBreakTimerPage", sender: self)
+        
+        //flag user done with onboarding process
+        OnboardManager.shared.isDoneOnboarding = true
     }
     
     @IBAction func startOverPressed(_ sender: Any) {
