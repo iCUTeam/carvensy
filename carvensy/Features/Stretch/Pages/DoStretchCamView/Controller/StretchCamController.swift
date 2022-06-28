@@ -282,6 +282,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 self.countDown = self.stretchStep?.holdSec ?? 5
                                 self.stretchHoldTimer.progress = 1
                                 self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
+                                //akses textlayer buat ngubah stringnya
                                 self.repsProgress.textLayer.string = self.repsProgress.progress
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
