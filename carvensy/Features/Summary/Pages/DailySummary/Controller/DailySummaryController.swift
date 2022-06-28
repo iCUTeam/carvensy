@@ -26,10 +26,13 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         doneBtn.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
         
-        let theDate = dateStart ?? Date()
+        let timezone = TimeZone.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = timezone
+        dateFormatter.dateFormat = "d MMM yyyy h:mm a"
         
-        date.text = "\(convertDateFormatToString(date: theDate))"
-        
+        date.text = dateFormatter.string(from: dateStart ?? Date())
+
         stretchType = dataSeeder.seedData()
 //        let allSession = sessionHelper.fetchSession()
 //

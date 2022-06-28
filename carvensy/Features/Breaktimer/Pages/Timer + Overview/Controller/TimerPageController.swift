@@ -53,6 +53,9 @@ class TimerPageController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        userdefaults.synchronize()
+        print(currentState)
+        
         if currentState == .notWorking
         {
             breakTimer.progress = 0
@@ -129,6 +132,7 @@ class TimerPageController: UIViewController {
         title = "Break Timer"
         
         configureUserNotificationsCenter()
+        userdefaults.synchronize()
         
         startTime = userdefaults.object(forKey: START_TIME) as? Date
         currentState = state(rawValue: userdefaults.string(forKey: CURRENT_STATE) ?? "notworking") ?? .notWorking
@@ -376,6 +380,8 @@ class TimerPageController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 setSavedState(currState: .notWorking)
+                setStartTime(date: nil)
+                userdefaults.synchronize()
                 notificationCenter.removeAllPendingNotificationRequests()
                 scheduledTimer.invalidate()
                 performSegue(withIdentifier: "goToDailySummary", sender: self)
