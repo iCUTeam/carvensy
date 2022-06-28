@@ -18,7 +18,7 @@ class RepsProgress: UIView {
     
     private var backgroundLayer: CAShapeLayer!
     private var progressLayer: CAShapeLayer!
-    private var textLayer: CATextLayer!
+    public var textLayer: CATextLayer!
     
     
     public var progressMultiplier: CGFloat = 10

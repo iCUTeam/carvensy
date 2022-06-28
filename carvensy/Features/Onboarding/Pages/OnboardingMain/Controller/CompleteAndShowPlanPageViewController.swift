@@ -23,7 +23,7 @@ class CompleteAndShowPlanPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getStartedButton.tintColor = CarvensyColor.greenMain
+        getStartedButton.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
         
         //user default
         if let value = UserDefaultManager.shared.defaults.value(forKey: "userName") as? String {

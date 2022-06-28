@@ -9,6 +9,7 @@ import UIKit
 
 class ChooseStretchTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var tableCellView: UIView!
     @IBOutlet weak var stretchImage: UIImageView!
     @IBOutlet weak var stretchTitle: UILabel!
     @IBOutlet weak var stretchTypes: UILabel!
@@ -18,6 +19,7 @@ class ChooseStretchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        tableCellView.roundViewCorner([.topRight,.topLeft,.bottomRight,.bottomLeft], radius: 10)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

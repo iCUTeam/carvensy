@@ -85,13 +85,33 @@
                                 </subviews>
                                 <color key="backgroundColor" name="greenBG"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3Y-mW-NMD">
+                                <rect key="frame" x="128" y="516" width="158" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="53m-f3-aGY"/>
+                                    <constraint firstAttribute="width" constant="158" id="ZPE-Cw-PbF"/>
+                                </constraints>
+                                <color key="tintColor" name="greenMain"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="I have done the pose">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="failedToDetect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CRt-g9-WM8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k3Y-mW-NMD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="128" id="hXk-Zo-Xxa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="k3Y-mW-NMD" secondAttribute="trailing" constant="128" id="yrW-Z9-xd9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="repsProgress" destination="5QF-aW-yd6" id="SMH-ph-ISB"/>
                         <outlet property="stretchDescCam" destination="ChD-g2-H1q" id="MBK-YH-7qX"/>
+                        <outlet property="stretchDoneBtn" destination="k3Y-mW-NMD" id="xG5-gz-EWK"/>
                         <outlet property="stretchGuideGifCam" destination="7J8-Ti-3be" id="Ccx-yl-Z1r"/>
                         <outlet property="stretchHoldTimer" destination="rM9-ab-l0D" id="K6N-tM-aQQ"/>
                         <outlet property="stretchInstructionView" destination="mKb-Hc-aBj" id="LPs-Er-fDK"/>
@@ -129,6 +149,9 @@
         <image name="Push Out.gif" width="800" height="800"/>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greenMain">
+            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

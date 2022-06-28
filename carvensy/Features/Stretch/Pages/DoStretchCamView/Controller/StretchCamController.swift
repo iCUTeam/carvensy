@@ -29,6 +29,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     @IBOutlet weak var stretchTitleCam: UILabel!
     @IBOutlet weak var stretchDescCam: UITextView!
     @IBOutlet weak var stretchRepsCam: UILabel!
+    @IBOutlet weak var stretchDoneBtn: UIButton!
     @IBOutlet weak var stretchHoldTimer: TimerProgressBar!
     @IBOutlet weak var repsProgress: RepsProgress!
     
@@ -36,14 +37,18 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     private var cameraView: CameraView { view as! CameraView }
     private var cameraFeedSession: AVCaptureSession?
     var currentPose: handPose = .push_out
+    var failCount = 0
     var countRep = 0
     var countDown = 0
     var canCount = false
-
     var totalDuration: Double = 0
     var stretchPlan: Int? 
 
     var stretchStep : StretchSteps?
+    
+    var delegate : passData?
+    
+    var scheduleTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +69,8 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         
         stretchRepsCam.text = "Reps"
         stretchWarning.layer.opacity = 0
+        
+        stretchDoneBtn.isHidden = true
         
         repsProgress.progress = "\(countRep) / \(stretchStep?.numberofReps ?? 2)"
         
@@ -86,6 +93,43 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     override func viewWillDisappear(_ animated: Bool) {
         cameraFeedSession?.stopRunning()
         super.viewWillDisappear(animated)
+    }
+    
+    @IBAction func failedToDetect(_ sender: Any)
+    {
+        if currentPose == .push_out || currentPose == .prayer || currentPose == .stop
+        {
+            self.delegate?.pass(data: 1)
+            self.dismiss(animated: true)
+        }
+        
+        else
+        {
+            let sessionHelper = SessionCRUD()
+            
+            let sessions = sessionHelper.fetchSession()
+            
+            if sessions.count != 0
+            {
+                let currentSession = sessions.first
+                
+                if currentSession?.stretch == nil
+                {
+                    sessionHelper.firstStretch(Current_session: currentSession!, duration: self.totalDuration, plan: Double(self.stretchPlan ?? 0))
+                }
+                else
+                {
+                    sessionHelper.addStretch(Current_session: currentSession!, duration: self.totalDuration, plan: Double(self.stretchPlan ?? 0))
+                }
+                self.performSegue(withIdentifier: "stretchEnd", sender: self)
+            }
+            
+            else
+            {
+                fatalError("Session not found")
+            }
+        }
+            
     }
 
     
@@ -172,15 +216,20 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         
         if confidence > 0.8
         {
-            DispatchQueue.main.async {
+            DispatchQueue.main.sync
+            {
                 self.stretch(pose: handPrediction.label)
+                
             }
+            
+            
         }
         
     }
     
     func wakeWarning(message: String)
     {
+    
         warningText.text = message
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
             self.stretchWarning.layer.opacity = 1
@@ -211,26 +260,38 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+                    if scheduleTimer != nil
+                    {
+                        scheduleTimer.invalidate()
+                    }
+                    scheduleTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+
                         DispatchQueue.main.async {
+
                             self.countDown -= 1
-                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
-                            
+                            print(self.countDown)
+                            self.stretchHoldTimer.progress = min(0.2 * CGFloat(self.countDown), 1)
+
                             if self.countDown == 0
                             {
-                                timer.invalidate()
+                                if self.scheduleTimer != nil
+                                {
+                                    self.scheduleTimer.invalidate()
+                                }
                                 self.countRep += 1
                                 self.countDown = self.stretchStep?.holdSec ?? 5
-                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
+                                self.stretchHoldTimer.progress = 1
+                                self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
+                                self.repsProgress.textLayer.string = self.repsProgress.progress
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
-                                
+
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    print("goBack")
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    self.delegate?.pass(data: 1)
+                                    self.dismiss(animated: true)
                                 }
-                                
+
                                 else
                                 {
                                     self.canCount = false
@@ -245,7 +306,18 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             
             else
             {
-                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
+                if failCount < 75
+                {
+                    wakeWarning(message: "Pose not detected! Try again!")
+                    failCount += 1
+                }
+                
+                else
+                {
+                    wakeWarning(message: "Pose not detected! Try again!")
+                    stretchDoneBtn.isHidden = false
+                }
+                
             }
            
             case .prayer:
@@ -259,22 +331,33 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+                    if scheduleTimer != nil
+                    {
+                        scheduleTimer.invalidate()
+                    }
+                    scheduleTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown -= 1
-                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
+                            print(self.countDown)
+                            self.stretchHoldTimer.progress = min(0.2 * CGFloat(self.countDown), 1)
                             
                             if self.countDown == 0
                             {
-                                timer.invalidate()
+                                if self.scheduleTimer != nil
+                                {
+                                    self.scheduleTimer.invalidate()
+                                }
                                 self.countRep += 1
                                 self.countDown = self.stretchStep?.holdSec ?? 5
-                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
+                                self.stretchHoldTimer.progress = 1
+                                self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
+                                print(self.countRep)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
+                                    self.delegate?.pass(data: 1)
                                     self.dismiss(animated: true)
                                 }
                                 
@@ -290,7 +373,17 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             
             else
             {
-                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
+                    if failCount < 75
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        failCount += 1
+                    }
+                    
+                    else
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        stretchDoneBtn.isHidden = false
+                    }
             }
             
             case .stop:
@@ -304,23 +397,34 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+                    if scheduleTimer != nil
+                    {
+                        scheduleTimer.invalidate()
+                    }
+                    scheduleTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown -= 1
-                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
+                            print(self.countDown)
+                            self.stretchHoldTimer.progress = min(0.2 * CGFloat(self.countDown), 1)
                             
                             if self.countDown == 0
                             {
-                                timer.invalidate()
+                                if self.scheduleTimer != nil
+                                {
+                                    self.scheduleTimer.invalidate()
+                                }
                                 self.countRep += 1
                                 self.countDown = self.stretchStep?.holdSec ?? 5
-                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
+                                self.stretchHoldTimer.progress = 1
+                                print(self.countRep)
+                                self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    self.delegate?.pass(data: 1)
+                                    self.dismiss(animated: true)
                                 }
                                 
                                 else
@@ -335,7 +439,17 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             
             else
             {
-                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
+                    if failCount < 75
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        failCount += 1
+                    }
+                    
+                    else
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        stretchDoneBtn.isHidden = false
+                    }
             }
             
             case .thumb_glide:
@@ -349,17 +463,27 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
                 if canCount
                 {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+                    if scheduleTimer != nil
+                    {
+                        scheduleTimer.invalidate()
+                    }
+                    scheduleTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
                         DispatchQueue.main.async {
                             self.countDown -= 1
-                            self.stretchHoldTimer.progress = CGFloat(min(0.2 * Double(self.countDown), 1))
+                            print(self.countDown)
+                            self.stretchHoldTimer.progress = min(0.2 * CGFloat(self.countDown), 1)
                             
                             if self.countDown == 0
                             {
-                                timer.invalidate()
+                                if self.scheduleTimer != nil
+                                {
+                                    self.scheduleTimer.invalidate()
+                                }
                                 self.countRep += 1
                                 self.countDown = self.stretchStep?.holdSec ?? 5
-                                self.stretchHoldTimer.progress = CGFloat(self.stretchStep?.holdSec ?? 5)
+                                self.stretchHoldTimer.progress = 1
+                                self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
+                                print(self.countRep)
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
                                 
@@ -403,7 +527,17 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             
             else
             {
-                wakeWarning(message: "Pose not detected! Please move your hand according to the guide below")
+                    if failCount < 75
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        failCount += 1
+                    }
+                    
+                    else
+                    {
+                        wakeWarning(message: "Pose not detected! Try again!")
+                        stretchDoneBtn.isHidden = false
+                    }
             }
             
         }

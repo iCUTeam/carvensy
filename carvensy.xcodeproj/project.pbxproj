@@ -47,6 +47,7 @@
 		14A9F83D28684A2B003F0B94 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9F83C28684A2B003F0B94 /* CameraView.swift */; };
 		14A9F83F286887EE003F0B94 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9F83E286887EE003F0B94 /* TabBarController.swift */; };
 		14B997522865A8070036842E /* HandModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B997512865A8070036842E /* HandModel.mlmodel */; };
+		14C31DAC286AF58900AA07E6 /* PassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */; };
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
 		956B06C52869A952001615D5 /* RepsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B06C42869A952001615D5 /* RepsProgress.swift */; };
@@ -128,6 +129,7 @@
 		14A9F83C28684A2B003F0B94 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		14A9F83E286887EE003F0B94 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		14B997512865A8070036842E /* HandModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandModel.mlmodel; sourceTree = "<group>"; };
+		14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataProtocol.swift; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
 		956B06C42869A952001615D5 /* RepsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsProgress.swift; sourceTree = "<group>"; };
@@ -470,6 +472,14 @@
 			path = "CreateML Model";
 			sourceTree = "<group>";
 		};
+		14C31DAA286AF57A00AA07E6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		14FD0BFA28605E8B00DAF65D /* MoreComingSoonViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +522,7 @@
 		950636B52859EC99008C2639 /* Stretch */ = {
 			isa = PBXGroup;
 			children = (
+				14C31DAA286AF57A00AA07E6 /* Protocol */,
 				148BD0AB285A0AB000420125 /* Model */,
 				148BD0972859F9D200420125 /* Pages */,
 			);
@@ -960,6 +971,7 @@
 				1405D0AA285CDE54000D3157 /* OverviewSymptomsCollectionViewCell.swift in Sources */,
 				14573B42285ADE16008F714F /* StretchStepController.swift in Sources */,
 				148BD0A7285A057D00420125 /* ChooseStretchTableViewCell.swift in Sources */,
+				14C31DAC286AF58900AA07E6 /* PassDataProtocol.swift in Sources */,
 				145A1D442861E05E001A6BA4 /* DailySummaryController.swift in Sources */,
 				956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */,
 				95E3C4B8285844EC0065DFB0 /* SceneDelegate.swift in Sources */,
