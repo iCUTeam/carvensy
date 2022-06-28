@@ -31,6 +31,7 @@ class DisclaimerController: UIViewController {
             guard let vc = segue.destination as? StretchStepController else { return }
             vc.modalPresentationStyle = .fullScreen
             vc.stretchChoice = index
+            vc.index = 0
         }
     }
 }

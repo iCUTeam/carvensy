@@ -7,8 +7,10 @@
 
 import UIKit
 
-class StretchStepController: UIViewController {
-
+class StretchStepController: UIViewController, passData{
+    
+    
+    
     
     @IBOutlet weak var progressBar: TimerProgressBar!
     @IBOutlet weak var numberOfSteps: UILabel!
@@ -28,7 +30,12 @@ class StretchStepController: UIViewController {
     var isPaused = false
     var countFired: CGFloat = 10
     
+    func pass(data: Int) {
+        index += data
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         setSteps()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         progressBar.progress = 1
@@ -37,23 +44,25 @@ class StretchStepController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+     
+  
         stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
-        setSteps()
         print(stretchStepArray.count)
-        
+        setSteps()
         // Do any additional setup after loading the view.
     }
     
     private func setSteps()
     {
+    
         numberOfSteps.text = "Stretch \(index + 1) of \(stretchStepArray.count)"
         stretchTitle.text = stretchStepArray[index].stretchTitle
         
         let gifImage = UIImage.gifImageWithName(stretchStepArray[index].stretchIcon!)
         stretchGuideGif.image = gifImage
         stretchDesc.text = stretchStepArray[index].stretchDesc
+      
     }
     
     private func countDown()
@@ -72,6 +81,7 @@ class StretchStepController: UIViewController {
                     if self.countFired == 0
                     {
                         timer.invalidate()
+                        self.countFired = 10
                         self.performSegue(withIdentifier: "doStretchCam", sender: StretchStepController.self)
                     }
                 }
@@ -125,28 +135,24 @@ class StretchStepController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             vc.stretchStep = stretchStepArray[index]
             vc.stretchPlan = index
+            vc.delegate = self
             
             if stretchStepArray[index].stretchTitle == "Push Out"
             {
                 vc.currentPose = .push_out
                 vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
-                self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
             {
                 vc.currentPose = .stop
-
                 vc.totalDuration += stretchStepArray[index].totalDuration ?? 20
-                self.index += 1
             }
             
             else if stretchStepArray[index].stretchTitle == "Prayer Pose"
             {
                 vc.currentPose = .prayer
                 vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
-
-                self.index += 1
             }
             
             else
