@@ -38,7 +38,11 @@
                                 </constraints>
                                 <color key="tintColor" name="greenMain"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Stretch"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Stretch">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="greenAccent"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="stretchButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qcw-g2-bcb"/>
                                 </connections>
@@ -111,6 +115,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7ER-f7-Cfs">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="greenMain"/>
+                        <color key="barTintColor" name="greenMain"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -124,11 +130,14 @@
     </scenes>
     <resources>
         <image name="break page - clock" width="1367" height="1168"/>
+        <namedColor name="greenAccent">
+            <color red="0.67799997329711914" green="0.86699998378753662" blue="0.81199997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="greenBG">
             <color red="0.88599997758865356" green="0.95300000905990601" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="greenMain">
-            <color red="0.0" green="0.4392156862745098" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
