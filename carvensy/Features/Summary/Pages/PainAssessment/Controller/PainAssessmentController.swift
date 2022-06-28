@@ -78,12 +78,13 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         {
             painlevel = Double(indexPath.row)
             submitBtn.isEnabled = true
-            
+            //TODO: refresh view
         }
         
         else
         {
             selectedSymtomps[indexPath.row].toggle()
+            //TODO: refresh view
         }
     }
     
@@ -141,5 +142,5 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
     }
     
     
-
+    
 }
