@@ -69,7 +69,6 @@ class TimerPageController: UIViewController {
         
         else if currentState == .midWork
         {
-           
             editBtn.isEnabled = false
             startTimer()
             startBtn.setTitle("Jump to Break", for: .normal)
@@ -80,8 +79,6 @@ class TimerPageController: UIViewController {
         
         else if currentState == .breakTime
         {
-            let name = user?.name ?? "Dear user"
-            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
             
             if scheduledTimer != nil
             {
@@ -122,8 +119,7 @@ class TimerPageController: UIViewController {
             self.titleLbl.text = "Break in:"
             titleLbl.textColor = UIColor.black
             
-            
-            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "\(String(format: "%.0f", notifyTime/60)) minute(s) left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
             
         }
     }
@@ -310,6 +306,9 @@ class TimerPageController: UIViewController {
 
     @IBAction func startAction(_ sender: UIButton) {
         
+        let name = user?.name ?? "Dear user"
+        triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "\(String(format: "%.0f", notifyTime/60)) minute(s) left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+        
         if currentState == .notWorking
         {
             
@@ -328,8 +327,8 @@ class TimerPageController: UIViewController {
                 
                 let name = user?.name ?? "Dear user"
                 print(name)
-
-                triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "\(String(format: "%.0f", notifyTime/60)) minute(s) left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+                                                                
+                triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
                 
                 editBtn.isEnabled = false
                 sender.setTitle("Jump to Break", for: .normal)
@@ -398,6 +397,7 @@ class TimerPageController: UIViewController {
             vc.dateStart = startTime
         }
     }
+    
     @IBAction func endAction(_ sender: Any) {
         
         if currentState == .midWork || currentState == .startWork
@@ -536,7 +536,7 @@ class TimerPageController: UIViewController {
     
     private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {
         // Request Authorization
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { (success, error) in
             if let error = error {
                 print("Request Authorization Failed (\(error), \(error.localizedDescription))")
             }
@@ -551,10 +551,9 @@ class TimerPageController: UIViewController {
             content.title = notif_title
             content.body = body
             content.sound = UNNotificationSound.default
-            content.badge = 1
 
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-            let identifier = "Local"
+            let identifier = UUID().uuidString
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             notificationCenter.add(request) { (error) in
                 if let error = error {
