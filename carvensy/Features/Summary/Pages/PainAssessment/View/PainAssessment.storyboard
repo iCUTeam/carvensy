@@ -32,7 +32,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How are your hand post break and stretch?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-wm-nbI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="How are your hand post break and stretch?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-wm-nbI">
                                 <rect key="frame" x="20" y="148" width="374" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
@@ -89,7 +89,7 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="a46-Au-6Vf"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Can you tell us which symptoms are still occuring?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ScP-Cx-vyZ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Can you tell us which symptoms are still occuring?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScP-Cx-vyZ">
                                 <rect key="frame" x="20" y="376" width="299" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
