@@ -80,6 +80,9 @@ class TimerPageController: UIViewController {
         
         else if currentState == .breakTime
         {
+            let name = user?.name ?? "Dear user"
+            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
+            
             if scheduledTimer != nil
             {
                 scheduledTimer.invalidate()
@@ -114,10 +117,14 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("End Work", for: .normal)
+            self.choosenHour = user?.break_plan?.break_every ?? 7200
+            self.notifyTime = user?.break_plan?.notify_before ?? 300
+            self.titleLbl.text = "Break in:"
+            titleLbl.textColor = UIColor.black
             
-            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
             
-            triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
+            triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "\(String(format: "%.0f", notifyTime/60)) minute(s) left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
+            
         }
     }
     
@@ -205,6 +212,17 @@ class TimerPageController: UIViewController {
             startBtn.setTitle("Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("Snooze", for: .normal)
+            
+            if user?.break_plan?.snooze == true
+            {
+                endBtn.isHidden = false
+                endBtn.setTitle("Snooze", for: .normal)
+            }
+            
+            else
+            {
+                endBtn.isHidden = true
+            }
         }
         
         else
@@ -213,8 +231,6 @@ class TimerPageController: UIViewController {
         }
         
         layer.fontSize = fontsize
-
-//        layer.frame = CGRect(x: width - 225, y: height + 100, width: width, height: height)
         layer.frame = CGRect(x: width - 205, y: height + 90, width: width, height: height)
         layer.alignmentMode = .center
         view.layer.addSublayer(layer)
@@ -240,6 +256,17 @@ class TimerPageController: UIViewController {
                 startBtn.setTitle("Break", for: .normal)
                 endBtn.isHidden = false
                 endBtn.setTitle("Snooze", for: .normal)
+                
+                if user?.break_plan?.snooze == true
+                {
+                    endBtn.isHidden = false
+                    endBtn.setTitle("Snooze", for: .normal)
+                }
+                
+                else
+                {
+                    endBtn.isHidden = true
+                }
             }
             
             else
@@ -248,6 +275,8 @@ class TimerPageController: UIViewController {
                 breakTimer.progress = min((choosenHour - diff) / choosenHour, 1)
                 let time = secondsToHourMinutesSeconds(Int(choosenHour - diff))
                 layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+                self.titleLbl.text = "Break in:"
+                titleLbl.textColor = UIColor.black
             }
             
         }
@@ -299,10 +328,9 @@ class TimerPageController: UIViewController {
                 
                 let name = user?.name ?? "Dear user"
                 print(name)
+
+                triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "\(String(format: "%.0f", notifyTime/60)) minute(s) left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
                 
-                triggerNotification(notif_title: "\(name), prepare to rest your hands", body: "5 minutes left until your break time, prepare yourself to loosen up a bit", timeInterval: choosenHour - notifyTime)
-                
-                triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: choosenHour)
                 editBtn.isEnabled = false
                 sender.setTitle("Jump to Break", for: .normal)
                 endBtn.isHidden = false
@@ -339,8 +367,6 @@ class TimerPageController: UIViewController {
                 setStartTime(date: nil)
 
             }))
-            
-           
             
             self.present(alert, animated: true)
         }
@@ -411,6 +437,8 @@ class TimerPageController: UIViewController {
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
                 self.endBtn.setTitle("End Work", for: .normal)
+                self.titleLbl.text = "Break in:"
+                self.titleLbl.textColor = UIColor.black
                 
                 self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
@@ -425,6 +453,8 @@ class TimerPageController: UIViewController {
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
                 self.endBtn.setTitle("End Work", for: .normal)
+                self.titleLbl.text = "Break in:"
+                self.titleLbl.textColor = UIColor.black
                 
                 self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
@@ -440,6 +470,8 @@ class TimerPageController: UIViewController {
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
                 self.endBtn.setTitle("End Work", for: .normal)
+                self.titleLbl.text = "Break in:"
+                self.titleLbl.textColor = UIColor.black
                 
                 self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
@@ -455,6 +487,8 @@ class TimerPageController: UIViewController {
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
                 self.endBtn.setTitle("End Work", for: .normal)
+                self.titleLbl.text = "Break in:"
+                self.titleLbl.textColor = UIColor.black
                 
                 self.triggerNotification(notif_title: "\(name), it's time to rest your hand!", body: "Enjoy your break time with simple care for your hands. How about some stretches?", timeInterval: self.choosenHour)
             }))
