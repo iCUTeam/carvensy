@@ -17,7 +17,7 @@ class EditPageController: UIViewController {
     var notifierPicker = UIPickerView()
     
     let breakOptions: [Double]  = [900, 1800, 3600, 7200, 10800]
-    let notifyOptions: [Double] = [60 , 180, 300, 600, 900]
+    let notifyOptions: [Double] = [60, 180, 300, 600, 900]
     
     var breakOpt = 0
     var notifOpt = 0

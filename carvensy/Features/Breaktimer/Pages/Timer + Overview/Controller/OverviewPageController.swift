@@ -39,7 +39,6 @@ class OverviewPageController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Overview"
-        
         stretchType = dataSeeder.seedData()
         
         let allSession = sessionHelper.fetchSession()

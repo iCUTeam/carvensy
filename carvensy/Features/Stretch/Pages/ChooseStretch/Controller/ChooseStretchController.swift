@@ -18,7 +18,8 @@ class ChooseStretchController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Stretch"
+        navigationItem.largeTitleDisplayMode = .never
         self.tableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         self.tableView.register(UINib(nibName: "MoreComingSoonCell", bundle: nil), forCellReuseIdentifier: "more")
     
