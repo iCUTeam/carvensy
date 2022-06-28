@@ -25,6 +25,7 @@ class BreakPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Break"
+        navigationItem.largeTitleDisplayMode = .always
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addCount), userInfo: nil, repeats: false)
         

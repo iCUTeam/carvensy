@@ -24,8 +24,12 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        date.text = "\(dateStart ?? Date())"
+        doneBtn.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
+        
+        let theDate = dateStart ?? Date()
+        
+        date.text = "\(convertDateFormatToString(date: theDate))"
+        
         stretchType = dataSeeder.seedData()
 //        let allSession = sessionHelper.fetchSession()
 //
@@ -125,15 +129,19 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type") as! ChooseStretchTableViewCell
         let gifImage = UIImage.gifImageWithName(stretchType[0].stretchIcon ?? "Stop Stretch")
         cell.stretchImage.image = gifImage
-        cell.layer.cornerRadius = 50
+        cell.layer.cornerRadius = 10
+        cell.contentView.layer.cornerRadius = 10
         cell.stretchTitle.text = stretchType[0].stretchTitle
         cell.stretchTypes.text = stretchType[0].stretchContent
         cell.maxReps.text = "Max \(stretchType[0].stretchSteps[1].numberofReps ?? 0) reps per move"
         cell.maxHold.text = "Max \(stretchType[0].stretchSteps[0].holdSec ?? 0) secs hold each"
-        
         return cell
     }
     
-    
-
+    func convertDateFormatToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy - HH:mm a"
+        let resultString = dateFormatter.string(from: date)
+        return resultString
+    }
 }
