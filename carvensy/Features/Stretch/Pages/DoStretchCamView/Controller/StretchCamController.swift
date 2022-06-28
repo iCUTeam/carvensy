@@ -45,6 +45,9 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
 
     var stretchStep : StretchSteps?
     
+    var delegate : passData?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -172,9 +175,10 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         
         if confidence > 0.8
         {
-            DispatchQueue.main.async {
+            DispatchQueue.main.sync {
                 self.stretch(pose: handPrediction.label)
             }
+           
         }
         
     }
@@ -227,8 +231,8 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    print("goBack")
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    self.delegate?.pass(data: 1)
+                                    self.dismiss(animated: true)
                                 }
                                 
                                 else
@@ -275,6 +279,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
+                                    self.delegate?.pass(data: 1)
                                     self.dismiss(animated: true)
                                 }
                                 
@@ -320,7 +325,8 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 
                                 if self.countRep == self.stretchStep?.numberofReps
                                 {
-                                    self.performSegue(withIdentifier: "goBackToSteps", sender: self)
+                                    self.delegate?.pass(data: 1)
+                                    self.dismiss(animated: true)
                                 }
                                 
                                 else
