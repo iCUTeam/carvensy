@@ -41,7 +41,6 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     var countRep = 0
     var countDown = 0
     var canCount = false
-
     var totalDuration: Double = 0
     var stretchPlan: Int? 
 
@@ -230,6 +229,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     func wakeWarning(message: String)
     {
+    
         warningText.text = message
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
             self.stretchWarning.layer.opacity = 1
@@ -282,6 +282,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                                 self.countDown = self.stretchStep?.holdSec ?? 5
                                 self.stretchHoldTimer.progress = 1
                                 self.repsProgress.progress = "\(self.countRep) / \(self.stretchStep?.numberofReps ?? 2)"
+                                self.repsProgress.textLayer.string = self.repsProgress.progress
                                 self.stretchRepsCam.text = "Reps"
                                 self.repsProgress.isHidden = false
 
