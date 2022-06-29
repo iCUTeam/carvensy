@@ -17,6 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3Y-mW-NMD">
+                                <rect key="frame" x="115" y="615" width="158" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="53m-f3-aGY"/>
+                                    <constraint firstAttribute="width" constant="158" id="ZPE-Cw-PbF"/>
+                                </constraints>
+                                <color key="tintColor" name="greenMain"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="I have done the pose">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="failedToDetect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CRt-g9-WM8"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKb-Hc-aBj">
                                 <rect key="frame" x="0.0" y="664" width="390" height="232"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,7 +87,7 @@
                                 <color key="backgroundColor" name="greenBG"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeP-rf-yX0">
-                                <rect key="frame" x="20" y="573" width="370" height="34"/>
+                                <rect key="frame" x="9" y="573" width="370" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pose not detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kge-7v-rES">
@@ -85,21 +100,6 @@
                                 </subviews>
                                 <color key="backgroundColor" name="greenBG"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3Y-mW-NMD">
-                                <rect key="frame" x="128" y="516" width="158" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="53m-f3-aGY"/>
-                                    <constraint firstAttribute="width" constant="158" id="ZPE-Cw-PbF"/>
-                                </constraints>
-                                <color key="tintColor" name="greenMain"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="I have done the pose">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="failedToDetect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CRt-g9-WM8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -38,7 +38,7 @@
                                 </constraints>
                                 <color key="tintColor" name="greenMain"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Stretch">
+                                <buttonConfiguration key="configuration" style="tinted" title="Start Stretching">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="greenAccent"/>
                                     </backgroundConfiguration>
