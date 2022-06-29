@@ -2,7 +2,7 @@
 
 (Carpal Tunnel Syndrome Prevention made Easy)
 
-MC2 ADA@BINUS - C5 | iCU (i Care U) - Group 4 Afternoon
+MC2 ADA@BINUS - C5 | iCU (i Care U) - Group 6 Afternoon
 
 
 
