@@ -61,7 +61,7 @@ class TimerPageController: UIViewController {
             breakTimer.progress = 0
             let time = secondsToHourMinutesSeconds(Int(choosenHour))
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
-            startBtn.setTitle("Start Work", for: .normal)
+            startBtn.setTitle("Start Session", for: .normal)
             endBtn.isHidden = true
             editBtn.isEnabled = true
             
@@ -73,7 +73,7 @@ class TimerPageController: UIViewController {
             startTimer()
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
-            endBtn.setTitle("End Work", for: .normal)
+            endBtn.setTitle("End Session", for: .normal)
             
         }
         
@@ -88,7 +88,7 @@ class TimerPageController: UIViewController {
             titleLbl.text = "It's your break time!"
             titleLbl.textColor = CarvensyColor.redFont
             layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
-            startBtn.setTitle("Break", for: .normal)
+            startBtn.setTitle("Take a Break", for: .normal)
             
             if user?.break_plan?.snooze == true
             {
@@ -113,7 +113,7 @@ class TimerPageController: UIViewController {
             setSavedState(currState: .startWork)
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
-            endBtn.setTitle("End Work", for: .normal)
+            endBtn.setTitle("End Session", for: .normal)
             self.choosenHour = user?.break_plan?.break_every ?? 7200
             self.notifyTime = user?.break_plan?.notify_before ?? 300
             self.titleLbl.text = "Break in:"
@@ -168,7 +168,7 @@ class TimerPageController: UIViewController {
             breakTimer.progress = 0
             let time = secondsToHourMinutesSeconds(Int(choosenHour))
             layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
-            startBtn.setTitle("Start Work", for: .normal)
+            startBtn.setTitle("Start Session", for: .normal)
             endBtn.isHidden = true
             editBtn.isEnabled = true
             
@@ -182,7 +182,7 @@ class TimerPageController: UIViewController {
             editBtn.isEnabled = false
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
-            endBtn.setTitle("End Work", for: .normal)
+            endBtn.setTitle("End Session", for: .normal)
         }
         
         else if currentState == .midWork
@@ -191,7 +191,7 @@ class TimerPageController: UIViewController {
             editBtn.isEnabled = false
             startBtn.setTitle("Jump to Break", for: .normal)
             endBtn.isHidden = false
-            endBtn.setTitle("End Work", for: .normal)
+            endBtn.setTitle("End Session", for: .normal)
         }
         
         else if currentState == .breakTime
@@ -205,7 +205,7 @@ class TimerPageController: UIViewController {
             titleLbl.textColor = CarvensyColor.redFont
             editBtn.isEnabled = false
             layer.string = makeTimeString(hour: 0, min: 0,sec: 0)
-            startBtn.setTitle("Break", for: .normal)
+            startBtn.setTitle("Take a Break", for: .normal)
             endBtn.isHidden = false
             endBtn.setTitle("Snooze", for: .normal)
             
@@ -249,7 +249,7 @@ class TimerPageController: UIViewController {
                 titleLbl.textColor = CarvensyColor.redFont
                 titleLbl.text = "It's your break time!"
                 setSavedState(currState: .breakTime)
-                startBtn.setTitle("Break", for: .normal)
+                startBtn.setTitle("Take a Break", for: .normal)
                 endBtn.isHidden = false
                 endBtn.setTitle("Snooze", for: .normal)
                 
@@ -333,7 +333,7 @@ class TimerPageController: UIViewController {
                 editBtn.isEnabled = false
                 sender.setTitle("Jump to Break", for: .normal)
                 endBtn.isHidden = false
-                endBtn.setTitle("End Work", for: .normal)
+                endBtn.setTitle("End Session", for: .normal)
                 
                 //add new session
                 
@@ -436,7 +436,7 @@ class TimerPageController: UIViewController {
                 
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
-                self.endBtn.setTitle("End Work", for: .normal)
+                self.endBtn.setTitle("End Session", for: .normal)
                 self.titleLbl.text = "Break in:"
                 self.titleLbl.textColor = UIColor.black
                 
@@ -452,7 +452,7 @@ class TimerPageController: UIViewController {
                 
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
-                self.endBtn.setTitle("End Work", for: .normal)
+                self.endBtn.setTitle("End Session", for: .normal)
                 self.titleLbl.text = "Break in:"
                 self.titleLbl.textColor = UIColor.black
                 
@@ -469,7 +469,7 @@ class TimerPageController: UIViewController {
                 
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
-                self.endBtn.setTitle("End Work", for: .normal)
+                self.endBtn.setTitle("End Session", for: .normal)
                 self.titleLbl.text = "Break in:"
                 self.titleLbl.textColor = UIColor.black
                 
@@ -486,7 +486,7 @@ class TimerPageController: UIViewController {
                 
                 self.startBtn.setTitle("Jump to Break", for: .normal)
                 self.endBtn.isHidden = false
-                self.endBtn.setTitle("End Work", for: .normal)
+                self.endBtn.setTitle("End Session", for: .normal)
                 self.titleLbl.text = "Break in:"
                 self.titleLbl.textColor = UIColor.black
                 

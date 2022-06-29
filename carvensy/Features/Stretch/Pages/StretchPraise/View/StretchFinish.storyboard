@@ -24,25 +24,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What a great Set!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yko-Ry-OFG">
-                                <rect key="frame" x="103" y="101" width="204" height="32"/>
+                                <rect key="frame" x="92" y="101" width="204" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stretch complete - what a great set" translatesAutoresizingMaskIntoConstraints="NO" id="gHU-7L-rMZ">
-                                <rect key="frame" x="42" y="180" width="331" height="300"/>
+                                <rect key="frame" x="31" y="180" width="331" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your hands are more refreshed!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pep-Iq-wxH">
-                                <rect key="frame" x="37" y="522" width="340" height="29"/>
+                                <rect key="frame" x="26" y="522" width="340" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hy1-XT-b7b">
-                                <rect key="frame" x="37" y="573" width="340" height="123"/>
+                                <rect key="frame" x="26" y="573" width="340" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="greenBG"/>
                                 <string key="text">You have completed all stretches until the end, keep it up! You can continue with your break or you can stretch some more if think the last one wasn’t enough</string>
@@ -51,7 +51,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX9-8H-r0g">
-                                <rect key="frame" x="124" y="753" width="163" height="52"/>
+                                <rect key="frame" x="113" y="753" width="163" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="greenMain"/>
                                 <state key="normal" title="Button"/>
@@ -59,6 +59,7 @@
                                     <fontDescription key="titleFontDescription" name="SFPro-Regular" family="SF Pro" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="pressEndStretchSet:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AOd-L3-I3e"/>
                                     <segue destination="PCo-nx-eLx" kind="presentation" identifier="toBreakPage" modalPresentationStyle="fullScreen" id="Wbc-ZI-M2G"/>
                                 </connections>
                             </button>
@@ -66,6 +67,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
                     </view>
+                    <connections>
+                        <outlet property="endSetBtn" destination="OX9-8H-r0g" id="9oI-BQ-h0H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +78,9 @@
         <!--BreakPage-->
         <scene sceneID="CGJ-jR-Xi2">
             <objects>
-                <viewControllerPlaceholder storyboardName="BreakPage" id="PCo-nx-eLx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="BreakPage" id="PCo-nx-eLx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7Xd-TK-OEM"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHU-Yq-jsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="37"/>

@@ -9,13 +9,25 @@ import UIKit
 
 class StretchFinishPageController: UIViewController {
 
+    @IBOutlet weak var endSetBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        endSetBtn.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func pressEndStretchSet(_ sender: Any) {
+        performSegue( withIdentifier: "toBreakPage", sender: self)
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBreakPage"
+        {
+            guard let vc = segue.destination as? BreakPageController else { return }
+            vc.modalPresentationStyle = .fullScreen
+        }
+    }
     /*
     // MARK: - Navigation
 

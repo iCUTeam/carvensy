@@ -45,7 +45,9 @@ class StretchStepController: UIViewController, passData{
     override func viewDidLoad() {
         super.viewDidLoad()
      
-  
+        pauseBtn.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
+        endBtn.tintColor = UIColor(red: 0.00, green: 0.44, blue: 0.38, alpha: 1.00)
+        
         stretchType = dataSeeder.seedData()
         stretchStepArray = stretchType[stretchChoice].stretchSteps
         print(stretchStepArray.count)
