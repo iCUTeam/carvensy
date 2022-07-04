@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="SF-Pro.ttf">
-            <string>SFPro-Regular</string>
             <string>SFPro-Semibold</string>
         </array>
     </customFonts>
@@ -23,36 +21,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What a great Set!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yko-Ry-OFG">
-                                <rect key="frame" x="92" y="101" width="204" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What a great Set!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yko-Ry-OFG">
+                                <rect key="frame" x="24" y="80" width="366" height="32"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stretch complete - what a great set" translatesAutoresizingMaskIntoConstraints="NO" id="gHU-7L-rMZ">
-                                <rect key="frame" x="31" y="180" width="331" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stretch complete - what a great set" translatesAutoresizingMaskIntoConstraints="NO" id="gHU-7L-rMZ">
+                                <rect key="frame" x="41.5" y="145" width="331" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="331" id="aMt-b0-mkZ"/>
+                                    <constraint firstAttribute="height" constant="301" id="ry9-C2-bDl"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your hands are more refreshed!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pep-Iq-wxH">
-                                <rect key="frame" x="26" y="522" width="340" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your hands are more refreshed!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pep-Iq-wxH">
+                                <rect key="frame" x="20" y="502" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hy1-XT-b7b">
-                                <rect key="frame" x="26" y="573" width="340" height="123"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="greenBG"/>
-                                <string key="text">You have completed all stretches until the end, keep it up! You can continue with your break or you can stretch some more if think the last one wasn’t enough</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX9-8H-r0g">
-                                <rect key="frame" x="113" y="753" width="163" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX9-8H-r0g">
+                                <rect key="frame" x="125.5" y="800" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="51C-hK-zxD"/>
+                                    <constraint firstAttribute="height" constant="52" id="WYW-a1-rU3"/>
+                                </constraints>
                                 <color key="tintColor" name="greenMain"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="End">
@@ -62,9 +55,31 @@
                                     <action selector="pressEndStretchSet:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AOd-L3-I3e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtV-Gv-UlJ">
+                                <rect key="frame" x="20" y="554" width="374" height="81.5"/>
+                                <string key="text">You have completed all stretches until the end, keep it up! You can continue with your break or you can stretch some more if think the last one wasn’t enough</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="greenBG"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OX9-8H-r0g" secondAttribute="bottom" constant="10" id="3va-jm-jQg"/>
+                            <constraint firstItem="OX9-8H-r0g" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5Gi-St-mLj"/>
+                            <constraint firstAttribute="trailing" secondItem="HtV-Gv-UlJ" secondAttribute="trailing" constant="20" id="JAe-cV-x7C"/>
+                            <constraint firstItem="gHU-7L-rMZ" firstAttribute="top" secondItem="yko-Ry-OFG" secondAttribute="bottom" constant="33" id="QPP-ED-phZ"/>
+                            <constraint firstItem="pep-Iq-wxH" firstAttribute="top" secondItem="gHU-7L-rMZ" secondAttribute="bottom" constant="56" id="Rth-Bu-HHR"/>
+                            <constraint firstItem="HtV-Gv-UlJ" firstAttribute="top" secondItem="pep-Iq-wxH" secondAttribute="bottom" constant="23" id="UAb-p4-JHa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pep-Iq-wxH" secondAttribute="trailing" constant="20" id="Vcz-1d-CNd"/>
+                            <constraint firstItem="pep-Iq-wxH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="WwS-lT-ZwT"/>
+                            <constraint firstItem="yko-Ry-OFG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="Y0X-1v-gV0"/>
+                            <constraint firstItem="HtV-Gv-UlJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="duB-Aq-x5R"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yko-Ry-OFG" secondAttribute="trailing" constant="24" id="hW0-nP-kqP"/>
+                            <constraint firstItem="gHU-7L-rMZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jDe-LL-BoP"/>
+                            <constraint firstItem="yko-Ry-OFG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="vsR-mE-YOZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="endSetBtn" destination="OX9-8H-r0g" id="9oI-BQ-h0H"/>
@@ -85,8 +100,5 @@
         <namedColor name="greenMain">
             <color red="0.0" green="0.43900001049041748" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
