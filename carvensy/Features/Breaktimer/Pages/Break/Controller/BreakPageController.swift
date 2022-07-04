@@ -62,12 +62,13 @@ class BreakPageController: UIViewController {
     @IBAction func finishButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Are you sure?", message: "Make sure your hands are fully rested and ready for another round of work before proceeding", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            self.dismiss(animated: true)
-        }))
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
             alert.dismiss(animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            self.dismiss(animated: true)
         }))
         
         present(alert, animated: true)

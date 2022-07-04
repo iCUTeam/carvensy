@@ -408,6 +408,10 @@ class TimerPageController: UIViewController {
         {
             let alert = UIAlertController(title: "Finished already?", message: "Make sure you have taken proper break before proceeding", preferredStyle: .alert)
             
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                alert.dismiss(animated: true)
+            }))
+            
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
                 setSavedState(currState: .notWorking)
                 setStartTime(date: nil)
@@ -417,10 +421,6 @@ class TimerPageController: UIViewController {
                 performSegue(withIdentifier: "goToDailySummary", sender: self)
                 doneWorking = true
                 print(currentState)
-            }))
-            
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
-                alert.dismiss(animated: true)
             }))
             
             self.present(alert, animated: true)
