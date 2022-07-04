@@ -54,9 +54,9 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         super.viewDidLoad()
         
         stretchInstructionView.roundViewCorner(UIRectCorner.allCorners, radius: 20.0)
-        stretchInstructionView.layer.opacity = 0.7
+        stretchInstructionView.layer.opacity = 0.9
         stretchRepsView.roundViewCorner(UIRectCorner.allCorners, radius: 20.0)
-        stretchRepsView.layer.opacity = 0.7
+        stretchRepsView.layer.opacity = 0.9
         
         stretchTitleCam.text = stretchStep?.stretchTitle
         let gifImage = UIImage.gifImageWithName(stretchStep?.stretchIcon ?? "nothing")
@@ -222,7 +222,6 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
             }
             
-            
         }
         
     }
@@ -254,6 +253,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                 canCount = true
                 wakeWarning(message: "Pose detected, please hold your position")
+                stretchWarning.backgroundColor = CarvensyColor.greenBG
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
@@ -307,12 +307,14 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                 if failCount < 5
                 {
+                    stretchWarning.backgroundColor = CarvensyColor.redAccent
                     wakeWarning(message: "Pose not detected! Please try again")
                     failCount += 1
                 }
                 
                 else
                 {
+                    stretchWarning.backgroundColor = CarvensyColor.redAccent
                     wakeWarning(message: "Pose not detected! Please try again")
                     stretchDoneBtn.isHidden = false
                 }
@@ -325,6 +327,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                 canCount = true
                 wakeWarning(message: "Pose detected, please hold your position")
+                stretchWarning.backgroundColor = CarvensyColor.greenBG
                 stretchRepsCam.text = "Hold"
                 repsProgress.isHidden = true
                 
@@ -375,12 +378,14 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                     if failCount < 75
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         failCount += 1
                     }
                     
                     else
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         stretchDoneBtn.isHidden = false
                     }
@@ -393,6 +398,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 canCount = true
                 wakeWarning(message: "Pose detected, please hold your position")
                 stretchRepsCam.text = "Hold"
+                stretchWarning.backgroundColor = CarvensyColor.greenBG
                 repsProgress.isHidden = true
                 
                 if canCount
@@ -442,12 +448,14 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                     if failCount < 75
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         failCount += 1
                     }
                     
                     else
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         stretchDoneBtn.isHidden = false
                     }
@@ -460,6 +468,7 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 canCount = true
                 wakeWarning(message: "Pose detected, please hold your position")
                 stretchRepsCam.text = "Hold"
+                stretchWarning.backgroundColor = CarvensyColor.greenBG
                 repsProgress.isHidden = true
                 
                 if canCount
@@ -531,12 +540,14 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
             {
                     if failCount < 75
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         failCount += 1
                     }
                     
                     else
                     {
+                        stretchWarning.backgroundColor = CarvensyColor.redAccent
                         wakeWarning(message: "Pose not detected! Please try again")
                         stretchDoneBtn.isHidden = false
                     }
