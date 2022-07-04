@@ -60,7 +60,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="pressEndStretchSet:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AOd-L3-I3e"/>
-                                    <segue destination="PCo-nx-eLx" kind="presentation" identifier="toBreakPage" modalPresentationStyle="fullScreen" id="Wbc-ZI-M2G"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,21 +68,13 @@
                     </view>
                     <connections>
                         <outlet property="endSetBtn" destination="OX9-8H-r0g" id="9oI-BQ-h0H"/>
+                        <segue destination="rEM-22-ga2" kind="unwind" identifier="goBackToBreakPage" unwindAction="unwind:" id="iSJ-8C-sUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rEM-22-ga2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="64.955357142857139"/>
-        </scene>
-        <!--BreakPage-->
-        <scene sceneID="CGJ-jR-Xi2">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BreakPage" id="PCo-nx-eLx" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7Xd-TK-OEM"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wHU-Yq-jsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="822" y="37"/>
         </scene>
     </scenes>
     <resources>

@@ -18,16 +18,17 @@ class StretchFinishPageController: UIViewController {
     }
     
     @IBAction func pressEndStretchSet(_ sender: Any) {
-        performSegue( withIdentifier: "toBreakPage", sender: self)
+        performSegue( withIdentifier: "goBackToBreakPage", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBreakPage"
+        if segue.identifier == "goBackToBreakPage"
         {
             guard let vc = segue.destination as? BreakPageController else { return }
             vc.modalPresentationStyle = .fullScreen
         }
     }
+    
     /*
     // MARK: - Navigation
 
