@@ -292,7 +292,11 @@ class TimerPageController: UIViewController {
     
     func startTimer()
     {
+        
+        let time = secondsToHourMinutesSeconds(Int(choosenHour - 1))
+        layer.string = makeTimeString(hour: time.0, min: time.1, sec: time.2)
         scheduledTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
+       
     }
     
 
