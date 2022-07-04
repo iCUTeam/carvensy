@@ -34,25 +34,25 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         date.text = dateFormatter.string(from: dateStart ?? Date())
 
         stretchType = dataSeeder.seedData()
-//        let allSession = sessionHelper.fetchSession()
+        let allSession = sessionHelper.fetchSession()
+
+        if allSession.count != 0
+        {
+            dailySession = allSession.first
+        }
+        
+//        dailySession = Session(context: coreDataHelper.getBackgroundContext())
+//        
+//        let breakDummy = Break(context: coreDataHelper.getBackgroundContext())
+//        breakDummy.total_duration = 3600
+//        breakDummy.break_amount = 4
 //
-//        if allSession.count != 0
-//        {
-//            dailySession = allSession.first
-//        }
-        
-        dailySession = Session(context: coreDataHelper.getBackgroundContext())
-        
-        let breakDummy = Break(context: coreDataHelper.getBackgroundContext())
-        breakDummy.total_duration = 3600
-        breakDummy.break_amount = 4
-        
-        let stretchDummy = Stretch(context: coreDataHelper.getBackgroundContext())
-        stretchDummy.total_stretch_duration = 300
-        stretchDummy.stretch_amount = 3
-        
-        dailySession?.break_relation = breakDummy
-        dailySession?.stretch = stretchDummy
+//        let stretchDummy = Stretch(context: coreDataHelper.getBackgroundContext())
+//        stretchDummy.total_stretch_duration = 300
+//        stretchDummy.stretch_amount = 3
+//
+//        dailySession?.break_relation = breakDummy
+//        dailySession?.stretch = stretchDummy
         
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
         // Do any additional setup after loading the view.
