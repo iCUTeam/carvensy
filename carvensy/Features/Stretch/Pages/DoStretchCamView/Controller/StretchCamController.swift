@@ -222,7 +222,6 @@ class StretchCamController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 
             }
             
-            
         }
         
     }
