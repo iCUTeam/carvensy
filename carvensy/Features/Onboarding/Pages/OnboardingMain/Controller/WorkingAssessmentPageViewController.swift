@@ -18,8 +18,6 @@ class WorkingAssessmentPageViewController: UIViewController {
     @IBOutlet weak var tapAreaSecond: UIControl!
     @IBOutlet weak var tapAreaThird: UIControl!
     
-    @IBOutlet weak var hecticDescription: UILabel!
-    
     private var cardNumber = -1
     
     override func viewDidLoad() {
@@ -32,20 +30,6 @@ class WorkingAssessmentPageViewController: UIViewController {
             userNameLabel.text = "\(value), just one more step"
         }
     }
-    
-    private func setLabelBold(){
-        convertToBold(boldText: "> 6 hours", normalText: "Intense hand activity for > 6 hours per day.")
-    }
-    
-    func convertToBold(boldText: String, normalText: String){
-        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)]
-        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
-        let normalString = NSMutableAttributedString(string:normalText)
-
-        attributedString.append(normalString)}
-    
-    
-    
     
     private func setUpCardCornerRadius(){
         firstCard.roundViewCorner([.bottomRight,.bottomLeft,.topRight,.topLeft], radius: 10)
