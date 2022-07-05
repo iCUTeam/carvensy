@@ -18,7 +18,7 @@ struct StretchSteps
     var bothHand: Bool
     var totalDuration: Double?
     
-    init(title: String?, desc: String?, icon: String?, reps: Int, holdSec: Int, bothHand: Bool)
+    init(title: String?, desc: String?, icon: String?, reps: Int, holdSec: Int, bothHand: Bool, totalDuration: Double)
     {
         self.stretchTitle = title
         self.stretchDesc = desc
@@ -26,6 +26,7 @@ struct StretchSteps
         self.numberofReps = reps
         self.holdSec = holdSec
         self.bothHand = bothHand
-        self.totalDuration = Double(reps * holdSec)
+        self.totalDuration = totalDuration
+//        self.totalDuration = Double(reps * holdSec)
     }
 }
