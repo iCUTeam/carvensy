@@ -78,13 +78,13 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
         {
             painlevel = Double(indexPath.row)
             submitBtn.isEnabled = true
-            //TODO: refresh view
+            loadView()
         }
         
         else
         {
             selectedSymtomps[indexPath.row].toggle()
-            //TODO: refresh view
+            loadView()
         }
     }
     
@@ -100,7 +100,7 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
             
             if Int(painlevel) == indexPath.row
             {
-                cell.emojiImg.layer.borderWidth = 2
+                cell.emojiImg.layer.borderWidth = 5
                 cell.emojiImg.layer.borderColor = CarvensyColor.greenMain?.cgColor
                 cell.emojiImg.layer.masksToBounds = false
                 cell.emojiImg.layer.cornerRadius = cell.emojiImg.frame.height/2
@@ -126,6 +126,7 @@ class PainAssessmentController: UIViewController, UICollectionViewDataSource, UI
             if selectedSymtomps[indexPath.row] == true
             {
                 cell.backgroundColor = CarvensyColor.greenMain
+                cell.symtompsLbl.textColor = UIColor.white
             }
             
             else

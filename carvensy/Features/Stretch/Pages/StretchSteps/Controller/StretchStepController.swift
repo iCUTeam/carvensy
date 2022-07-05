@@ -117,7 +117,7 @@ class StretchStepController: UIViewController, passData{
         isPaused = true
         changeBtnTitle()
         
-        let alert = UIAlertController(title: "Are you sure?", message: "You haven't reached the end of the set. Make sure you already stretch properly before you proceed!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "You haven't reached the end of the set. Make sure you already stretch properly before you proceed", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
             performSegue(withIdentifier: "goBackToBreak", sender: self)
         }))
@@ -145,7 +145,7 @@ class StretchStepController: UIViewController, passData{
                 vc.totalDuration += stretchStepArray[index].totalDuration ?? 10
             }
             
-            else if stretchStepArray[index].stretchTitle == "Stop - Wrist Extension"
+            else if stretchStepArray[index].stretchTitle == "Wrist Extension"
             {
                 vc.currentPose = .stop
                 vc.totalDuration += stretchStepArray[index].totalDuration ?? 20

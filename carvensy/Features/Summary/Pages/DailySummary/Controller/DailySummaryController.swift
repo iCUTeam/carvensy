@@ -55,6 +55,13 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
 //        dailySession?.stretch = stretchDummy
         
         self.stretchPlanTableView.register(UINib(nibName: "ChooseStretchTableViewCell", bundle: nil), forCellReuseIdentifier: "stretch-type")
+        
+        if Int(dailySession?.stretch?.stretch_amount ?? 0) == 0 {
+            self.stretchPlanTableView.isHidden = true
+        } else {
+            self.stretchPlanTableView.isHidden = false
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -76,15 +83,12 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-   
-        
         let breakTitle = ["Break Amount", "Total Break Duration"]
         let stretchTitle = ["Stretch Amount", "Total Stretch Duration"]
         
         if collectionView == self.breakCV
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summary-break", for: indexPath) as! OverviewCollectionViewCell
-            
             let time = secondsToHourMinutesSeconds(Int(dailySession?.break_relation?.total_duration ?? 0))
             let amount = Int(dailySession?.break_relation?.break_amount ?? 0)
             cell.infoType.text = breakTitle[indexPath.row]
@@ -132,12 +136,11 @@ class DailySummaryController: UIViewController, UICollectionViewDataSource, UICo
         let cell = tableView.dequeueReusableCell(withIdentifier: "stretch-type") as! ChooseStretchTableViewCell
         let gifImage = UIImage.gifImageWithName(stretchType[0].stretchIcon ?? "Stop Stretch")
         cell.stretchImage.image = gifImage
-        cell.layer.cornerRadius = 10
-        cell.contentView.layer.cornerRadius = 10
-        cell.stretchTitle.text = stretchType[0].stretchTitle
-        cell.stretchTypes.text = stretchType[0].stretchContent
-        cell.maxReps.text = "Max \(stretchType[0].stretchSteps[1].numberofReps ?? 0) reps per move"
-        cell.maxHold.text = "Max \(stretchType[0].stretchSteps[0].holdSec ?? 0) secs hold each"
+        cell.layer.cornerRadius = 50
+        cell.stretchTitle.text = stretchType[1].stretchTitle
+        cell.stretchTypes.text = stretchType[1].stretchContent
+        cell.maxReps.text = "Max \(stretchType[1].stretchSteps[1].numberofReps ?? 0) reps per move"
+        cell.maxHold.text = "Max \(stretchType[1].stretchSteps[0].holdSec ?? 0) secs hold each"
         return cell
     }
     
