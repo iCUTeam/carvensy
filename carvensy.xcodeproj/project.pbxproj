@@ -50,7 +50,6 @@
 		14C31DAC286AF58900AA07E6 /* PassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */; };
 		14FD0BFD28605EB900DAF65D /* MoreComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */; };
 		14FD0BFE28605EB900DAF65D /* MoreComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */; };
-		79A022E8287430A2004BF666 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A022E7287430A2004BF666 /* BoldLabel.swift */; };
 		956B06C52869A952001615D5 /* RepsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B06C42869A952001615D5 /* RepsProgress.swift */; };
 		956B7BF7285AFD2900593ED0 /* CarvensyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */; };
 		956C9AEE28685A1400361BB7 /* OnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C9AED28685A1400361BB7 /* OnboardManager.swift */; };
@@ -133,8 +132,7 @@
 		14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataProtocol.swift; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
-		79A022E7287430A2004BF666 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
-		956B06C42869A952001615D5 /* RepsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsProgress.swift; sourceTree = "<group>"; };
+        956B06C42869A952001615D5 /* RepsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsProgress.swift; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
 		956C9AED28685A1400361BB7 /* OnboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardManager.swift; sourceTree = "<group>"; };
 		956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Ext.swift"; sourceTree = "<group>"; };
@@ -612,7 +610,6 @@
 				143B7DE728630CF600C8BDEE /* MakeTimeString.swift */,
 				956C9AED28685A1400361BB7 /* OnboardManager.swift */,
 				956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */,
-				79A022E7287430A2004BF666 /* BoldLabel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -958,7 +955,6 @@
 				1498D1DB2858BEDC0009C41F /* ProgressBarTimer.swift in Sources */,
 				A97C1B072861FE1B00FFCB78 /* OnboardingMainViewController.swift in Sources */,
 				145A1D4C2861EAAE001A6BA4 /* PostWorkController.swift in Sources */,
-				79A022E8287430A2004BF666 /* BoldLabel.swift in Sources */,
 				956B06C52869A952001615D5 /* RepsProgress.swift in Sources */,
 				143B7DE828630CF600C8BDEE /* MakeTimeString.swift in Sources */,
 				143B7DFD2863457100C8BDEE /* TriviaViewController.swift in Sources */,
@@ -1125,7 +1121,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S955BH56FW;
+				DEVELOPMENT_TEAM = HJ6B5W79X3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
@@ -1157,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S955BH56FW;
+				DEVELOPMENT_TEAM = HJ6B5W79X3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
