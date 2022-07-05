@@ -8,7 +8,7 @@
 import UIKit
 
 class WorkingAssessmentPageViewController: UIViewController {
-
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var firstCard: UIView!
     @IBOutlet weak var secondCard: UIView!
@@ -68,8 +68,8 @@ class WorkingAssessmentPageViewController: UIViewController {
         //card index number = 5 (Normal)
         cardNumber = 5
         showAlert(cardIndexNumber: cardNumber)
-    }    
-
+    }
+    
     private func showAlert(cardIndexNumber: Int) {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)
@@ -86,7 +86,7 @@ class WorkingAssessmentPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if cardNumber >= 0 && cardNumber <= 6 {
-                    
+            
             let move = segue.destination as! CompleteAndShowPlanPageViewController
             
             var breakInterval: Double = 0
