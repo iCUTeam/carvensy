@@ -17,6 +17,8 @@ class PainAssessmentPageViewController: UIViewController {
     @IBOutlet weak var secondCard: UIView!
     @IBOutlet weak var thirdCard: UIView!
     
+    @IBOutlet weak var mildImage: UIImageView!
+    
     private var cardNumber = -1
     
     override func viewDidLoad() {
@@ -24,7 +26,11 @@ class PainAssessmentPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setUpCardCornerRadius()
         setUpCardShadow()
+        
+        mildImage.transform = CGAffineTransform(scaleX: -1 , y: 1)
     }
+    
+    
     
     @IBAction func moderateCardAreaPressed(_ sender: Any) {
         //card index number = 1 (Moderate)

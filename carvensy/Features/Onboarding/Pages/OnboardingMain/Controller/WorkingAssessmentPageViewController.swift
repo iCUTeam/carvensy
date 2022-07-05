@@ -8,7 +8,7 @@
 import UIKit
 
 class WorkingAssessmentPageViewController: UIViewController {
-
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var firstCard: UIView!
     @IBOutlet weak var secondCard: UIView!
@@ -17,6 +17,8 @@ class WorkingAssessmentPageViewController: UIViewController {
     @IBOutlet weak var tapAreaFirst: UIControl!
     @IBOutlet weak var tapAreaSecond: UIControl!
     @IBOutlet weak var tapAreaThird: UIControl!
+    
+    @IBOutlet weak var hecticDescription: UILabel!
     
     private var cardNumber = -1
     
@@ -30,6 +32,20 @@ class WorkingAssessmentPageViewController: UIViewController {
             userNameLabel.text = "\(value), just one more step"
         }
     }
+    
+    private func setLabelBold(){
+        convertToBold(boldText: "> 6 hours", normalText: "Intense hand activity for > 6 hours per day.")
+    }
+    
+    func convertToBold(boldText: String, normalText: String){
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)]
+        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+        let normalString = NSMutableAttributedString(string:normalText)
+
+        attributedString.append(normalString)}
+    
+    
+    
     
     private func setUpCardCornerRadius(){
         firstCard.roundViewCorner([.bottomRight,.bottomLeft,.topRight,.topLeft], radius: 10)
@@ -68,8 +84,8 @@ class WorkingAssessmentPageViewController: UIViewController {
         //card index number = 5 (Normal)
         cardNumber = 5
         showAlert(cardIndexNumber: cardNumber)
-    }    
-
+    }
+    
     private func showAlert(cardIndexNumber: Int) {
         //show alert confirmation
         let confirmationAlert = UIAlertController(title: "Everything is correct?", message: "Based on your answers we will recommend you with the most suitable break time settings", preferredStyle: .alert)
@@ -86,7 +102,7 @@ class WorkingAssessmentPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if cardNumber >= 0 && cardNumber <= 6 {
-                    
+            
             let move = segue.destination as! CompleteAndShowPlanPageViewController
             
             var breakInterval: Double = 0

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63r-3C-Lmi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63r-3C-Lmi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,10 +29,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-hR-qW0">
-                                <rect key="frame" x="20" y="107" width="374" height="57.5"/>
-                                <string key="text">If you have experienced any of the CTS common symptoms*, please choose the stage below that is most suited to your current condition.</string>
-                                <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From your current condition, please choose your hand activity level:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-hR-qW0">
+                                <rect key="frame" x="20" y="107" width="374" height="43"/>
+                                <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,13 +45,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3K-D0-cUb">
-                                <rect key="frame" x="20" y="188.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="174" width="374" height="140"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QmW-JW-Qvz">
-                                        <rect key="frame" x="10" y="10" width="354" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QmW-JW-Qvz">
+                                        <rect key="frame" x="10" y="10" width="364" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LKS-JZ-3N3">
-                                                <rect key="frame" x="0.0" y="6" width="184" height="108.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="202" height="73.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moderate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIS-wi-RMd">
                                                         <rect key="frame" x="0.0" y="0.0" width="81" height="21.5"/>
@@ -60,35 +59,32 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glP-Fm-CPJ">
-                                                        <rect key="frame" x="0.0" y="26.5" width="175.5" height="43"/>
-                                                        <string key="text">- Felt numb, tingling, pain, 
-   burning/itching and soreness all day in wrist and fingers</string>
-                                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Loss of grip strength" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e74-Qd-liW">
-                                                        <rect key="frame" x="0.0" y="74.5" width="125" height="14.5"/>
-                                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Insensible to temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-he-AWG">
-                                                        <rect key="frame" x="0.0" y="94" width="152" height="14.5"/>
-                                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felt pain, tingling, numb, burning, and soreness all day in wrist and fingers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glP-Fm-CPJ" userLabel="- Felt numb, tingling, pain,     burning/itching and soreness all day in wrist and fingers">
+                                                        <rect key="frame" x="0.0" y="26.5" width="202" height="47"/>
+                                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain assessment - moderate" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-oX-BJZ">
-                                                <rect key="frame" x="204" y="10" width="150" height="100"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBG-G8-AlR">
+                                                <rect key="frame" x="222" y="0.0" width="142" height="120"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain assessment - moderate" translatesAutoresizingMaskIntoConstraints="NO" id="qk7-oX-BJZ">
+                                                        <rect key="frame" x="0.0" y="6" width="142" height="108"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="108" id="cW9-1m-k9K"/>
+                                                            <constraint firstAttribute="width" constant="142" id="uKS-Vo-GAG"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="cW9-1m-k9K"/>
-                                                    <constraint firstAttribute="width" constant="150" id="uKS-Vo-GAG"/>
+                                                    <constraint firstAttribute="width" constant="142" id="81m-A7-D6h"/>
+                                                    <constraint firstItem="qk7-oX-BJZ" firstAttribute="centerX" secondItem="EBG-G8-AlR" secondAttribute="centerX" id="Eqv-X2-4NF"/>
+                                                    <constraint firstItem="qk7-oX-BJZ" firstAttribute="height" secondItem="EBG-G8-AlR" secondAttribute="height" multiplier="0.9" id="Q55-zy-vMU"/>
+                                                    <constraint firstItem="qk7-oX-BJZ" firstAttribute="centerY" secondItem="EBG-G8-AlR" secondAttribute="centerY" id="Vqb-zI-I0H"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -96,13 +92,13 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="QmW-JW-Qvz" secondAttribute="bottom" constant="10" id="81I-QD-tWM"/>
                                     <constraint firstItem="QmW-JW-Qvz" firstAttribute="top" secondItem="W3K-D0-cUb" secondAttribute="top" constant="10" id="DzI-jr-aXE"/>
-                                    <constraint firstAttribute="trailing" secondItem="QmW-JW-Qvz" secondAttribute="trailing" constant="10" id="kDX-Ih-QAX"/>
+                                    <constraint firstAttribute="trailing" secondItem="QmW-JW-Qvz" secondAttribute="trailing" id="kDX-Ih-QAX"/>
                                     <constraint firstItem="QmW-JW-Qvz" firstAttribute="leading" secondItem="W3K-D0-cUb" secondAttribute="leading" constant="10" id="qK4-gU-ZrH"/>
                                     <constraint firstAttribute="height" constant="140" id="qhf-go-rZh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQC-i8-waz" customClass="UIControl">
-                                <rect key="frame" x="20" y="188.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="174" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="a91-OZ-hYg"/>
                                 </constraints>
@@ -111,13 +107,13 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TfT-nv-1gN">
-                                <rect key="frame" x="20" y="348.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="334" width="374" height="148"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-ht-H4c">
-                                        <rect key="frame" x="10" y="10" width="354" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-ht-H4c">
+                                        <rect key="frame" x="10" y="10" width="364" height="128"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lxg-l4-a5z">
-                                                <rect key="frame" x="0.0" y="0.0" width="184" height="84"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="69.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mild" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-31-MpB">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="21.5"/>
@@ -125,25 +121,32 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idB-oH-cNa">
-                                                        <rect key="frame" x="0.0" y="26.5" width="175.5" height="57.5"/>
-                                                        <string key="text">- Felt numb, tingling, pain, 
-   burning/itching and soreness 
-   especially at night or during 
-   rest time in wrist and fingers.</string>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felt pain, tingling, numb , burning, and soreness at night or rest time in wrist and fingers." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idB-oH-cNa">
+                                                        <rect key="frame" x="0.0" y="26.5" width="204" height="43"/>
                                                         <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain assessment - mild" translatesAutoresizingMaskIntoConstraints="NO" id="Opv-je-yKj">
-                                                <rect key="frame" x="204" y="0.0" width="150" height="120"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unc-8h-0dr">
+                                                <rect key="frame" x="234" y="0.0" width="130" height="128"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain assessment - mild" translatesAutoresizingMaskIntoConstraints="NO" id="Opv-je-yKj">
+                                                        <rect key="frame" x="-6.5" y="16" width="143" height="96"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="96" id="RA2-DS-05d"/>
+                                                            <constraint firstAttribute="width" constant="143" id="wiB-ld-zCO"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="RA2-DS-05d"/>
-                                                    <constraint firstAttribute="width" constant="150" id="wiB-ld-zCO"/>
+                                                    <constraint firstAttribute="width" constant="130" id="32h-LF-VrW"/>
+                                                    <constraint firstItem="Opv-je-yKj" firstAttribute="centerX" secondItem="unc-8h-0dr" secondAttribute="centerX" id="4en-nt-VcW"/>
+                                                    <constraint firstItem="Opv-je-yKj" firstAttribute="centerY" secondItem="unc-8h-0dr" secondAttribute="centerY" id="IVY-Vi-D8P"/>
+                                                    <constraint firstItem="Opv-je-yKj" firstAttribute="height" secondItem="unc-8h-0dr" secondAttribute="height" multiplier="0.75" id="Uqc-jO-c5j"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -151,16 +154,15 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="K7B-ht-H4c" secondAttribute="bottom" constant="10" id="8xs-WW-vuu"/>
                                     <constraint firstAttribute="bottom" secondItem="K7B-ht-H4c" secondAttribute="bottom" constant="10" id="I6m-s8-Iog"/>
-                                    <constraint firstAttribute="trailing" secondItem="K7B-ht-H4c" secondAttribute="trailing" constant="10" id="gaw-Zq-bPW"/>
                                     <constraint firstItem="K7B-ht-H4c" firstAttribute="leading" secondItem="TfT-nv-1gN" secondAttribute="leading" constant="10" id="gl7-Bc-Nlu"/>
                                     <constraint firstItem="K7B-ht-H4c" firstAttribute="top" secondItem="TfT-nv-1gN" secondAttribute="top" constant="10" id="mXk-Dr-ha0"/>
                                     <constraint firstItem="K7B-ht-H4c" firstAttribute="top" secondItem="TfT-nv-1gN" secondAttribute="top" constant="10" id="moB-qq-Ktb"/>
-                                    <constraint firstAttribute="trailing" secondItem="K7B-ht-H4c" secondAttribute="trailing" constant="10" id="tN7-dd-9F1"/>
+                                    <constraint firstAttribute="trailing" secondItem="K7B-ht-H4c" secondAttribute="trailing" id="tN7-dd-9F1"/>
                                     <constraint firstItem="K7B-ht-H4c" firstAttribute="leading" secondItem="TfT-nv-1gN" secondAttribute="leading" constant="10" id="wQA-tT-KAl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfG-Hz-Ryb" customClass="UIControl">
-                                <rect key="frame" x="20" y="348.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="334" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="xWG-fv-0V7"/>
                                 </constraints>
@@ -169,7 +171,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8P-vh-DwZ">
-                                <rect key="frame" x="20" y="508.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="502" width="374" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="c8D-RG-z4X">
                                         <rect key="frame" x="10" y="10" width="354" height="120"/>
@@ -184,24 +186,15 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN0-P9-3pE">
-                                                        <rect key="frame" x="0.0" y="26.5" width="142" height="29"/>
-                                                        <string key="text">- Felt no pain and no CTS
-  common symptoms</string>
-                                                        <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blq-4U-T5T">
-                                                        <rect key="frame" x="0.0" y="60.5" width="171.5" height="43"/>
-                                                        <string key="text">- Want to know how to prevent
-   myself from hand pains and
-   CTS symptoms.</string>
+                                                        <rect key="frame" x="0.0" y="26.5" width="133" height="29"/>
+                                                        <string key="text">Felt no pain and no CTS
+common symptoms</string>
                                                         <fontDescription key="fontDescription" name="SFPro-Light" family="SF Pro" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5va-wW-ynD">
-                                                        <rect key="frame" x="0.0" y="108.5" width="184" height="11.5"/>
+                                                        <rect key="frame" x="0.0" y="60.5" width="50" height="59.5"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -229,7 +222,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhK-x4-rnO" customClass="UIControl">
-                                <rect key="frame" x="20" y="508.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="502" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="8N8-18-YKk"/>
                                 </constraints>
@@ -272,6 +265,7 @@
                     </view>
                     <connections>
                         <outlet property="firstCard" destination="W3K-D0-cUb" id="QKy-5N-b9y"/>
+                        <outlet property="mildImage" destination="Opv-je-yKj" id="kTb-Jf-fea"/>
                         <outlet property="secondCard" destination="TfT-nv-1gN" id="EdD-EI-i8e"/>
                         <outlet property="tapAreaFirst" destination="HQC-i8-waz" id="fHH-Qd-fdd"/>
                         <outlet property="tapAreaSecond" destination="DfG-Hz-Ryb" id="cqB-Vv-Hiw"/>
