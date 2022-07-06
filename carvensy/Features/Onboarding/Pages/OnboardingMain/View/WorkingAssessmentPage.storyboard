@@ -268,7 +268,6 @@
                     </view>
                     <connections>
                         <outlet property="firstCard" destination="WoD-TX-2LS" id="2LX-dN-AYz"/>
-                        <outlet property="hecticDescription" destination="KmM-dK-4qI" id="uNu-Ir-nuq"/>
                         <outlet property="secondCard" destination="gtM-5L-r2K" id="Zo3-uO-X4Z"/>
                         <outlet property="tapAreaFirst" destination="fgx-6e-ZFq" id="uGZ-LV-OHV"/>
                         <outlet property="tapAreaSecond" destination="yCf-xb-5Mk" id="7YK-Ih-fsI"/>
