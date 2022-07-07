@@ -132,7 +132,7 @@
 		14C31DAB286AF58900AA07E6 /* PassDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataProtocol.swift; sourceTree = "<group>"; };
 		14FD0BFB28605EB900DAF65D /* MoreComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComingSoonCell.swift; sourceTree = "<group>"; };
 		14FD0BFC28605EB900DAF65D /* MoreComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreComingSoonCell.xib; sourceTree = "<group>"; };
-        956B06C42869A952001615D5 /* RepsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsProgress.swift; sourceTree = "<group>"; };
+		956B06C42869A952001615D5 /* RepsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsProgress.swift; sourceTree = "<group>"; };
 		956B7BF6285AFD2900593ED0 /* CarvensyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvensyColor.swift; sourceTree = "<group>"; };
 		956C9AED28685A1400361BB7 /* OnboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardManager.swift; sourceTree = "<group>"; };
 		956C9AEF28685A5200361BB7 /* Storyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Ext.swift"; sourceTree = "<group>"; };
@@ -1121,7 +1121,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HJ6B5W79X3;
+				DEVELOPMENT_TEAM = S955BH56FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
@@ -1138,7 +1138,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Carvensy.carvensy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Carvensy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1153,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HJ6B5W79X3;
+				DEVELOPMENT_TEAM = S955BH56FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carvensy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Carvensy;
@@ -1170,7 +1170,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Carvensy.carvensy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Carvensy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
