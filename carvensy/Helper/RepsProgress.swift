@@ -24,7 +24,7 @@ class RepsProgress: UIView {
     public var progressMultiplier: CGFloat = 10
     
 
-    public var progress: String = "1 / 2"
+    public var progress: String = "0/2"
 
     
     
